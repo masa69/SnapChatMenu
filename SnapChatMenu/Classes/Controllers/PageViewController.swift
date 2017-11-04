@@ -7,8 +7,11 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
     var currentVc: Vc = .second
     var nextVc: Vc?
     
+    var isProgress: Bool = true
     var scrolling: ((_ progress: CGFloat) -> Void)?
-
+    
+    private var direction: ScrollDirection = .none
+    private var needUpdateVc: Bool = false
     
     
     private var menus: [(key: Vc, vc: UIViewController?)] = [
@@ -25,10 +28,17 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
     }
     
     
+    enum ScrollDirection {
+        case none
+        case forward
+        case reverse
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setViewControllers([self.getVc()], direction: .forward, animated: false) { (finished: Bool) in
-            //
+            self.isProgress = false
         }
         // UIPageViewController でスクロールを検知する
         for v in self.view.subviews {
@@ -45,9 +55,9 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
     }
     
     
-    private func getIndex(vc: UIViewController) -> Int? {
+    private func getIndex(viewController: UIViewController) -> Int? {
         var target: Vc?
-        switch vc {
+        switch viewController {
         case is FirstViewController:
             target = .first
         case is SecondViewController:
@@ -58,10 +68,20 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
             return nil
         }
         if let targetMenu: Vc = target {
-            for menu in self.menus {
+            for (i, menu) in self.menus.enumerated() {
                 if menu.key == targetMenu {
-                    return menu.key.hashValue
+                    return i
                 }
+            }
+        }
+        return nil
+    }
+    
+    
+    private func currentIndex() -> Int? {
+        for (i, menu) in menus.enumerated() {
+            if menu.key == self.currentVc {
+                return i
             }
         }
         return nil
@@ -92,7 +112,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
     // MARK: - UIPageViewControllerDataSource
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        guard let index: Int = self.getIndex(vc: viewController) else {
+        guard let index: Int = self.getIndex(viewController: viewController) else {
             return nil
         }
         return self.getVc(index: index + 1)
@@ -100,7 +120,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
     
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        guard let index: Int = self.getIndex(vc: viewController) else {
+        guard let index: Int = self.getIndex(viewController: viewController) else {
             return nil
         }
         return self.getVc(index: index - 1)
@@ -109,42 +129,58 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
     
     // MARK: - UIScrollViewDelegate
     
-    private var preX: CGFloat?
-    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        print(self.currentVc)
+        
+        self.isProgress = true
+        
         let baseX: CGFloat = self.view.frame.width
         let x: CGFloat = scrollView.contentOffset.x
+        
         var progress: CGFloat = 0
-//        print(scrollView.contentOffset.x)
         
         if x > baseX {
+            if self.currentVc == self.menus.last?.key {
+                // 右端のスクロールを止める制御
+                let offset: CGPoint = CGPoint(x: baseX, y: 0)
+                scrollView.setContentOffset(offset, animated: false)
+            }
+            self.direction = .forward
             progress = (x - baseX) / baseX
-            print(progress)
         } else if x < baseX {
+            if self.currentVc == self.menus.first?.key {
+                // 左端のスクロールを止める制御
+                let offset: CGPoint = CGPoint(x: baseX, y: 0)
+                scrollView.setContentOffset(offset, animated: false)
+            }
+            self.direction = .reverse
             progress = (x - baseX) * -1 / baseX
-            print(progress)
-        }
-        if x == baseX {
-            print("update")
         }
         
+        progress = progress.percent(depth: 2)
         
-        self.preX = x
+        self.scrolling?(progress)
         
-        /*if self.currentVc.hashValue == 0 {
-            // 左端のスクロールを止める制御
-            if self.view.frame.width >= scrollView.contentOffset.x {
-                let offset: CGPoint = CGPoint(x: self.view.frame.width, y: 0)
-                scrollView.setContentOffset(offset, animated: false)
+        if progress >= 1 || progress == 0 {
+            if self.needUpdateVc {
+                if let index: Int = self.currentIndex() {
+                    switch self.direction {
+                    case .forward:
+                        self.currentVc = self.menus[index + 1].key
+                    case .reverse:
+                        self.currentVc = self.menus[index - 1].key
+                    case .none:
+                        break
+                    }
+                }
             }
-        } else if self.currentVc.hashValue == self.menus.last?.key.hashValue {
-            // 右端のスクロールを止める制御
-            if self.view.frame.width <= scrollView.contentOffset.x {
-                let offset: CGPoint = CGPoint(x: self.view.frame.width, y: 0)
-                scrollView.setContentOffset(offset, animated: false)
-            }
-        }*/
+            self.direction = .none
+            self.needUpdateVc = false
+            self.isProgress = false
+            
+            print(self.currentVc.rawValue)
+        } else {
+            self.needUpdateVc = (progress > 0.5) ? true : false
+        }
     }
     
 }

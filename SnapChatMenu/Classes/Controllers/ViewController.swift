@@ -9,6 +9,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.pvc = self.childViewControllers[0] as! PageViewController
+        self.pvc.scrolling = { (progress: CGFloat) in
+//            print(progress)
+        }
     }
     
     override func didReceiveMemoryWarning() {
