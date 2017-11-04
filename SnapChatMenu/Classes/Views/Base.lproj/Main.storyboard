@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SnapChatMenu" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y5f-ob-ZiR">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <connections>
+                                    <segue destination="l0G-ax-1a6" kind="embed" id="nDi-13-COo"/>
+                                </connections>
+                            </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1OW-Zd-THB" customClass="TransparentView" customModule="SnapChatMenu" customModuleProvider="target">
+                                <rect key="frame" x="12" y="506" width="50" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="●" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g7K-rS-vZT">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="g7K-rS-vZT" firstAttribute="top" secondItem="1OW-Zd-THB" secondAttribute="top" id="E4R-ad-7Qg"/>
+                                    <constraint firstAttribute="bottom" secondItem="g7K-rS-vZT" secondAttribute="bottom" id="ETW-pS-iy7"/>
+                                    <constraint firstItem="g7K-rS-vZT" firstAttribute="leading" secondItem="1OW-Zd-THB" secondAttribute="leading" id="MOf-ed-OPD"/>
+                                    <constraint firstAttribute="width" constant="50" id="NGF-LU-Kcq"/>
+                                    <constraint firstAttribute="height" constant="50" id="NYC-BC-zds"/>
+                                    <constraint firstAttribute="trailing" secondItem="g7K-rS-vZT" secondAttribute="trailing" id="dCl-qE-sBR"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jcY-Le-2cz" customClass="TransparentView" customModule="SnapChatMenu" customModuleProvider="target">
+                                <rect key="frame" x="135" y="506" width="50" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="●" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E9a-LU-Y2u">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="2Wf-cM-QVQ"/>
+                                    <constraint firstItem="E9a-LU-Y2u" firstAttribute="leading" secondItem="jcY-Le-2cz" secondAttribute="leading" id="BAf-FM-Poz"/>
+                                    <constraint firstAttribute="trailing" secondItem="E9a-LU-Y2u" secondAttribute="trailing" id="dgJ-aY-im8"/>
+                                    <constraint firstItem="E9a-LU-Y2u" firstAttribute="top" secondItem="jcY-Le-2cz" secondAttribute="top" id="e52-mh-vaI"/>
+                                    <constraint firstAttribute="height" constant="50" id="i7e-wO-1y0"/>
+                                    <constraint firstAttribute="bottom" secondItem="E9a-LU-Y2u" secondAttribute="bottom" id="qzk-Qy-b6z"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="njR-xH-geU" customClass="TransparentView" customModule="SnapChatMenu" customModuleProvider="target">
+                                <rect key="frame" x="258" y="506" width="50" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="●" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Sf-Dp-2bv">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="Njr-SU-wvg"/>
+                                    <constraint firstAttribute="bottom" secondItem="6Sf-Dp-2bv" secondAttribute="bottom" id="Rvl-L4-z1I"/>
+                                    <constraint firstAttribute="height" constant="50" id="bxP-GU-y7e"/>
+                                    <constraint firstAttribute="trailing" secondItem="6Sf-Dp-2bv" secondAttribute="trailing" id="rMm-Vk-YQ7"/>
+                                    <constraint firstItem="6Sf-Dp-2bv" firstAttribute="leading" secondItem="njR-xH-geU" secondAttribute="leading" id="vzZ-HJ-ksW"/>
+                                    <constraint firstItem="6Sf-Dp-2bv" firstAttribute="top" secondItem="njR-xH-geU" secondAttribute="top" id="yJi-m5-dYq"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Y5f-ob-ZiR" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="1if-n6-s0D"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="njR-xH-geU" secondAttribute="trailing" constant="12" id="6gd-Xm-5xO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="jcY-Le-2cz" secondAttribute="bottom" constant="12" id="LtQ-cC-1mh"/>
+                            <constraint firstAttribute="trailing" secondItem="Y5f-ob-ZiR" secondAttribute="trailing" id="M2T-af-Zrr"/>
+                            <constraint firstItem="jcY-Le-2cz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aia-eY-A60"/>
+                            <constraint firstAttribute="bottom" secondItem="Y5f-ob-ZiR" secondAttribute="bottom" id="cjh-Mk-NnO"/>
+                            <constraint firstItem="1OW-Zd-THB" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-12" id="ou8-4b-z5G"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="njR-xH-geU" secondAttribute="bottom" constant="12" id="tJM-96-WAW"/>
+                            <constraint firstItem="Y5f-ob-ZiR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="v52-aV-xMa"/>
+                            <constraint firstItem="1OW-Zd-THB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="12" id="yAn-cU-N6y"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="bfJ-xM-nUD">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="l0G-ax-1a6" customClass="PageViewController" customModule="SnapChatMenu" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tSk-YE-Ryi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="945" y="370"/>
+        </scene>
+    </scenes>
+</document>
