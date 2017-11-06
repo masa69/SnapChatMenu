@@ -5,35 +5,24 @@ class Menus {
     
     private var view: UIView = UIView()
     
-    private var index: Int = 0
+    private var firstIndex: Int = 0
     
     private var lists: [Menu] = [Menu]()
     
     
     init(parentView: UIView, index: Int) {
         self.view = parentView
-        self.index = index
+        self.firstIndex = index
     }
     
     
     func append(menu: Menu) {
         for style in menu.styles {
-            if self.index == style.thenIndex {
-                var icon: String = ""
-                switch menu.index {
-                case 0:
-                    icon = "▲"
-                case 1:
-                    icon = "○"
-                case 2:
-                    icon = "▼"
-                default:
-                    break
-                }
-                menu.label.afterInit(icon: icon, shadow: (style.shadow == .none) ? .none : .normal, fontSize: style.size, color: style.color)
+            style.setImage(view: menu.view, named: menu.iconName)
+            if self.firstIndex == style.thenIndex {
+                style.imageView?.alpha = 1
                 menu.constraint.constant = style.constraint
-                self.update()
-                break
+                self.view.layoutIfNeeded()
             }
         }
         self.lists.append(menu)
@@ -45,11 +34,6 @@ class Menus {
         for list in self.lists {
             list.action(progress: progress, from: from, to: to)
         }
-        self.update()
-    }
-    
-    
-    private func update() {
         self.view.layoutIfNeeded()
     }
     

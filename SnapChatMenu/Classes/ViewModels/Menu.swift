@@ -5,22 +5,22 @@ class Menu {
     
     var index: Int
     
-    var view: UIView
+    var iconName: String
     
-    var label: IconLabel
+    var view: UIView
     
     var constraint: NSLayoutConstraint
     
     var styles: [MenuStyle] = [MenuStyle]()
     
     
-    init(index: Int, view: UIView, label: IconLabel, constraint: NSLayoutConstraint, styles: [MenuStyle]) {
+    init(index: Int, iconName: String, view: UIView, constraint: NSLayoutConstraint, styles: [MenuStyle]) {
         
         self.index = index
         
-        self.view = view
+        self.iconName = iconName
         
-        self.label = label
+        self.view = view
         
         self.constraint = constraint
         
@@ -29,17 +29,32 @@ class Menu {
     
     
     func action(progress: CGFloat, from: Int, to: Int) {
-        if from == to {
-            return
-        }
         guard let fromStyle: MenuStyle = self.getStyle(index: from) else {
             return
         }
         guard let toStyle: MenuStyle = self.getStyle(index: to) else {
             return
         }
-        let diff: CGFloat = toStyle.constraint - fromStyle.constraint
-        self.constraint.constant = fromStyle.constraint + (diff * progress)
+        
+        if from == to {
+            self.constraint.constant = toStyle.constraint
+            fromStyle.updateIconSize(view: self.view, size: toStyle.size)
+            toStyle.updateIconSize(view: self.view, size: toStyle.size)
+            fromStyle.imageView?.alpha = 0
+            toStyle.imageView?.alpha = 1
+            return
+        }
+        
+        let diffConstraint: CGFloat = toStyle.constraint - fromStyle.constraint
+        self.constraint.constant = fromStyle.constraint + (diffConstraint * progress)
+        
+        let diffIconSize: CGFloat = toStyle.size - fromStyle.size
+        let iconSize: CGFloat = fromStyle.size + (diffIconSize * progress)
+        fromStyle.updateIconSize(view: self.view, size: iconSize)
+        toStyle.updateIconSize(view: self.view, size: iconSize)
+        
+        fromStyle.imageView?.alpha = 1 - progress
+        toStyle.imageView?.alpha = progress
     }
     
     

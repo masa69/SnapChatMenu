@@ -165,19 +165,19 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
         }
         
         progress = progress.percent(depth: 2)
+        progress = (progress > 1) ? 1 : progress
         
-        self.scrolling?(progress, index, nextIndex)
-        
-        if progress >= 1 || progress == 0 {
+        if progress == 1 || progress == 0 {
             if self.needUpdateVc {
                 switch self.direction {
                 case .forward:
-                    self.currentVc = self.menus[index + 1].key
+                    nextIndex = index + 1
                 case .reverse:
-                    self.currentVc = self.menus[index - 1].key
+                    nextIndex = index - 1
                 case .none:
                     break
                 }
+                self.currentVc = self.menus[nextIndex].key
             }
             self.direction = .none
             self.needUpdateVc = false
@@ -185,6 +185,8 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
         } else {
             self.needUpdateVc = (progress > 0.5) ? true : false
         }
+        
+        self.scrolling?(progress, index, nextIndex)
     }
     
 }
