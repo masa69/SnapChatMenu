@@ -19,16 +19,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2nd" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CO9-tj-Slb" customClass="HeadlineLabel" customModule="SnapChatMenu" customModuleProvider="target">
-                                <rect key="frame" x="135" y="186" width="49" height="36"/>
+                                <rect key="frame" x="135" y="191" width="49" height="36"/>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.89620535710000004" green="1" blue="0.8771524235" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="CO9-tj-Slb" firstAttribute="centerX" secondItem="BFW-uy-qVl" secondAttribute="centerX" id="D2e-cQ-1Gu"/>
-                            <constraint firstItem="CO9-tj-Slb" firstAttribute="centerY" secondItem="BFW-uy-qVl" secondAttribute="centerY" constant="-80" id="IMX-4g-8J9"/>
+                            <constraint firstItem="CO9-tj-Slb" firstAttribute="centerY" secondItem="BFW-uy-qVl" secondAttribute="centerY" constant="-75" id="IMX-4g-8J9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5GX-ms-WrY"/>
                     </view>
