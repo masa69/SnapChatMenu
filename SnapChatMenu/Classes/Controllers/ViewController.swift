@@ -94,21 +94,25 @@ class ViewController: UIViewController {
                 MenuStyle(thenIndex: 2, color: UIColor.lightGray, size: 24.0, constraint: centerMargin),
             ]
         ))
+        
+        leftButton.addTarget(self, action: #selector(self.onLeftButton(_:)), for: .touchDown)
+        centerButton.addTarget(self, action: #selector(self.onCenterButton(_:)), for: .touchDown)
+        rightButton.addTarget(self, action: #selector(self.onRightButton(_:)), for: .touchDown)
     }
     
     
     // MARK: - Target Button
     
     @objc func onLeftButton(_ sender: UIButton) {
-        
+        self.pvc.onMenuButton(index: 0)
     }
     
     @objc func onCenterButton(_ sender: UIButton) {
-        
+        self.pvc.onMenuButton(index: 1)
     }
     
     @objc func onRightButton(_ sender: UIButton) {
-        
+        self.pvc.onMenuButton(index: 2)
     }
     
 }

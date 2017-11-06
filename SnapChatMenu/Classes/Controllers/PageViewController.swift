@@ -10,6 +10,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
     
     private var direction: ScrollDirection = .none
     private var needUpdateVc: Bool = false
+    private var nextIndex: Int?
     
     private var menus: [(index: Int, key: Vc, vc: UIViewController?)] = [
         (0, .first, nil),
@@ -52,6 +53,31 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
         // Dispose of any resources that can be recreated.
     }
     
+    
+    func onMenuButton(index: Int) {
+        if self.isProgress {
+            return
+        }
+        guard let current: Int = self.currentIndex() else {
+            return
+        }
+        if current == index {
+            print("current")
+            return
+        }
+        self.move(from: current, to: index)
+    }
+    
+    
+    private func move(from: Int, to: Int) {
+        if let vc: UIViewController = self.getVc(index: to) {
+            let direction: UIPageViewControllerNavigationDirection = (from < to) ? .forward : .reverse
+            self.nextIndex = to
+            self.setViewControllers([vc], direction: direction, animated: true) { (finished: Bool) in
+                print("complete")
+            }
+        }
+    }
     
     private func getIndex(viewController: UIViewController) -> Int? {
         var target: Vc?
@@ -164,24 +190,31 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
             nextIndex = (nextIndex - 1 < 0) ? 0 : nextIndex - 1
         }
         
+        if let ni: Int = self.nextIndex {
+            nextIndex = ni
+        }
+        
         progress = progress.percent(depth: 2)
         progress = (progress > 1) ? 1 : progress
         
         if progress == 1 || progress == 0 {
             if self.needUpdateVc {
-                switch self.direction {
-                case .forward:
-                    nextIndex = index + 1
-                case .reverse:
-                    nextIndex = index - 1
-                case .none:
-                    break
+                if self.nextIndex == nil {
+                    switch self.direction {
+                    case .forward:
+                        nextIndex = index + 1
+                    case .reverse:
+                        nextIndex = index - 1
+                    case .none:
+                        break
+                    }
                 }
                 self.currentVc = self.menus[nextIndex].key
             }
             self.direction = .none
             self.needUpdateVc = false
             self.isProgress = false
+            self.nextIndex = nil
         } else {
             self.needUpdateVc = (progress > 0.5) ? true : false
         }

@@ -14,7 +14,8 @@ class TransparentButton: UIButton {
     }
     
     private func afterInit() {
-        self.alpha = 0
+        self.setTitle("", for: .normal)
+        self.backgroundColor = UIColor.clear
     }
     
 }
