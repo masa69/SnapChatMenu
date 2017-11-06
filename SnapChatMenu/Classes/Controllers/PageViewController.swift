@@ -3,24 +3,22 @@ import UIKit
 
 class PageViewController: UIPageViewController, UIPageViewControllerDataSource, UIScrollViewDelegate {
     
-    
     var currentVc: Vc = .second
-    var nextVc: Vc?
     
     var isProgress: Bool = true
-    var scrolling: ((_ progress: CGFloat) -> Void)?
+    var scrolling: ((_ progress: CGFloat, _ from: Int, _ to: Int) -> Void)?
     
     private var direction: ScrollDirection = .none
     private var needUpdateVc: Bool = false
     
-    
-    private var menus: [(key: Vc, vc: UIViewController?)] = [
-        (.first, nil),
-        (.second, nil),
-        (.third, nil),
+    private var menus: [(index: Int, key: Vc, vc: UIViewController?)] = [
+        (0, .first, nil),
+        (1, .second, nil),
+        (2, .third, nil),
     ]
     
     
+    // case xxx = "ストーリーボード名"
     enum Vc: String {
         case first = "First"
         case second = "Second"
@@ -68,9 +66,9 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
             return nil
         }
         if let targetMenu: Vc = target {
-            for (i, menu) in self.menus.enumerated() {
+            for menu in self.menus {
                 if menu.key == targetMenu {
-                    return i
+                    return menu.index
                 }
             }
         }
@@ -78,10 +76,10 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
     }
     
     
-    private func currentIndex() -> Int? {
-        for (i, menu) in menus.enumerated() {
+    func currentIndex() -> Int? {
+        for menu in menus {
             if menu.key == self.currentVc {
-                return i
+                return menu.index
             }
         }
         return nil
@@ -131,12 +129,20 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
+        guard let index: Int = self.currentIndex() else {
+            return
+        }
+        guard let lastIndex: Int = self.menus.last?.index else {
+            return
+        }
+        
         self.isProgress = true
         
         let baseX: CGFloat = self.view.frame.width
         let x: CGFloat = scrollView.contentOffset.x
         
         var progress: CGFloat = 0
+        var nextIndex: Int = index
         
         if x > baseX {
             if self.currentVc == self.menus.last?.key {
@@ -146,6 +152,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
             }
             self.direction = .forward
             progress = (x - baseX) / baseX
+            nextIndex = (nextIndex + 1 > lastIndex) ? lastIndex : nextIndex + 1
         } else if x < baseX {
             if self.currentVc == self.menus.first?.key {
                 // 左端のスクロールを止める制御
@@ -154,30 +161,27 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
             }
             self.direction = .reverse
             progress = (x - baseX) * -1 / baseX
+            nextIndex = (nextIndex - 1 < 0) ? 0 : nextIndex - 1
         }
         
         progress = progress.percent(depth: 2)
         
-        self.scrolling?(progress)
+        self.scrolling?(progress, index, nextIndex)
         
         if progress >= 1 || progress == 0 {
             if self.needUpdateVc {
-                if let index: Int = self.currentIndex() {
-                    switch self.direction {
-                    case .forward:
-                        self.currentVc = self.menus[index + 1].key
-                    case .reverse:
-                        self.currentVc = self.menus[index - 1].key
-                    case .none:
-                        break
-                    }
+                switch self.direction {
+                case .forward:
+                    self.currentVc = self.menus[index + 1].key
+                case .reverse:
+                    self.currentVc = self.menus[index - 1].key
+                case .none:
+                    break
                 }
             }
             self.direction = .none
             self.needUpdateVc = false
             self.isProgress = false
-            
-            print(self.currentVc.rawValue)
         } else {
             self.needUpdateVc = (progress > 0.5) ? true : false
         }

@@ -1,7 +1,7 @@
 
 import UIKit
 
-class HeadlineLabel: UILabel {
+class TransparentButton: UIButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -14,7 +14,7 @@ class HeadlineLabel: UILabel {
     }
     
     private func afterInit() {
-        self.textColor = UIColor.black
+        self.alpha = 0
     }
     
 }

@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1st" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NV5-GE-wwo" customClass="HeadlineLabel" customModule="SnapChatMenu" customModuleProvider="target">
-                                <rect key="frame" x="144" y="266.5" width="32.5" height="36"/>
+                                <rect key="frame" x="144" y="186" width="32.5" height="36"/>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -27,7 +27,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="NV5-GE-wwo" firstAttribute="centerY" secondItem="uo6-bv-kuN" secondAttribute="centerY" id="bO7-Vw-a76"/>
+                            <constraint firstItem="NV5-GE-wwo" firstAttribute="centerY" secondItem="uo6-bv-kuN" secondAttribute="centerY" constant="-80" id="bO7-Vw-a76"/>
                             <constraint firstItem="NV5-GE-wwo" firstAttribute="centerX" secondItem="uo6-bv-kuN" secondAttribute="centerX" id="w1c-5M-ONY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="b97-kf-7U9"/>
