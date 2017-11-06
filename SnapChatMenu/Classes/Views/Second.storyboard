@@ -14,28 +14,28 @@
         <scene sceneID="yX1-9M-WAw">
             <objects>
                 <viewController storyboardIdentifier="Second" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZLq-Uj-Ne8" customClass="SecondViewController" customModule="SnapChatMenu" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="BFW-uy-qVl">
+                    <view key="view" contentMode="scaleToFill" id="BFW-uy-qVl" customClass="TransparentView" customModule="SnapChatMenu" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2nd" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CO9-tj-Slb" customClass="HeadlineLabel" customModule="SnapChatMenu" customModuleProvider="target">
-                                <rect key="frame" x="136" y="186" width="49" height="36"/>
+                                <rect key="frame" x="135" y="186" width="49" height="36"/>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.89620535710000004" green="1" blue="0.8771524235" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="CO9-tj-Slb" firstAttribute="centerY" secondItem="BFW-uy-qVl" secondAttribute="centerY" constant="-80" id="6iK-Tg-JwJ"/>
-                            <constraint firstItem="CO9-tj-Slb" firstAttribute="centerX" secondItem="BFW-uy-qVl" secondAttribute="centerX" id="Hl5-w6-xqQ"/>
+                            <constraint firstItem="CO9-tj-Slb" firstAttribute="centerX" secondItem="BFW-uy-qVl" secondAttribute="centerX" id="D2e-cQ-1Gu"/>
+                            <constraint firstItem="CO9-tj-Slb" firstAttribute="centerY" secondItem="BFW-uy-qVl" secondAttribute="centerY" constant="-80" id="IMX-4g-8J9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5GX-ms-WrY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uQj-je-giI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="471" y="-160"/>
+            <point key="canvasLocation" x="470.625" y="-160.56338028169014"/>
         </scene>
     </scenes>
 </document>

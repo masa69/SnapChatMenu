@@ -15,6 +15,8 @@
 		04027D321FADA43C000F410B /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04027D311FADA43C000F410B /* Menu.swift */; };
 		04027D341FADC3A5000F410B /* TransparentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04027D331FADC3A5000F410B /* TransparentButton.swift */; };
 		04027D361FADC4FD000F410B /* MenuStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04027D351FADC4FD000F410B /* MenuStyle.swift */; };
+		04027D3A1FB04324000F410B /* MainBackgroundColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04027D391FB04324000F410B /* MainBackgroundColors.swift */; };
+		04027D3C1FB0443D000F410B /* MainBackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04027D3B1FB0443D000F410B /* MainBackgroundColor.swift */; };
 		046D77001FA36BA10094A835 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046D76FF1FA36BA10094A835 /* AppDelegate.swift */; };
 		046D77021FA36BA10094A835 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046D77011FA36BA10094A835 /* ViewController.swift */; };
 		046D77051FA36BA10094A835 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 046D77031FA36BA10094A835 /* Main.storyboard */; };
@@ -61,6 +63,8 @@
 		04027D311FADA43C000F410B /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		04027D331FADC3A5000F410B /* TransparentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentButton.swift; sourceTree = "<group>"; };
 		04027D351FADC4FD000F410B /* MenuStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuStyle.swift; sourceTree = "<group>"; };
+		04027D391FB04324000F410B /* MainBackgroundColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBackgroundColors.swift; sourceTree = "<group>"; };
+		04027D3B1FB0443D000F410B /* MainBackgroundColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBackgroundColor.swift; sourceTree = "<group>"; };
 		046D76FC1FA36BA10094A835 /* SnapChatMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnapChatMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		046D76FF1FA36BA10094A835 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		046D77011FA36BA10094A835 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +130,8 @@
 			children = (
 				04027D2A1FAD6BFF000F410B /* HeadlineLabel.swift */,
 				04027D261FAD67D7000F410B /* IconLabel.swift */,
+				04027D3B1FB0443D000F410B /* MainBackgroundColor.swift */,
+				04027D391FB04324000F410B /* MainBackgroundColors.swift */,
 				04027D311FADA43C000F410B /* Menu.swift */,
 				04027D351FADC4FD000F410B /* MenuStyle.swift */,
 				04027D2F1FADA3EC000F410B /* Menus.swift */,
@@ -548,9 +554,11 @@
 				046D773C1FA4E4C30094A835 /* ThirdViewController.swift in Sources */,
 				04027D321FADA43C000F410B /* Menu.swift in Sources */,
 				04027D361FADC4FD000F410B /* MenuStyle.swift in Sources */,
+				04027D3C1FB0443D000F410B /* MainBackgroundColor.swift in Sources */,
 				04027D291FAD6918000F410B /* TransparentView.swift in Sources */,
 				046D77381FA4E4AD0094A835 /* FirstViewController.swift in Sources */,
 				04027D2B1FAD6BFF000F410B /* HeadlineLabel.swift in Sources */,
+				04027D3A1FB04324000F410B /* MainBackgroundColors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

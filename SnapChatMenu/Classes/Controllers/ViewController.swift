@@ -3,6 +3,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var bgView: TransparentView!
+    
     @IBOutlet weak var leftView: TransparentView!
     @IBOutlet weak var leftButton: TransparentButton!
     @IBOutlet weak var leftConstraint: NSLayoutConstraint!
@@ -20,6 +22,7 @@ class ViewController: UIViewController {
     
     var menus: Menus!
     
+    var bgViews: MainBackgroundColors?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +31,7 @@ class ViewController: UIViewController {
         
         self.pvc = self.childViewControllers[0] as! PageViewController
         self.pvc.scrolling = { (progress: CGFloat, from: Int, to: Int) in
+            self.bgViews?.action(progress: progress, from: from, to: to)
             self.menus.action(progress: progress, from: from, to: to)
         }
         if let currentIndex: Int = self.pvc.currentIndex() {
@@ -38,6 +42,23 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let currentIndex: Int = self.pvc.currentIndex() {
+            self.initMainBg(currentIndex: currentIndex)
+        }
+    }
+    
+    
+    private func initMainBg(currentIndex: Int) {
+        self.bgViews = MainBackgroundColors(parentView: bgView)
+        if let bgs: MainBackgroundColors = self.bgViews {
+            bgs.append(index: 0, color: bgs.red)
+            bgs.append(index: 2, color: bgs.green)
+        }
     }
     
     
@@ -73,6 +94,21 @@ class ViewController: UIViewController {
                 MenuStyle(thenIndex: 2, color: UIColor.lightGray, size: 24.0, constraint: centerMargin),
             ]
         ))
+    }
+    
+    
+    // MARK: - Target Button
+    
+    @objc func onLeftButton(_ sender: UIButton) {
+        
+    }
+    
+    @objc func onCenterButton(_ sender: UIButton) {
+        
+    }
+    
+    @objc func onRightButton(_ sender: UIButton) {
+        
     }
     
 }

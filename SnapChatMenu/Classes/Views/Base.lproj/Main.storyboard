@@ -18,6 +18,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3NJ-e1-Jb4" customClass="TransparentView" customModule="SnapChatMenu" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MainViewController" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tgg-N1-PDJ">
                                 <rect key="frame" x="67.5" y="269" width="186" height="29"/>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="24"/>
@@ -91,14 +95,18 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Y5f-ob-ZiR" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="1if-n6-s0D"/>
+                            <constraint firstItem="3NJ-e1-Jb4" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="3Bo-WG-TOc"/>
+                            <constraint firstItem="3NJ-e1-Jb4" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="40V-ua-tNB"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="njR-xH-geU" secondAttribute="trailing" constant="12" id="6gd-Xm-5xO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="jcY-Le-2cz" secondAttribute="bottom" constant="12" id="LtQ-cC-1mh"/>
                             <constraint firstAttribute="trailing" secondItem="Y5f-ob-ZiR" secondAttribute="trailing" id="M2T-af-Zrr"/>
+                            <constraint firstItem="3NJ-e1-Jb4" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="RJW-MM-4Yl"/>
                             <constraint firstItem="Tgg-N1-PDJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Yzc-Jd-yxc"/>
                             <constraint firstItem="jcY-Le-2cz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aia-eY-A60"/>
                             <constraint firstAttribute="bottom" secondItem="Y5f-ob-ZiR" secondAttribute="bottom" id="cjh-Mk-NnO"/>
                             <constraint firstItem="Tgg-N1-PDJ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="oCw-lg-q35"/>
                             <constraint firstItem="1OW-Zd-THB" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-12" id="ou8-4b-z5G"/>
+                            <constraint firstItem="3NJ-e1-Jb4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qaL-PN-a3g"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="njR-xH-geU" secondAttribute="bottom" constant="12" id="tJM-96-WAW"/>
                             <constraint firstItem="Y5f-ob-ZiR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="v52-aV-xMa"/>
                             <constraint firstItem="1OW-Zd-THB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="12" id="yAn-cU-N6y"/>
@@ -106,6 +114,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="bgView" destination="3NJ-e1-Jb4" id="ygD-iE-fLR"/>
                         <outlet property="centerButton" destination="jZi-Lx-MpF" id="OXI-D1-oSE"/>
                         <outlet property="centerConstraint" destination="LtQ-cC-1mh" id="kWm-xh-0eM"/>
                         <outlet property="centerView" destination="jcY-Le-2cz" id="nkK-a0-NWP"/>
@@ -119,7 +128,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="88" y="370"/>
+            <point key="canvasLocation" x="86.25" y="369.71830985915494"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="bfJ-xM-nUD">

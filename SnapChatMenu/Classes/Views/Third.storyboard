@@ -14,28 +14,40 @@
         <scene sceneID="dJf-a7-xoy">
             <objects>
                 <viewController storyboardIdentifier="Third" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nj3-kH-wLJ" customClass="ThirdViewController" customModule="SnapChatMenu" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="fMJ-nq-95s">
+                    <view key="view" contentMode="scaleToFill" id="fMJ-nq-95s" customClass="TransparentView" customModule="SnapChatMenu" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3rd" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xuc-mU-ihs" customClass="HeadlineLabel" customModule="SnapChatMenu" customModuleProvider="target">
-                                <rect key="frame" x="139.5" y="186" width="41" height="36"/>
-                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ANi-47-jYH">
+                                <rect key="frame" x="0.0" y="65" width="320" height="503"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3rd" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xuc-mU-ihs" customClass="HeadlineLabel" customModule="SnapChatMenu" customModuleProvider="target">
+                                        <rect key="frame" x="139.5" y="133.5" width="41" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Xuc-mU-ihs" firstAttribute="centerY" secondItem="ANi-47-jYH" secondAttribute="centerY" constant="-100" id="tIE-jW-czP"/>
+                                    <constraint firstItem="Xuc-mU-ihs" firstAttribute="centerX" secondItem="ANi-47-jYH" secondAttribute="centerX" id="uw8-lK-vtD"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.89620535710000004" green="1" blue="0.8771524235" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Xuc-mU-ihs" firstAttribute="centerY" secondItem="fMJ-nq-95s" secondAttribute="centerY" constant="-80" id="ai8-Ta-oH0"/>
-                            <constraint firstItem="Xuc-mU-ihs" firstAttribute="centerX" secondItem="fMJ-nq-95s" secondAttribute="centerX" id="pDy-IW-wWA"/>
+                            <constraint firstItem="ANi-47-jYH" firstAttribute="trailing" secondItem="PKt-iK-1T4" secondAttribute="trailing" id="1wr-2I-Pj1"/>
+                            <constraint firstItem="ANi-47-jYH" firstAttribute="leading" secondItem="PKt-iK-1T4" secondAttribute="leading" id="B8Y-wv-41v"/>
+                            <constraint firstItem="ANi-47-jYH" firstAttribute="bottom" secondItem="PKt-iK-1T4" secondAttribute="bottom" id="C3y-T6-mS8"/>
+                            <constraint firstItem="ANi-47-jYH" firstAttribute="top" secondItem="PKt-iK-1T4" secondAttribute="top" constant="45" id="EGQ-St-brZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PKt-iK-1T4"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aMY-mL-w0Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="121" y="135"/>
+            <point key="canvasLocation" x="120" y="134.1549295774648"/>
         </scene>
     </scenes>
 </document>
