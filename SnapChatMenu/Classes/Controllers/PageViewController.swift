@@ -71,10 +71,13 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
     
     private func move(from: Int, to: Int) {
         if let vc: UIViewController = self.getVc(index: to) {
+            // タップを不能にする
+            UIApplication.shared.beginIgnoringInteractionEvents()
             let direction: UIPageViewControllerNavigationDirection = (from < to) ? .forward : .reverse
             self.nextIndex = to
             self.setViewControllers([vc], direction: direction, animated: true) { (finished: Bool) in
-                print("complete")
+                // タップを可能にする
+                UIApplication.shared.endIgnoringInteractionEvents()
             }
         }
     }
