@@ -58,7 +58,6 @@ class Menu {
         }
         
         let ajustProgress: CGFloat = self.ajustProgress(progress: progress, delay: toStyle.delay, forward: toStyle.forward)
-        print(ajustProgress)
         
         let diffConstraint: CGFloat = toStyle.constraint - fromStyle.constraint
         self.constraint.constant = fromStyle.constraint + (diffConstraint * ajustProgress)
