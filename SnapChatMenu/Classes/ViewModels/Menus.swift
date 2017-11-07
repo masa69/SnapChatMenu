@@ -18,7 +18,12 @@ class Menus {
     
     func append(menu: Menu) {
         for style in menu.styles {
-            style.setImage(view: menu.view, named: menu.iconName)
+            switch menu.type {
+            case .icon:
+                style.setImage(view: menu.view, named: menu.iconName)
+            case .bar:
+                style.setBar(view: menu.view)
+            }
             if self.firstIndex == style.thenIndex {
                 style.imageView?.alpha = 1
                 menu.constraint.constant = style.constraint
@@ -30,7 +35,7 @@ class Menus {
     
     
     func action(progress: CGFloat, from: Int, to: Int) {
-        print(progress, from, to)
+//        print(progress, from, to)
         for list in self.lists {
             list.action(progress: progress, from: from, to: to)
         }

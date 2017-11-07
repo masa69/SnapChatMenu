@@ -34,6 +34,22 @@
                                     <segue destination="l0G-ax-1a6" kind="embed" id="nDi-13-COo"/>
                                 </connections>
                             </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tPE-DG-QEw" customClass="TransparentView" customModule="SnapChatMenu" customModuleProvider="target">
+                                <rect key="frame" x="17" y="557" width="40" height="3"/>
+                                <color key="backgroundColor" red="1" green="0.1071446021" blue="0.66445112480000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="3" id="0tX-9p-2Xt"/>
+                                    <constraint firstAttribute="width" constant="40" id="g0z-W0-hEX"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ZP-9c-vO1" customClass="TransparentView" customModule="SnapChatMenu" customModuleProvider="target">
+                                <rect key="frame" x="263" y="557" width="40" height="3"/>
+                                <color key="backgroundColor" red="1" green="0.1071446021" blue="0.66445112480000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="3" id="lvn-iC-aON"/>
+                                    <constraint firstAttribute="width" constant="40" id="xeM-7R-dPg"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1OW-Zd-THB" customClass="TransparentView" customModule="SnapChatMenu" customModuleProvider="target">
                                 <rect key="frame" x="12" y="506" width="50" height="50"/>
                                 <subviews>
@@ -97,16 +113,20 @@
                             <constraint firstItem="Y5f-ob-ZiR" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="1if-n6-s0D"/>
                             <constraint firstItem="3NJ-e1-Jb4" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="3Bo-WG-TOc"/>
                             <constraint firstItem="3NJ-e1-Jb4" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="40V-ua-tNB"/>
+                            <constraint firstItem="tPE-DG-QEw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="17" id="4UE-Ns-DRh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="njR-xH-geU" secondAttribute="trailing" constant="12" id="6gd-Xm-5xO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tPE-DG-QEw" secondAttribute="bottom" constant="8" id="Hlz-b8-082"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="jcY-Le-2cz" secondAttribute="bottom" constant="12" id="LtQ-cC-1mh"/>
                             <constraint firstAttribute="trailing" secondItem="Y5f-ob-ZiR" secondAttribute="trailing" id="M2T-af-Zrr"/>
                             <constraint firstItem="3NJ-e1-Jb4" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="RJW-MM-4Yl"/>
                             <constraint firstItem="Tgg-N1-PDJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Yzc-Jd-yxc"/>
                             <constraint firstItem="jcY-Le-2cz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aia-eY-A60"/>
                             <constraint firstAttribute="bottom" secondItem="Y5f-ob-ZiR" secondAttribute="bottom" id="cjh-Mk-NnO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="0ZP-9c-vO1" secondAttribute="bottom" constant="8" id="j5t-xB-OfW"/>
                             <constraint firstItem="Tgg-N1-PDJ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="oCw-lg-q35"/>
                             <constraint firstItem="1OW-Zd-THB" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-12" id="ou8-4b-z5G"/>
                             <constraint firstItem="3NJ-e1-Jb4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qaL-PN-a3g"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0ZP-9c-vO1" secondAttribute="trailing" constant="17" id="rem-0Z-P4g"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="njR-xH-geU" secondAttribute="bottom" constant="12" id="tJM-96-WAW"/>
                             <constraint firstItem="Y5f-ob-ZiR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="v52-aV-xMa"/>
                             <constraint firstItem="1OW-Zd-THB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="12" id="yAn-cU-N6y"/>
@@ -118,9 +138,13 @@
                         <outlet property="centerButton" destination="jZi-Lx-MpF" id="OXI-D1-oSE"/>
                         <outlet property="centerConstraint" destination="LtQ-cC-1mh" id="kWm-xh-0eM"/>
                         <outlet property="centerView" destination="jcY-Le-2cz" id="nkK-a0-NWP"/>
+                        <outlet property="leftBarConstraint" destination="4UE-Ns-DRh" id="nSN-gg-btd"/>
+                        <outlet property="leftBarView" destination="tPE-DG-QEw" id="L3e-wC-aYg"/>
                         <outlet property="leftButton" destination="q34-sj-S1w" id="FJ3-no-ydH"/>
                         <outlet property="leftConstraint" destination="yAn-cU-N6y" id="X3E-1s-5hK"/>
                         <outlet property="leftView" destination="1OW-Zd-THB" id="NJY-oZ-5JM"/>
+                        <outlet property="rightBarConstraint" destination="rem-0Z-P4g" id="5am-9e-YDU"/>
+                        <outlet property="rightBarView" destination="0ZP-9c-vO1" id="bnZ-RB-gPD"/>
                         <outlet property="rightButton" destination="vsC-2m-ltU" id="c7N-eh-J0o"/>
                         <outlet property="rightConstraint" destination="6gd-Xm-5xO" id="h5I-ko-pRt"/>
                         <outlet property="rightView" destination="njR-xH-geU" id="k37-vi-amX"/>

@@ -5,6 +5,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var bgView: TransparentView!
     
+    // global menu
     @IBOutlet weak var leftView: TransparentView!
     @IBOutlet weak var leftButton: TransparentButton!
     @IBOutlet weak var leftConstraint: NSLayoutConstraint!
@@ -16,6 +17,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var rightView: TransparentView!
     @IBOutlet weak var rightButton: TransparentButton!
     @IBOutlet weak var rightConstraint: NSLayoutConstraint!
+    
+    // global menu bar
+    @IBOutlet weak var leftBarView: TransparentView!
+    @IBOutlet weak var leftBarConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var rightBarView: TransparentView!
+    @IBOutlet weak var rightBarConstraint: NSLayoutConstraint!
     
     
     var pvc: PageViewController!
@@ -61,17 +69,17 @@ class ViewController: UIViewController {
         }
     }
     
-    
+    // index: 0 - 2
     private func initMenu(currentIndex: Int) {
         
         self.menus = Menus(parentView: self.view, index: currentIndex)
-        // index: 0 - 2
         
         let margin: CGFloat = 12
         let centerMargin: CGFloat = self.view.frame.width / 2 - 110
         
+        // icon menu
         self.menus.append(menu: Menu(
-            index: 0, iconName: "ic_chat_bubble", view: leftView, constraint: leftConstraint,
+            index: 0, type: .icon, iconName: "ic_chat_bubble", delay: 0.0, forward: 0.0, view: leftView, constraint: leftConstraint,
             styles: [
                 MenuStyle(thenIndex: 0, color: UIColor.lightGray, size: 24.0, constraint: centerMargin),
                 MenuStyle(thenIndex: 1, color: UIColor.white, size: 30.0, constraint: margin),
@@ -79,7 +87,7 @@ class ViewController: UIViewController {
             ]
         ))
         self.menus.append(menu: Menu(
-            index: 1, iconName: "ic_panorama_fish_eye_48pt", view: centerView, constraint: centerConstraint,
+            index: 1, type: .icon, iconName: "ic_panorama_fish_eye_48pt", delay: 0.0, forward: 0.0, view: centerView, constraint: centerConstraint,
             styles: [
                 MenuStyle(thenIndex: 0, color: UIColor.lightGray, size: 75.0, constraint: margin),
                 MenuStyle(thenIndex: 1, color: UIColor.white, size: 115.0, constraint: margin + 50),
@@ -87,11 +95,29 @@ class ViewController: UIViewController {
             ]
         ))
         self.menus.append(menu: Menu(
-            index: 2, iconName: "ic_bubble_chart", view: rightView, constraint: rightConstraint,
+            index: 2, type: .icon, iconName: "ic_bubble_chart", delay: 0.0, forward: 0.0, view: rightView, constraint: rightConstraint,
             styles: [
                 MenuStyle(thenIndex: 0, color: UIColor.lightGray, size: 24.0, constraint: centerMargin),
                 MenuStyle(thenIndex: 1, color: UIColor.white,size: 30.0, constraint: margin),
                 MenuStyle(thenIndex: 2, color: UIColor.lightGray, size: 24.0, constraint: centerMargin),
+            ]
+        ))
+        
+        // menu bar
+        self.menus.append(menu: Menu(
+            index: 0, type: .bar, iconName: "", delay: 0.7, forward: 0.0, view: leftBarView, constraint: leftBarConstraint,
+            styles: [
+                MenuStyle(thenIndex: 0, color: UIColor.lightGray, size: 40, constraint: centerMargin + 5),
+                MenuStyle(thenIndex: 1, color: UIColor.clear, size: 5, constraint: centerMargin + 70),
+                MenuStyle(thenIndex: 2, color: UIColor.clear, size: 5, constraint: centerMargin + 70),
+            ]
+        ))
+        self.menus.append(menu: Menu(
+            index: 1, type: .bar, iconName: "", delay: 0.7, forward: 0.0, view: rightBarView, constraint: rightBarConstraint,
+            styles: [
+                MenuStyle(thenIndex: 0, color: UIColor.clear, size: 5, constraint: centerMargin + 70),
+                MenuStyle(thenIndex: 1, color: UIColor.clear, size: 5, constraint: centerMargin + 70),
+                MenuStyle(thenIndex: 2, color: UIColor.lightGray, size: 40, constraint: centerMargin + 5),
             ]
         ))
         

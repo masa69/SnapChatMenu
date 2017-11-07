@@ -13,6 +13,8 @@ class MenuStyle {
     
     var imageView: UIImageView?
     
+    var view: UIView?
+    
     
     init(thenIndex: Int, color: UIColor, size: CGFloat, constraint: CGFloat) {
         
@@ -44,6 +46,26 @@ class MenuStyle {
         let x: CGFloat = (view.frame.width - size) / 2
         let y: CGFloat = (view.frame.height - size) / 2
         self.imageView?.frame = CGRect(x: x, y: y, width: size, height: size)
+    }
+    
+    
+    func setBar(view: UIView) {
+        self.view = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
+        self.view?.backgroundColor = self.color
+        self.view?.alpha = 0
+        
+        if let v: UIView = self.view {
+            view.addSubview(v)
+        }
+    }
+    
+    
+    func updateBar(view: UIView, width: CGFloat) {
+        if let v: UIView = self.view {
+            let x: CGFloat = (view.frame.width - width) / 2
+            let y: CGFloat = 0
+            self.view?.frame = CGRect(x: x, y: y, width: width, height: v.frame.height)
+        }
     }
     
 }
