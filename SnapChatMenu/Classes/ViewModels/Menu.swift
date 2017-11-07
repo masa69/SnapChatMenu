@@ -9,10 +9,6 @@ class Menu {
     
     var iconName: String
     
-    var delay: CGFloat
-    
-    var forward: CGFloat
-    
     var view: UIView
     
     var constraint: NSLayoutConstraint
@@ -26,17 +22,13 @@ class Menu {
     }
     
     
-    init(index: Int, type: MenuType, iconName: String, delay: CGFloat, forward: CGFloat, view: UIView, constraint: NSLayoutConstraint, styles: [MenuStyle]) {
+    init(index: Int, type: MenuType, iconName: String, view: UIView, constraint: NSLayoutConstraint, styles: [MenuStyle]) {
         
         self.index = index
         
         self.type = type
         
         self.iconName = iconName
-        
-        self.delay = delay
-        
-        self.forward = forward
         
         self.view = view
         
@@ -65,11 +57,14 @@ class Menu {
             return
         }
         
+        let ajustProgress: CGFloat = self.ajustProgress(progress: progress, delay: toStyle.delay, forward: toStyle.forward)
+        print(ajustProgress)
+        
         let diffConstraint: CGFloat = toStyle.constraint - fromStyle.constraint
-        self.constraint.constant = fromStyle.constraint + (diffConstraint * progress)
+        self.constraint.constant = fromStyle.constraint + (diffConstraint * ajustProgress)
         
         let diffIconSize: CGFloat = toStyle.size - fromStyle.size
-        let size: CGFloat = fromStyle.size + (diffIconSize * progress)
+        let size: CGFloat = fromStyle.size + (diffIconSize * ajustProgress)
         
         fromStyle.updateIconSize(view: self.view, size: size)
         toStyle.updateIconSize(view: self.view, size: size)
@@ -77,11 +72,11 @@ class Menu {
         fromStyle.updateBar(view: self.view, width: size)
         toStyle.updateBar(view: self.view, width: size)
         
-        fromStyle.imageView?.alpha = 1 - progress
-        toStyle.imageView?.alpha = progress
+        fromStyle.imageView?.alpha = 1 - ajustProgress
+        toStyle.imageView?.alpha = ajustProgress
         
-        fromStyle.view?.alpha = 1 - progress
-        toStyle.view?.alpha = progress
+        fromStyle.view?.alpha = 1 - ajustProgress
+        toStyle.view?.alpha = ajustProgress
     }
     
     
@@ -92,6 +87,19 @@ class Menu {
             }
         }
         return nil
+    }
+    
+    
+    private func ajustProgress(progress: CGFloat, delay: CGFloat, forward: CGFloat) -> CGFloat {
+        if progress <= delay {
+            return 0.0
+        }
+        if progress >= 1 - forward {
+            return 1.0
+        }
+        let rate: CGFloat = 1 / (1 - forward - delay)
+        let diff: CGFloat = progress - delay
+        return diff * rate
     }
     
 }

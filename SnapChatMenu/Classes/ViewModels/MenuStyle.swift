@@ -5,6 +5,10 @@ class MenuStyle {
     
     var thenIndex: Int
     
+    var delay: CGFloat
+    
+    var forward: CGFloat
+    
     var color: UIColor
     
     var size: CGFloat
@@ -16,9 +20,13 @@ class MenuStyle {
     var view: UIView?
     
     
-    init(thenIndex: Int, color: UIColor, size: CGFloat, constraint: CGFloat) {
+    init(thenIndex: Int, delay: CGFloat, forward: CGFloat, color: UIColor, size: CGFloat, constraint: CGFloat) {
         
         self.thenIndex = thenIndex
+        
+        self.delay = delay
+        
+        self.forward = forward
         
         self.color = color
         
