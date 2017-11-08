@@ -160,17 +160,6 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
     
     // MARK: - UIScrollViewDelegate
     
-    /*func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        print("scrollViewDidEndDecelerating")
-//        self.isProgress = false
-        // タップを可能にする
-        if UIApplication.shared.isIgnoringInteractionEvents {
-            print("cancel ignore")
-            UIApplication.shared.endIgnoringInteractionEvents()
-        }
-    }*/
-    
-    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
         guard let index: Int = self.currentIndex() else {

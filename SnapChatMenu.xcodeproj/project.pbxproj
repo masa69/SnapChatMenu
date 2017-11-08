@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		04027D271FAD67D7000F410B /* IconLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04027D261FAD67D7000F410B /* IconLabel.swift */; };
 		04027D291FAD6918000F410B /* TransparentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04027D281FAD6918000F410B /* TransparentView.swift */; };
 		04027D2B1FAD6BFF000F410B /* HeadlineLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04027D2A1FAD6BFF000F410B /* HeadlineLabel.swift */; };
 		04027D2D1FAD8528000F410B /* CGFloatExtenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04027D2C1FAD8528000F410B /* CGFloatExtenstion.swift */; };
@@ -57,7 +56,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		04027D261FAD67D7000F410B /* IconLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconLabel.swift; sourceTree = "<group>"; };
 		04027D281FAD6918000F410B /* TransparentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentView.swift; sourceTree = "<group>"; };
 		04027D2A1FAD6BFF000F410B /* HeadlineLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlineLabel.swift; sourceTree = "<group>"; };
 		04027D2C1FAD8528000F410B /* CGFloatExtenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloatExtenstion.swift; sourceTree = "<group>"; };
@@ -133,7 +131,6 @@
 			isa = PBXGroup;
 			children = (
 				04027D2A1FAD6BFF000F410B /* HeadlineLabel.swift */,
-				04027D261FAD67D7000F410B /* IconLabel.swift */,
 				04027D3B1FB0443D000F410B /* MainBackgroundColor.swift */,
 				04027D391FB04324000F410B /* MainBackgroundColors.swift */,
 				04027D311FADA43C000F410B /* Menu.swift */,
@@ -554,7 +551,6 @@
 				04027D301FADA3EC000F410B /* Menus.swift in Sources */,
 				046D77401FA4E6660094A835 /* UIColorExtension.swift in Sources */,
 				046D77021FA36BA10094A835 /* ViewController.swift in Sources */,
-				04027D271FAD67D7000F410B /* IconLabel.swift in Sources */,
 				046D77001FA36BA10094A835 /* AppDelegate.swift in Sources */,
 				046D773A1FA4E4B90094A835 /* SecondViewController.swift in Sources */,
 				04027D341FADC3A5000F410B /* TransparentButton.swift in Sources */,
