@@ -17,6 +17,8 @@ class MenuStyle {
     
     var imageView: UIImageView?
     
+    var activeImageView: UIImageView?
+    
     var view: UIView?
     
     
@@ -50,10 +52,25 @@ class MenuStyle {
     }
     
     
+    func setActiveImage(view: UIView, named: String) {
+        self.activeImageView = UIImageView(image: UIImage(named: named)?.withRenderingMode(.alwaysTemplate))
+        self.activeImageView?.contentMode = .scaleAspectFill
+        self.activeImageView?.alpha = 0
+        self.activeImageView?.tintColor = UIColor.red
+        
+        self.updateIconSize(view: view, size: self.size)
+        
+        if let imageView = self.activeImageView {
+            view.addSubview(imageView)
+        }
+    }
+    
+    
     func updateIconSize(view: UIView, size: CGFloat) {
         let x: CGFloat = (view.frame.width - size) / 2
         let y: CGFloat = (view.frame.height - size) / 2
         self.imageView?.frame = CGRect(x: x, y: y, width: size, height: size)
+        self.activeImageView?.frame = CGRect(x: x, y: y, width: size, height: size)
     }
     
     

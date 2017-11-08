@@ -9,11 +9,25 @@ class Menu {
     
     var iconName: String
     
+    var activeIconName: String
+    
     var view: UIView
     
     var constraint: NSLayoutConstraint
     
     var styles: [MenuStyle] = [MenuStyle]()
+    
+    var status: MenuStatus = .normal {
+        didSet {
+            self.action(progress: self.storeProgress, from: self.storeFrom, to: self.storeTo)
+        }
+    }
+    
+    private var storeProgress: CGFloat = 0
+    // 最初に表示する index
+    private var storeFrom: Int = 1
+    // 最初に表示する index
+    private var storeTo: Int = 1
     
     
     enum MenuType {
@@ -22,13 +36,21 @@ class Menu {
     }
     
     
-    init(index: Int, type: MenuType, iconName: String, view: UIView, constraint: NSLayoutConstraint, styles: [MenuStyle]) {
+    enum MenuStatus {
+        case normal
+        case active
+    }
+    
+    
+    init(index: Int, type: MenuType, iconName: String, activeIconName: String, view: UIView, constraint: NSLayoutConstraint, styles: [MenuStyle]) {
         
         self.index = index
         
         self.type = type
         
         self.iconName = iconName
+        
+        self.activeIconName = activeIconName
         
         self.view = view
         
@@ -46,12 +68,32 @@ class Menu {
             return
         }
         
+        self.storeProgress = progress
+        self.storeFrom = from
+        self.storeTo = to
+        
         if from == to {
             self.constraint.constant = toStyle.constraint
+            
             fromStyle.updateIconSize(view: self.view, size: toStyle.size)
             toStyle.updateIconSize(view: self.view, size: toStyle.size)
-            fromStyle.imageView?.alpha = 0
-            toStyle.imageView?.alpha = 1
+            
+            fromStyle.updateBar(view: self.view, width: toStyle.size)
+            toStyle.updateBar(view: self.view, width: toStyle.size)
+            
+            switch self.status {
+            case .normal:
+                fromStyle.imageView?.alpha = 0
+                toStyle.imageView?.alpha = 1
+                fromStyle.activeImageView?.alpha = 0
+                toStyle.activeImageView?.alpha = 0
+            case .active:
+                fromStyle.imageView?.alpha = 0
+                toStyle.imageView?.alpha = 0
+                fromStyle.activeImageView?.alpha = 0
+                toStyle.activeImageView?.alpha = 1
+            }
+            
             fromStyle.view?.alpha = 0
             toStyle.view?.alpha = 1
             return
@@ -71,8 +113,18 @@ class Menu {
         fromStyle.updateBar(view: self.view, width: size)
         toStyle.updateBar(view: self.view, width: size)
         
-        fromStyle.imageView?.alpha = 1 - ajustProgress
-        toStyle.imageView?.alpha = ajustProgress
+        switch self.status {
+        case .normal:
+            fromStyle.imageView?.alpha = 1 - ajustProgress
+            toStyle.imageView?.alpha = ajustProgress
+            fromStyle.activeImageView?.alpha = 0
+            toStyle.activeImageView?.alpha = 0
+        case .active:
+            fromStyle.imageView?.alpha = 0
+            toStyle.imageView?.alpha = 0
+            fromStyle.activeImageView?.alpha = 1 - ajustProgress
+            toStyle.activeImageView?.alpha = ajustProgress
+        }
         
         fromStyle.view?.alpha = 1 - ajustProgress
         toStyle.view?.alpha = ajustProgress

@@ -11,6 +11,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
     private var direction: ScrollDirection = .none
     private var needUpdateVc: Bool = false
     private var nextIndex: Int?
+    private var preProgress: CGFloat = 0
     
     private var menus: [(index: Int, key: Vc, vc: UIViewController?)] = [
         (0, .first, nil),
@@ -62,7 +63,6 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
             return
         }
         if current == index {
-            print("current")
             return
         }
         self.move(from: current, to: index)
@@ -72,12 +72,16 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
     private func move(from: Int, to: Int) {
         if let vc: UIViewController = self.getVc(index: to) {
             // タップを不能にする
-            UIApplication.shared.beginIgnoringInteractionEvents()
+            if !UIApplication.shared.isIgnoringInteractionEvents {
+                UIApplication.shared.beginIgnoringInteractionEvents()
+            }
             let direction: UIPageViewControllerNavigationDirection = (from < to) ? .forward : .reverse
             self.nextIndex = to
             self.setViewControllers([vc], direction: direction, animated: true) { (finished: Bool) in
                 // タップを可能にする
-                UIApplication.shared.endIgnoringInteractionEvents()
+                if UIApplication.shared.isIgnoringInteractionEvents {
+                    UIApplication.shared.endIgnoringInteractionEvents()
+                }
             }
         }
     }
@@ -124,7 +128,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
     }
     
     
-    private func getVc(index: Int) -> UIViewController? {
+    func getVc(index: Int) -> UIViewController? {
         if 0 <= index && index < self.menus.count {
             if self.menus[index].vc == nil {
                 let storyboard: UIStoryboard = UIStoryboard(name: self.menus[index].key.rawValue, bundle: nil)
@@ -155,6 +159,17 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
     
     
     // MARK: - UIScrollViewDelegate
+    
+    /*func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        print("scrollViewDidEndDecelerating")
+//        self.isProgress = false
+        // タップを可能にする
+        if UIApplication.shared.isIgnoringInteractionEvents {
+            print("cancel ignore")
+            UIApplication.shared.endIgnoringInteractionEvents()
+        }
+    }*/
+    
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
@@ -196,12 +211,21 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
         if let ni: Int = self.nextIndex {
             nextIndex = ni
         }
-        
+//        print("x: \(x)")
         progress = progress.percent(depth: 2)
         progress = (progress > 1) ? 1 : progress
         
-        if progress == 1 || progress == 0 {
+        // 画面端から素早くスワイプすると x が上限、下限を超えてしまうので制御する
+        if self.preProgress == 1 {
+            if progress == 1 {
+                self.needUpdateVc = false
+            }
+        }
+        
+        if progress == 0 || progress == 1 {
+//            print("complete")
             if self.needUpdateVc {
+                print("update")
                 if self.nextIndex == nil {
                     switch self.direction {
                     case .forward:
@@ -213,14 +237,34 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
                     }
                 }
                 self.currentVc = self.menus[nextIndex].key
+                self.needUpdateVc = false
             }
             self.direction = .none
-            self.needUpdateVc = false
-            self.isProgress = false
             self.nextIndex = nil
+            self.isProgress = false
         } else {
             self.needUpdateVc = (progress > 0.5) ? true : false
         }
+//        print(progress, index, nextIndex)
+        if self.preProgress == 1 && progress == 1 {
+            // タップを不能にする
+            if !UIApplication.shared.isIgnoringInteractionEvents {
+                print("begin ignore")
+                UIApplication.shared.beginIgnoringInteractionEvents()
+            }
+            self.preProgress = progress
+            print("stop")
+            return
+        }
+        if progress == 0 {
+            // タップを可能にする
+            if UIApplication.shared.isIgnoringInteractionEvents {
+                print("end ignore")
+                UIApplication.shared.endIgnoringInteractionEvents()
+            }
+        }
+        
+        self.preProgress = progress
         
         self.scrolling?(progress, index, nextIndex)
     }

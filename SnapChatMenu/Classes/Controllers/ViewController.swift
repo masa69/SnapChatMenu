@@ -25,6 +25,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var rightBarView: TransparentView!
     @IBOutlet weak var rightBarConstraint: NSLayoutConstraint!
     
+    // debug button
+    @IBOutlet weak var debugLeftButton: UIButton!
+    @IBOutlet weak var debugRightButton: UIButton!
+    
     
     var pvc: PageViewController!
     
@@ -45,6 +49,9 @@ class ViewController: UIViewController {
         if let currentIndex: Int = self.pvc.currentIndex() {
             self.initMenu(currentIndex: currentIndex)
         }
+        
+        self.initDebugButton()
+        self.initVcCallback()
     }
     
     override func didReceiveMemoryWarning() {
@@ -79,7 +86,7 @@ class ViewController: UIViewController {
         
         // icon menu
         self.menus.append(menu: Menu(
-            index: 0, type: .icon, iconName: "ic_chat_bubble", view: leftView, constraint: leftConstraint,
+            index: 0, type: .icon, iconName: "ic_chat_bubble", activeIconName: "ic_chat_bubble", view: leftView, constraint: leftConstraint,
             styles: [
                 MenuStyle(thenIndex: 0, delay: 0.0, forward: 0.0, color: UIColor.lightGray, size: 24.0, constraint: centerMargin),
                 MenuStyle(thenIndex: 1, delay: 0.0, forward: 0.0, color: UIColor.white, size: 30.0, constraint: margin),
@@ -87,7 +94,7 @@ class ViewController: UIViewController {
             ]
         ))
         self.menus.append(menu: Menu(
-            index: 1, type: .icon, iconName: "ic_panorama_fish_eye_48pt", view: centerView, constraint: centerConstraint,
+            index: 1, type: .icon, iconName: "ic_panorama_fish_eye_48pt", activeIconName: "ic_insert_emoticon", view: centerView, constraint: centerConstraint,
             styles: [
                 MenuStyle(thenIndex: 0, delay: 0.0, forward: 0.0, color: UIColor.lightGray, size: 75.0, constraint: margin),
                 MenuStyle(thenIndex: 1, delay: 0.0, forward: 0.0, color: UIColor.white, size: 115.0, constraint: margin + 50),
@@ -95,7 +102,7 @@ class ViewController: UIViewController {
             ]
         ))
         self.menus.append(menu: Menu(
-            index: 2, type: .icon, iconName: "ic_bubble_chart", view: rightView, constraint: rightConstraint,
+            index: 2, type: .icon, iconName: "ic_bubble_chart", activeIconName: "ic_bubble_chart", view: rightView, constraint: rightConstraint,
             styles: [
                 MenuStyle(thenIndex: 0, delay: 0.0, forward: 0.0, color: UIColor.lightGray, size: 24.0, constraint: centerMargin),
                 MenuStyle(thenIndex: 1, delay: 0.0, forward: 0.0, color: UIColor.white,size: 30.0, constraint: margin),
@@ -105,7 +112,7 @@ class ViewController: UIViewController {
         
         // menu bar
         self.menus.append(menu: Menu(
-            index: 0, type: .bar, iconName: "", view: leftBarView, constraint: leftBarConstraint,
+            index: 0, type: .bar, iconName: "", activeIconName: "", view: leftBarView, constraint: leftBarConstraint,
             styles: [
                 MenuStyle(thenIndex: 0, delay: 0.5, forward: 0.0, color: UIColor.lightGray, size: 40, constraint: centerMargin + 5),
                 MenuStyle(thenIndex: 1, delay: 0.0, forward: 0.5, color: UIColor.clear, size: 5, constraint: centerMargin + 70),
@@ -113,7 +120,7 @@ class ViewController: UIViewController {
             ]
         ))
         self.menus.append(menu: Menu(
-            index: 1, type: .bar, iconName: "", view: rightBarView, constraint: rightBarConstraint,
+            index: 1, type: .bar, iconName: "", activeIconName: "", view: rightBarView, constraint: rightBarConstraint,
             styles: [
                 MenuStyle(thenIndex: 0, delay: 0.0, forward: 0.5, color: UIColor.clear, size: 5, constraint: centerMargin + 70),
                 MenuStyle(thenIndex: 1, delay: 0.0, forward: 0.5, color: UIColor.clear, size: 5, constraint: centerMargin + 70),
@@ -124,6 +131,47 @@ class ViewController: UIViewController {
         leftButton.addTarget(self, action: #selector(self.onLeftButton(_:)), for: .touchDown)
         centerButton.addTarget(self, action: #selector(self.onCenterButton(_:)), for: .touchDown)
         rightButton.addTarget(self, action: #selector(self.onRightButton(_:)), for: .touchDown)
+        
+        // 長押し
+        centerButton.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(self.onPressingCenterButton(_:))))
+    }
+    
+    
+    private func initDebugButton() {
+        debugLeftButton.addTarget(self, action: #selector(self.onDebugLeftButton(_:)), for: .touchDown)
+        debugRightButton.addTarget(self, action: #selector(self.onDebugRightButton(_:)), for: .touchDown)
+    }
+    
+    
+    private func initVcCallback() {
+        
+        let vc0: FirstViewController = self.pvc.getVc(index: 0) as! FirstViewController
+        let vc2: ThirdViewController = self.pvc.getVc(index: 2) as! ThirdViewController
+        
+        vc0.controlMenuCallback = {
+            self.debugInactive(index: 0)
+        }
+        vc2.controlMenuCallback = {
+            self.debugInactive(index: 2)
+        }
+    }
+    
+    
+    private func debugActive(index: Int) {
+        if let i: Int = self.pvc.currentIndex() {
+            if i != index {
+                self.menus.active(index: index)
+            }
+        }
+    }
+    
+    
+    private func debugInactive(index: Int) {
+        if let i: Int = self.pvc.currentIndex() {
+            if i == index {
+                self.menus.inactive(index: index)
+            }
+        }
     }
     
     
@@ -139,6 +187,27 @@ class ViewController: UIViewController {
     
     @objc func onRightButton(_ sender: UIButton) {
         self.pvc.onMenuButton(index: 2)
+    }
+    
+    @objc func onDebugLeftButton(_ sender: UIButton) {
+        self.debugActive(index: 0)
+    }
+    
+    @objc func onDebugRightButton(_ sender: UIButton) {
+        self.debugActive(index: 2)
+    }
+    
+    @objc func onPressingCenterButton(_ sender: UIButton) {
+        switch sender.state.rawValue {
+        case 1:// start
+            self.debugActive(index: 1)
+        case 2:// pressing
+            break
+        case 3:// end
+            break
+        default:
+            break
+        }
     }
     
 }

@@ -44,6 +44,8 @@ class MainBackgroundColors {
         
         fromView?.alpha = 1 - alpha
         toView?.alpha = alpha
+        
+        self.view.layoutIfNeeded()
     }
     
     
