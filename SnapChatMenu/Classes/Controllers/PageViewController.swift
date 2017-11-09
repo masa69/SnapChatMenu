@@ -17,6 +17,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
         (0, .first, nil),
         (1, .second, nil),
         (2, .third, nil),
+        (3, .fourth, nil),
     ]
     
     
@@ -25,6 +26,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
         case first = "First"
         case second = "Second"
         case third = "Third"
+        case fourth = "Fourth"
     }
     
     
@@ -95,6 +97,8 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
             target = .second
         case is ThirdViewController:
             target = .third
+        case is FourthViewController:
+            target = .fourth
         default:
             return nil
         }

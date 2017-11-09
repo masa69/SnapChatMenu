@@ -158,11 +158,13 @@
                         <outlet property="debugRightButton" destination="nhr-Pc-pil" id="0iE-7C-a2V"/>
                         <outlet property="leftBarConstraint" destination="4UE-Ns-DRh" id="nSN-gg-btd"/>
                         <outlet property="leftBarView" destination="tPE-DG-QEw" id="L3e-wC-aYg"/>
+                        <outlet property="leftBottomConstraint" destination="ou8-4b-z5G" id="f3N-pO-oeX"/>
                         <outlet property="leftButton" destination="q34-sj-S1w" id="FJ3-no-ydH"/>
                         <outlet property="leftConstraint" destination="yAn-cU-N6y" id="X3E-1s-5hK"/>
                         <outlet property="leftView" destination="1OW-Zd-THB" id="NJY-oZ-5JM"/>
                         <outlet property="rightBarConstraint" destination="rem-0Z-P4g" id="5am-9e-YDU"/>
                         <outlet property="rightBarView" destination="0ZP-9c-vO1" id="bnZ-RB-gPD"/>
+                        <outlet property="rightBottomConstraint" destination="tJM-96-WAW" id="rtn-dd-83O"/>
                         <outlet property="rightButton" destination="vsC-2m-ltU" id="c7N-eh-J0o"/>
                         <outlet property="rightConstraint" destination="6gd-Xm-5xO" id="h5I-ko-pRt"/>
                         <outlet property="rightView" destination="njR-xH-geU" id="k37-vi-amX"/>

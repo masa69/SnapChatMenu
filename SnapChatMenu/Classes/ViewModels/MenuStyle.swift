@@ -13,7 +13,7 @@ class MenuStyle {
     
     var size: CGFloat
     
-    var constraint: CGFloat
+    var constraint: [CGFloat]
     
     var imageView: UIImageView?
     
@@ -22,7 +22,7 @@ class MenuStyle {
     var view: UIView?
     
     
-    init(thenIndex: Int, delay: CGFloat, forward: CGFloat, color: UIColor, size: CGFloat, constraint: CGFloat) {
+    init(thenIndex: Int, delay: CGFloat, forward: CGFloat, color: UIColor, size: CGFloat, constraint: [CGFloat]) {
         
         self.thenIndex = thenIndex
         

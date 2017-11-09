@@ -13,7 +13,7 @@ class Menu {
     
     var view: UIView
     
-    var constraint: NSLayoutConstraint
+    var constraint: [NSLayoutConstraint]
     
     var styles: [MenuStyle] = [MenuStyle]()
     
@@ -42,7 +42,7 @@ class Menu {
     }
     
     
-    init(index: Int, type: MenuType, iconName: String, activeIconName: String, view: UIView, constraint: NSLayoutConstraint, styles: [MenuStyle]) {
+    init(index: Int, type: MenuType, iconName: String, activeIconName: String, view: UIView, constraint: [NSLayoutConstraint], styles: [MenuStyle]) {
         
         self.index = index
         
@@ -73,7 +73,10 @@ class Menu {
         self.storeTo = to
         
         if from == to {
-            self.constraint.constant = toStyle.constraint
+            
+            for (i, constraint) in self.constraint.enumerated() {
+                constraint.constant = toStyle.constraint[i]
+            }
             
             fromStyle.updateIconSize(view: self.view, size: toStyle.size)
             toStyle.updateIconSize(view: self.view, size: toStyle.size)
@@ -101,8 +104,10 @@ class Menu {
         
         let ajustProgress: CGFloat = self.ajustProgress(progress: progress, delay: toStyle.delay, forward: toStyle.forward)
         
-        let diffConstraint: CGFloat = toStyle.constraint - fromStyle.constraint
-        self.constraint.constant = fromStyle.constraint + (diffConstraint * ajustProgress)
+        for (i, constraint) in self.constraint.enumerated() {
+            let diffConstraint: CGFloat = toStyle.constraint[i] - fromStyle.constraint[i]
+            constraint.constant = fromStyle.constraint[i] + (diffConstraint * ajustProgress)
+        }
         
         let diffIconSize: CGFloat = toStyle.size - fromStyle.size
         let size: CGFloat = fromStyle.size + (diffIconSize * ajustProgress)

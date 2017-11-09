@@ -32,7 +32,9 @@ class Menus {
                 case .active:
                     style.activeImageView?.alpha = 1
                 }
-                menu.constraint.constant = style.constraint
+                for (i, constraint) in menu.constraint.enumerated() {
+                    constraint.constant = style.constraint[i]
+                }
                 self.view.layoutIfNeeded()
             }
         }
