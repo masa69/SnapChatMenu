@@ -29,8 +29,10 @@ class Menus {
                 switch menu.status {
                 case .normal:
                     style.imageView?.alpha = 1
+                    style.view?.alpha = 1
                 case .active:
                     style.activeImageView?.alpha = 1
+                    style.view?.alpha = 1
                 }
                 for (i, constraint) in menu.constraint.enumerated() {
                     constraint.constant = style.constraint[i]
