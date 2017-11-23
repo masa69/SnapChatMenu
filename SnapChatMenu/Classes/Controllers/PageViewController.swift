@@ -114,7 +114,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
     
     
     func currentIndex() -> Int? {
-        for menu in menus {
+        for menu in self.menus {
             if menu.key == self.currentVc {
                 return menu.index
             }
