@@ -124,11 +124,14 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
     
     
     private func getVc() -> UIViewController {
-        if self.menus[self.currentVc.hashValue].vc == nil {
-            let storyboard: UIStoryboard = UIStoryboard(name: self.currentVc.rawValue, bundle: nil)
-            self.menus[self.currentVc.hashValue].vc = storyboard.instantiateInitialViewController()
+        guard let index: Int = self.currentIndex() else {
+            return UIViewController()
         }
-        return self.menus[self.currentVc.hashValue].vc!
+        if self.menus[index].vc == nil {
+            let storyboard: UIStoryboard = UIStoryboard(name: self.currentVc.rawValue, bundle: nil)
+            self.menus[index].vc = storyboard.instantiateInitialViewController()
+        }
+        return self.menus[index].vc!
     }
     
     
