@@ -3,6 +3,8 @@ import UIKit
 
 class Menu {
     
+    var key: String
+    
     var index: Int
     
     var type: MenuType
@@ -19,14 +21,15 @@ class Menu {
     
     var status: MenuStatus = .normal {
         didSet {
+            UserDefaults.standard.set(self.status.hashValue, forKey: self.key)
             self.action(progress: self.storeProgress, from: self.storeFrom, to: self.storeTo)
         }
     }
     
     private var storeProgress: CGFloat = 0
-    // 最初に表示する index
+    // 最初に表示する index を設定する
     private var storeFrom: Int = 1
-    // 最初に表示する index
+    // 最初に表示する index を設定する
     private var storeTo: Int = 1
     
     
@@ -57,6 +60,20 @@ class Menu {
         self.constraint = constraint
         
         self.styles = styles
+        
+        self.key = "Menu.status_\(self.iconName)_\(self.index)"
+        
+        if UserDefaults.standard.object(forKey: self.key) != nil {
+            let i: Int = UserDefaults.standard.integer(forKey: self.key)
+            switch i {
+            case 0:
+                self.status = .normal
+            case 1:
+                self.status = .active
+            default:
+                break
+            }
+        }
     }
     
     
