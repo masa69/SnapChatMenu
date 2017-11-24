@@ -13,6 +13,8 @@ class Menu {
     
     var activeIconName: String
     
+    var label: UILabel
+    
     var view: UIView
     
     var constraint: [NSLayoutConstraint]
@@ -21,8 +23,10 @@ class Menu {
     
     var status: MenuStatus = .normal {
         didSet {
-            UserDefaults.standard.set(self.status.hashValue, forKey: self.key)
-            self.action(progress: self.storeProgress, from: self.storeFrom, to: self.storeTo)
+            if self.key != "" {
+                UserDefaults.standard.set(self.status.hashValue, forKey: self.key)
+                self.action(progress: self.storeProgress, from: self.storeFrom, to: self.storeTo)
+            }
         }
     }
     
@@ -36,6 +40,7 @@ class Menu {
     enum MenuType {
         case icon
         case bar
+        case text
     }
     
     
@@ -54,6 +59,8 @@ class Menu {
         self.iconName = iconName
         
         self.activeIconName = activeIconName
+        
+        self.label = UILabel()
         
         self.view = view
         
@@ -77,6 +84,28 @@ class Menu {
     }
     
     
+    init(index: Int, type: MenuType, label: UILabel, constraint: [NSLayoutConstraint], styles: [MenuStyle]) {
+        
+        self.index = index
+        
+        self.type = type
+        
+        self.iconName = ""
+        
+        self.activeIconName = ""
+        
+        self.label = label
+        
+        self.view = UIView()
+        
+        self.constraint = constraint
+        
+        self.styles = styles
+        
+        self.key = ""
+    }
+    
+    
     func action(progress: CGFloat, from: Int, to: Int) {
         guard let fromStyle: MenuStyle = self.getStyle(index: from) else {
             return
@@ -88,6 +117,9 @@ class Menu {
         self.storeProgress = progress
         self.storeFrom = from
         self.storeTo = to
+        
+        fromStyle.updateLabel()
+        toStyle.updateLabel()
         
         if from == to {
             
@@ -116,6 +148,9 @@ class Menu {
             
             fromStyle.view?.alpha = 0
             toStyle.view?.alpha = 1
+            
+            fromStyle.label?.alpha = 0
+            toStyle.label?.alpha = 1
             return
         }
         
@@ -150,6 +185,9 @@ class Menu {
         
         fromStyle.view?.alpha = 1 - ajustProgress
         toStyle.view?.alpha = ajustProgress
+        
+        fromStyle.label?.alpha = 1 - ajustProgress
+        toStyle.label?.alpha = ajustProgress
     }
     
     

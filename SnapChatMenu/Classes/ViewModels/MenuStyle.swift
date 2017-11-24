@@ -21,6 +21,10 @@ class MenuStyle {
     
     var view: UIView?
     
+    var label: UILabel?
+    
+    private var parentLabel: UILabel?
+    
     
     init(thenIndex: Int, delay: CGFloat, forward: CGFloat, color: UIColor, size: CGFloat, constraint: [CGFloat]) {
         
@@ -33,6 +37,22 @@ class MenuStyle {
         self.color = color
         
         self.size = size
+        
+        self.constraint = constraint
+    }
+    
+    // label用
+    init(thenIndexForLabel thenIndex: Int, delay: CGFloat, forward: CGFloat, color: UIColor, constraint: [CGFloat]) {
+        
+        self.thenIndex = thenIndex
+        
+        self.delay = delay
+        
+        self.forward = forward
+        
+        self.color = color
+        
+        self.size = 0
         
         self.constraint = constraint
     }
@@ -90,6 +110,28 @@ class MenuStyle {
             let x: CGFloat = (view.frame.width - width) / 2
             let y: CGFloat = 0
             self.view?.frame = CGRect(x: x, y: y, width: width, height: v.frame.height)
+        }
+    }
+    
+    
+    func setText(label: UILabel) {
+        label.textColor = UIColor.clear
+        self.parentLabel = label
+        self.label = UILabel(frame: CGRect(x: 0, y: 0, width: label.frame.width, height: label.frame.height))
+        self.label?.font = label.font
+        self.label?.text = label.text
+        self.label?.textColor = self.color
+        self.label?.alpha = 0
+        self.updateLabel()
+        if let l: UIView = self.label {
+            label.addSubview(l)
+        }
+    }
+    
+    
+    func updateLabel() {
+        if let _: UILabel = self.label, let l: UILabel = self.parentLabel {
+            self.label?.frame = CGRect(x: 0, y: 0, width: l.frame.width, height: l.frame.height)
         }
     }
     

@@ -17,23 +17,31 @@ class Menus {
     
     
     func append(menu: Menu) {
+        
         for style in menu.styles {
+            
             switch menu.type {
             case .icon:
                 style.setImage(view: menu.view, named: menu.iconName)
                 style.setActiveImage(view: menu.view, named: menu.activeIconName)
             case .bar:
                 style.setBar(view: menu.view)
+            case .text:
+                style.setText(label: menu.label)
             }
+            
             if self.firstIndex == style.thenIndex {
+                
                 switch menu.status {
                 case .normal:
                     style.imageView?.alpha = 1
-                    style.view?.alpha = 1
                 case .active:
                     style.activeImageView?.alpha = 1
-                    style.view?.alpha = 1
                 }
+                
+                style.view?.alpha = 1
+                style.label?.alpha = 1
+                
                 for (i, constraint) in menu.constraint.enumerated() {
                     constraint.constant = style.constraint[i]
                 }
