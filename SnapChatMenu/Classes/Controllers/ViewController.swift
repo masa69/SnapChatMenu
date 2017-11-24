@@ -5,6 +5,11 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var bgView: TransparentView!
     
+    // header
+    @IBOutlet weak var leftHeaderLabel: UILabel!
+    @IBOutlet weak var centerHeaderLabel: UILabel!
+    @IBOutlet weak var rightHeaderLabel: UILabel!
+    
     // global menu
     @IBOutlet weak var leftView: TransparentView!
     @IBOutlet weak var leftButton: TransparentButton!
@@ -86,6 +91,38 @@ class ViewController: UIViewController {
         
         let margin: CGFloat = 12
         let centerMargin: CGFloat = self.view.frame.width / 2 - 110
+        
+        // header label
+        leftHeaderLabel.text = "Title 1"
+        centerHeaderLabel.text = "Title 2"
+        rightHeaderLabel.text = "Title 3"
+        self.menus.append(menu: Menu(
+            index: 0, type: .text, label: leftHeaderLabel, constraint: [],
+            styles: [
+                MenuStyle(thenIndexForLabel: 0, delay: 0.5, forward: 0.0, color: UIColor.white, constraint: []),
+                MenuStyle(thenIndexForLabel: 1, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: []),
+                MenuStyle(thenIndexForLabel: 2, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: []),
+                MenuStyle(thenIndexForLabel: 3, delay: 0.5, forward: 0.0, color: UIColor.black, constraint: []),
+            ]
+        ))
+        self.menus.append(menu: Menu(
+            index: 1, type: .text, label: centerHeaderLabel, constraint: [],
+            styles: [
+                MenuStyle(thenIndexForLabel: 0, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: []),
+                MenuStyle(thenIndexForLabel: 1, delay: 0.5, forward: 0.0, color: UIColor.white, constraint: []),
+                MenuStyle(thenIndexForLabel: 2, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: []),
+                MenuStyle(thenIndexForLabel: 3, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: []),
+            ]
+        ))
+        self.menus.append(menu: Menu(
+            index: 2, type: .text, label: rightHeaderLabel, constraint: [],
+            styles: [
+                MenuStyle(thenIndexForLabel: 0, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: []),
+                MenuStyle(thenIndexForLabel: 1, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: []),
+                MenuStyle(thenIndexForLabel: 2, delay: 0.5, forward: 0.0, color: UIColor.white, constraint: []),
+                MenuStyle(thenIndexForLabel: 3, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: []),
+            ]
+        ))
         
         // icon menu
         self.menus.append(menu: Menu(
