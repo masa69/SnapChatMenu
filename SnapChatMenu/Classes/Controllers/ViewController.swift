@@ -6,9 +6,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var bgView: TransparentView!
     
     // header
-    @IBOutlet weak var leftHeaderLabel: UILabel!
-    @IBOutlet weak var centerHeaderLabel: UILabel!
-    @IBOutlet weak var rightHeaderLabel: UILabel!
+    @IBOutlet weak var leftTitleLabel: UILabel!
+    @IBOutlet weak var leftTitleConstraint: NSLayoutConstraint!
+    @IBOutlet weak var centerTitleLabel: UILabel!
+    @IBOutlet weak var centerTitleConstraint: NSLayoutConstraint!
+    @IBOutlet weak var rightTitleLabel: UILabel!
+    @IBOutlet weak var rightTitleConstraint: NSLayoutConstraint!
+    @IBOutlet weak var rightSideTitleLabel: UILabel!
+    @IBOutlet weak var rightSideTitleConstraint: NSLayoutConstraint!
     
     // global menu
     @IBOutlet weak var leftView: TransparentView!
@@ -93,34 +98,50 @@ class ViewController: UIViewController {
         let centerMargin: CGFloat = self.view.frame.width / 2 - 110
         
         // header label
-        leftHeaderLabel.text = "Title 1"
-        centerHeaderLabel.text = "Title 2"
-        rightHeaderLabel.text = "Title 3"
+        leftTitleLabel.text = "Title 1"
+        centerTitleLabel.text = "Title 2"
+        rightTitleLabel.text = "Title 3"
+        rightSideTitleLabel.text = "Title 4"
+        
+        leftTitleLabel.font = UIFont(name: "AppleSDGothicNeo-Thin", size: 24.0)
+        centerTitleLabel.font = UIFont(name: "AppleSDGothicNeo-Thin", size: 24.0)
+        rightTitleLabel.font = UIFont(name: "AppleSDGothicNeo-Thin", size: 24.0)
+        rightSideTitleLabel.font = UIFont(name: "AppleSDGothicNeo-Thin", size: 24.0)
+        
         self.menus.append(menu: Menu(
-            index: 0, type: .text, label: leftHeaderLabel, constraint: [],
+            index: 0, type: .text, label: leftTitleLabel, constraint: [leftTitleConstraint],
             styles: [
-                MenuStyle(thenIndexForLabel: 0, delay: 0.5, forward: 0.0, color: UIColor.white, constraint: []),
-                MenuStyle(thenIndexForLabel: 1, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: []),
-                MenuStyle(thenIndexForLabel: 2, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: []),
-                MenuStyle(thenIndexForLabel: 3, delay: 0.5, forward: 0.0, color: UIColor.black, constraint: []),
+                MenuStyle(thenIndexForLabel: 0, delay: 0.5, forward: 0.0, color: UIColor.white, constraint: [0]),
+                MenuStyle(thenIndexForLabel: 1, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: [-20]),
+                MenuStyle(thenIndexForLabel: 2, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: [-20]),
+                MenuStyle(thenIndexForLabel: 3, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: [-20]),
             ]
         ))
         self.menus.append(menu: Menu(
-            index: 1, type: .text, label: centerHeaderLabel, constraint: [],
+            index: 1, type: .text, label: centerTitleLabel, constraint: [centerTitleConstraint],
             styles: [
-                MenuStyle(thenIndexForLabel: 0, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: []),
-                MenuStyle(thenIndexForLabel: 1, delay: 0.5, forward: 0.0, color: UIColor.white, constraint: []),
-                MenuStyle(thenIndexForLabel: 2, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: []),
-                MenuStyle(thenIndexForLabel: 3, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: []),
+                MenuStyle(thenIndexForLabel: 0, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: [-20]),
+                MenuStyle(thenIndexForLabel: 1, delay: 0.5, forward: 0.0, color: UIColor.white, constraint: [0]),
+                MenuStyle(thenIndexForLabel: 2, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: [-20]),
+                MenuStyle(thenIndexForLabel: 3, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: [-20]),
             ]
         ))
         self.menus.append(menu: Menu(
-            index: 2, type: .text, label: rightHeaderLabel, constraint: [],
+            index: 2, type: .text, label: rightTitleLabel, constraint: [rightTitleConstraint],
             styles: [
-                MenuStyle(thenIndexForLabel: 0, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: []),
-                MenuStyle(thenIndexForLabel: 1, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: []),
-                MenuStyle(thenIndexForLabel: 2, delay: 0.5, forward: 0.0, color: UIColor.white, constraint: []),
-                MenuStyle(thenIndexForLabel: 3, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: []),
+                MenuStyle(thenIndexForLabel: 0, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: [-20]),
+                MenuStyle(thenIndexForLabel: 1, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: [-20]),
+                MenuStyle(thenIndexForLabel: 2, delay: 0.5, forward: 0.0, color: UIColor.white, constraint: [0]),
+                MenuStyle(thenIndexForLabel: 3, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: [-20]),
+            ]
+        ))
+        self.menus.append(menu: Menu(
+            index: 0, type: .text, label: rightSideTitleLabel, constraint: [rightSideTitleConstraint],
+            styles: [
+                MenuStyle(thenIndexForLabel: 0, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: [-20]),
+                MenuStyle(thenIndexForLabel: 1, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: [-20]),
+                MenuStyle(thenIndexForLabel: 2, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: [-20]),
+                MenuStyle(thenIndexForLabel: 3, delay: 0.5, forward: 0.0, color: UIColor.black, constraint: [0]),
             ]
         ))
         
@@ -128,10 +149,10 @@ class ViewController: UIViewController {
         self.menus.append(menu: Menu(
             index: 0, type: .icon, iconName: "ic_chat_bubble", activeIconName: "ic_chat_bubble", view: leftView, constraint: [leftConstraint, leftBottomConstraint],
             styles: [
-                MenuStyle(thenIndex: 0, delay: 0.0, forward: 0.0, color: UIColor.lightGray, size: 24.0, constraint: [centerMargin, -12]),
-                MenuStyle(thenIndex: 1, delay: 0.0, forward: 0.0, color: UIColor.white, size: 30.0, constraint: [margin, -12]),
-                MenuStyle(thenIndex: 2, delay: 0.0, forward: 0.0, color: UIColor.lightGray, size: 24.0, constraint: [centerMargin, -12]),
-                MenuStyle(thenIndex: 3, delay: 0.0, forward: 0.0, color: UIColor.lightGray, size: 24.0, constraint: [centerMargin, 100]),
+                MenuStyle(thenIndex: 0, delay: 0.0, forward: 0.0, color: UIColor.lightGray, size: 24.0, constraint: [centerMargin, margin]),
+                MenuStyle(thenIndex: 1, delay: 0.0, forward: 0.0, color: UIColor.white, size: 30.0, constraint: [margin, margin]),
+                MenuStyle(thenIndex: 2, delay: 0.0, forward: 0.0, color: UIColor.lightGray, size: 24.0, constraint: [centerMargin, margin]),
+                MenuStyle(thenIndex: 3, delay: 0.0, forward: 0.0, color: UIColor.lightGray, size: 24.0, constraint: [centerMargin, -100]),
             ]
         ))
         self.menus.append(menu: Menu(
@@ -146,9 +167,9 @@ class ViewController: UIViewController {
         self.menus.append(menu: Menu(
             index: 2, type: .icon, iconName: "ic_bubble_chart", activeIconName: "ic_bubble_chart", view: rightView, constraint: [rightConstraint, rightBottomConstraint],
             styles: [
-                MenuStyle(thenIndex: 0, delay: 0.0, forward: 0.0, color: UIColor.lightGray, size: 24.0, constraint: [centerMargin, 12]),
-                MenuStyle(thenIndex: 1, delay: 0.0, forward: 0.0, color: UIColor.white,size: 30.0, constraint: [margin, 12]),
-                MenuStyle(thenIndex: 2, delay: 0.0, forward: 0.0, color: UIColor.lightGray, size: 24.0, constraint: [centerMargin, 12]),
+                MenuStyle(thenIndex: 0, delay: 0.0, forward: 0.0, color: UIColor.lightGray, size: 24.0, constraint: [centerMargin, margin]),
+                MenuStyle(thenIndex: 1, delay: 0.0, forward: 0.0, color: UIColor.white,size: 30.0, constraint: [margin, margin]),
+                MenuStyle(thenIndex: 2, delay: 0.0, forward: 0.0, color: UIColor.lightGray, size: 24.0, constraint: [centerMargin, margin]),
                 MenuStyle(thenIndex: 3, delay: 0.0, forward: 0.0, color: UIColor.lightGray, size: 24.0, constraint: [centerMargin, -100]),
             ]
         ))
