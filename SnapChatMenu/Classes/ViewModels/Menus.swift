@@ -18,6 +18,8 @@ class Menus {
     
     func append(menu: Menu) {
         
+        menu.setFirstIndex(index: self.firstIndex)
+        
         for style in menu.styles {
             
             switch menu.type {

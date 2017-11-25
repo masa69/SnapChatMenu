@@ -31,10 +31,9 @@ class Menu {
     }
     
     private var storeProgress: CGFloat = 0
-    // 最初に表示する index を設定する
-    private var storeFrom: Int = 1
-    // 最初に表示する index を設定する
-    private var storeTo: Int = 1
+    // Menus.append(menu: Menu) 時に Menu.setFirstIndex(index: Int) を呼び出す
+    private var storeFrom: Int = 0
+    private var storeTo: Int = 0
     
     
     enum MenuType {
@@ -103,6 +102,12 @@ class Menu {
         self.styles = styles
         
         self.key = ""
+    }
+    
+    
+    func setFirstIndex(index: Int) {
+        self.storeFrom = index
+        self.storeTo = index
     }
     
     
