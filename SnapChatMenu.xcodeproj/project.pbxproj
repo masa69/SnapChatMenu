@@ -737,9 +737,9 @@
 				INFOPLIST_FILE = SnapChatMenu/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = net.masa69.SnapChatMenu;
+				PRODUCT_BUNDLE_IDENTIFIER = com.psychedelicnekopunch.SnapChatMenu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3f906ec3-dd92-47ab-aadb-111d22e0de38";
+				PROVISIONING_PROFILE = "1622d8da-2ce0-43ea-8cfb-48f38beac160";
 				PROVISIONING_PROFILE_SPECIFIER = SnapChatMenu;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -757,7 +757,7 @@
 				INFOPLIST_FILE = SnapChatMenu/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = net.masa69.SnapChatMenu;
+				PRODUCT_BUNDLE_IDENTIFIER = com.psychedelicnekopunch.SnapChatMenu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "3f906ec3-dd92-47ab-aadb-111d22e0de38";
 				PROVISIONING_PROFILE_SPECIFIER = SnapChatMenu;
