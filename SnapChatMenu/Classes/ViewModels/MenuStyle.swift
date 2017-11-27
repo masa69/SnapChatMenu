@@ -11,6 +11,8 @@ class MenuStyle {
     
     var color: UIColor
     
+    var border: Border
+    
     var size: CGFloat
     
     var constraint: [CGFloat]
@@ -26,6 +28,12 @@ class MenuStyle {
     private var parentLabel: UILabel?
     
     
+    enum Border {
+        case none
+        case shadow
+    }
+    
+    
     init(thenIndex: Int, delay: CGFloat, forward: CGFloat, color: UIColor, size: CGFloat, constraint: [CGFloat]) {
         
         self.thenIndex = thenIndex
@@ -36,10 +44,30 @@ class MenuStyle {
         
         self.color = color
         
+        self.border = .none
+        
         self.size = size
         
         self.constraint = constraint
     }
+    
+    init(thenIndex: Int, delay: CGFloat, forward: CGFloat, color: UIColor, border: Border, size: CGFloat, constraint: [CGFloat]) {
+        
+        self.thenIndex = thenIndex
+        
+        self.delay = delay
+        
+        self.forward = forward
+        
+        self.color = color
+        
+        self.border = border
+        
+        self.size = size
+        
+        self.constraint = constraint
+    }
+    
     
     // label用
     init(thenIndexForLabel thenIndex: Int, delay: CGFloat, forward: CGFloat, color: UIColor, constraint: [CGFloat]) {
@@ -52,6 +80,25 @@ class MenuStyle {
         
         self.color = color
         
+        self.border = .none
+        
+        self.size = 0
+        
+        self.constraint = constraint
+    }
+    
+    init(thenIndexForLabel thenIndex: Int, delay: CGFloat, forward: CGFloat, color: UIColor, border: Border, constraint: [CGFloat]) {
+        
+        self.thenIndex = thenIndex
+        
+        self.delay = delay
+        
+        self.forward = forward
+        
+        self.color = color
+        
+        self.border = border
+        
         self.size = 0
         
         self.constraint = constraint
@@ -63,6 +110,13 @@ class MenuStyle {
         self.imageView?.contentMode = .scaleAspectFill
         self.imageView?.alpha = 0
         self.imageView?.tintColor = self.color
+        
+        if self.border == .shadow {
+            self.imageView?.layer.shadowColor = UIColor.black.cgColor
+            self.imageView?.layer.shadowRadius = 1.0
+            self.imageView?.layer.shadowOffset = CGSize(width: 0, height: 0)
+            self.imageView?.layer.shadowOpacity = 0.3
+        }
         
         self.updateIconSize(view: view, size: self.size)
         
@@ -77,6 +131,13 @@ class MenuStyle {
         self.activeImageView?.contentMode = .scaleAspectFill
         self.activeImageView?.alpha = 0
         self.activeImageView?.tintColor = UIColor.red
+        
+        if self.border == .shadow {
+            self.activeImageView?.layer.shadowColor = UIColor.black.cgColor
+            self.activeImageView?.layer.shadowRadius = 1.0
+            self.activeImageView?.layer.shadowOffset = CGSize(width: 0, height: 0)
+            self.activeImageView?.layer.shadowOpacity = 0.3
+        }
         
         self.updateIconSize(view: view, size: self.size)
         
@@ -122,6 +183,14 @@ class MenuStyle {
         self.label?.text = label.text
         self.label?.textColor = self.color
         self.label?.alpha = 0
+        
+        if self.border == .shadow {
+            self.label?.layer.shadowColor = UIColor.black.cgColor
+            self.label?.layer.shadowRadius = 1.0
+            self.label?.layer.shadowOffset = CGSize(width: 0, height: 0)
+            self.label?.layer.shadowOpacity = 0.3
+        }
+        
         self.updateLabel()
         if let l: UIView = self.label {
             label.addSubview(l)
