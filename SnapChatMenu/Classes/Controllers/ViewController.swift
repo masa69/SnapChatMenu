@@ -121,7 +121,7 @@ class ViewController: UIViewController {
             index: 1, type: .text, label: centerTitleLabel, constraint: [centerTitleConstraint],
             styles: [
                 MenuStyle(thenIndexForLabel: 0, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: [-20]),
-                MenuStyle(thenIndexForLabel: 1, delay: 0.5, forward: 0.0, color: UIColor.white, constraint: [0]),
+                MenuStyle(thenIndexForLabel: 1, delay: 0.5, forward: 0.0, color: UIColor.white, border: .shadow, constraint: [0]),
                 MenuStyle(thenIndexForLabel: 2, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: [-20]),
                 MenuStyle(thenIndexForLabel: 3, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: [-20]),
             ]
@@ -150,7 +150,7 @@ class ViewController: UIViewController {
             index: 0, type: .icon, iconName: "ic_chat_bubble", activeIconName: "ic_chat_bubble", view: leftView, constraint: [leftConstraint, leftBottomConstraint],
             styles: [
                 MenuStyle(thenIndex: 0, delay: 0.0, forward: 0.0, color: UIColor.lightGray, size: 24.0, constraint: [centerMargin, margin]),
-                MenuStyle(thenIndex: 1, delay: 0.0, forward: 0.0, color: UIColor.white, size: 30.0, constraint: [margin, margin]),
+                MenuStyle(thenIndex: 1, delay: 0.0, forward: 0.0, color: UIColor.white, border: .shadow, size: 30.0, constraint: [margin, margin]),
                 MenuStyle(thenIndex: 2, delay: 0.0, forward: 0.0, color: UIColor.lightGray, size: 24.0, constraint: [centerMargin, margin]),
                 MenuStyle(thenIndex: 3, delay: 0.0, forward: 0.0, color: UIColor.lightGray, size: 24.0, constraint: [centerMargin, -100]),
             ]
@@ -159,7 +159,7 @@ class ViewController: UIViewController {
             index: 1, type: .icon, iconName: "ic_panorama_fish_eye_48pt", activeIconName: "ic_insert_emoticon", view: centerView, constraint: [centerConstraint],
             styles: [
                 MenuStyle(thenIndex: 0, delay: 0.0, forward: 0.0, color: UIColor.lightGray, size: 75.0, constraint: [margin]),
-                MenuStyle(thenIndex: 1, delay: 0.0, forward: 0.0, color: UIColor.white, size: 115.0, constraint: [margin + 50]),
+                MenuStyle(thenIndex: 1, delay: 0.0, forward: 0.0, color: UIColor.white, border: .shadow, size: 115.0, constraint: [margin + 50]),
                 MenuStyle(thenIndex: 2, delay: 0.0, forward: 0.0, color: UIColor.lightGray, size: 75.0, constraint: [margin]),
                 MenuStyle(thenIndex: 3, delay: 0.0, forward: 0.0, color: UIColor.lightGray, size: 75.0, constraint: [margin - 180]),
             ]
@@ -168,7 +168,7 @@ class ViewController: UIViewController {
             index: 2, type: .icon, iconName: "ic_bubble_chart", activeIconName: "ic_bubble_chart", view: rightView, constraint: [rightConstraint, rightBottomConstraint],
             styles: [
                 MenuStyle(thenIndex: 0, delay: 0.0, forward: 0.0, color: UIColor.lightGray, size: 24.0, constraint: [centerMargin, margin]),
-                MenuStyle(thenIndex: 1, delay: 0.0, forward: 0.0, color: UIColor.white,size: 30.0, constraint: [margin, margin]),
+                MenuStyle(thenIndex: 1, delay: 0.0, forward: 0.0, color: UIColor.white, border: .shadow,size: 30.0, constraint: [margin, margin]),
                 MenuStyle(thenIndex: 2, delay: 0.0, forward: 0.0, color: UIColor.lightGray, size: 24.0, constraint: [centerMargin, margin]),
                 MenuStyle(thenIndex: 3, delay: 0.0, forward: 0.0, color: UIColor.lightGray, size: 24.0, constraint: [centerMargin, -100]),
             ]
