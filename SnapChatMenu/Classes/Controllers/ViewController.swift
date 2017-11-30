@@ -147,7 +147,7 @@ class ViewController: UIViewController {
         
         // icon menu
         self.menus.append(menu: Menu(
-            index: 0, type: .icon, iconName: "ic_chat_bubble", activeIconName: "ic_chat_bubble", view: leftView, constraint: [leftConstraint, leftBottomConstraint],
+            index: 0, key: "leftMenu", type: .icon, iconName: "ic_chat_bubble", activeIconName: "ic_chat_bubble", view: leftView, constraint: [leftConstraint, leftBottomConstraint],
             styles: [
                 MenuStyle(thenIndex: 0, delay: 0.0, forward: 0.0, color: UIColor.lightGray, size: 24.0, constraint: [centerMargin, margin]),
                 MenuStyle(thenIndex: 1, delay: 0.0, forward: 0.0, color: UIColor.white, border: .shadow, size: 30.0, constraint: [margin, margin]),
@@ -156,7 +156,7 @@ class ViewController: UIViewController {
             ]
         ))
         self.menus.append(menu: Menu(
-            index: 1, type: .icon, iconName: "ic_panorama_fish_eye_48pt", activeIconName: "ic_insert_emoticon", view: centerView, constraint: [centerConstraint],
+            index: 1, type: .icon, iconName: "record", activeIconName: "record", view: centerView, constraint: [centerConstraint],
             styles: [
                 MenuStyle(thenIndex: 0, delay: 0.0, forward: 0.0, color: UIColor.lightGray, size: 75.0, constraint: [margin]),
                 MenuStyle(thenIndex: 1, delay: 0.0, forward: 0.0, color: UIColor.white, border: .shadow, size: 115.0, constraint: [margin + 50]),
@@ -165,7 +165,7 @@ class ViewController: UIViewController {
             ]
         ))
         self.menus.append(menu: Menu(
-            index: 2, type: .icon, iconName: "ic_bubble_chart", activeIconName: "ic_bubble_chart", view: rightView, constraint: [rightConstraint, rightBottomConstraint],
+            index: 2, key: "rightMenu", type: .icon, iconName: "ic_bubble_chart", activeIconName: "ic_bubble_chart", view: rightView, constraint: [rightConstraint, rightBottomConstraint],
             styles: [
                 MenuStyle(thenIndex: 0, delay: 0.0, forward: 0.0, color: UIColor.lightGray, size: 24.0, constraint: [centerMargin, margin]),
                 MenuStyle(thenIndex: 1, delay: 0.0, forward: 0.0, color: UIColor.white, border: .shadow,size: 30.0, constraint: [margin, margin]),
@@ -215,28 +215,34 @@ class ViewController: UIViewController {
         let vc2: ThirdViewController = self.pvc.getVc(index: 2) as! ThirdViewController
         
         vc0.controlMenuCallback = {
-            self.debugInactive(index: 0)
+            self.inactive(index: 0)
         }
         vc2.controlMenuCallback = {
-            self.debugInactive(index: 2)
+            self.inactive(index: 2)
         }
     }
     
     
-    private func debugActive(index: Int) {
+    private func active(index: Int) {
         if let i: Int = self.pvc.currentIndex() {
             if i != index {
                 self.menus.active(index: index)
             }
         }
+        if self.pvc.currentVc == .second {
+            self.menus.active(index: index)
+        }
     }
     
     
-    private func debugInactive(index: Int) {
+    private func inactive(index: Int) {
         if let i: Int = self.pvc.currentIndex() {
             if i == index {
                 self.menus.inactive(index: index)
             }
+        }
+        if self.pvc.currentVc == .second {
+            self.menus.inactive(index: index)
         }
     }
     
@@ -256,21 +262,23 @@ class ViewController: UIViewController {
     }
     
     @objc func onDebugLeftButton(_ sender: UIButton) {
-        self.debugActive(index: 0)
+        self.active(index: 0)
     }
     
     @objc func onDebugRightButton(_ sender: UIButton) {
-        self.debugActive(index: 2)
+        self.active(index: 2)
     }
     
     @objc func onPressingCenterButton(_ sender: UIButton) {
         switch sender.state.rawValue {
         case 1:// start
-            self.debugActive(index: 1)
+            print("pressing start")
+            self.active(index: 1)
         case 2:// pressing
             break
         case 3:// end
-            break
+            print("pressing end")
+            self.inactive(index: 1)
         default:
             break
         }

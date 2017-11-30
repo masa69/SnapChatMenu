@@ -3,7 +3,7 @@ import UIKit
 
 class Menu {
     
-    var key: String
+    private var key: String
     
     var index: Int
     
@@ -21,12 +21,18 @@ class Menu {
     
     var styles: [MenuStyle] = [MenuStyle]()
     
+    private var statusKey: String {
+        get {
+            return (self.key == "") ? "" : "Menu.status_\(self.key)"
+        }
+    }
+    
     var status: MenuStatus = .normal {
         didSet {
-            if self.key != "" {
-                UserDefaults.standard.set(self.status.hashValue, forKey: self.key)
-                self.action(progress: self.storeProgress, from: self.storeFrom, to: self.storeTo)
+            if self.statusKey != "" {
+                UserDefaults.standard.set(self.status.hashValue, forKey: self.statusKey)
             }
+            self.action(progress: self.storeProgress, from: self.storeFrom, to: self.storeTo)
         }
     }
     
@@ -67,17 +73,41 @@ class Menu {
         
         self.styles = styles
         
-        self.key = "Menu.status_\(self.iconName)_\(self.index)"
+        self.key = ""
+    }
+    
+    
+    init(index: Int, key: String, type: MenuType, iconName: String, activeIconName: String, view: UIView, constraint: [NSLayoutConstraint], styles: [MenuStyle]) {
         
-        if UserDefaults.standard.object(forKey: self.key) != nil {
-            let i: Int = UserDefaults.standard.integer(forKey: self.key)
-            switch i {
-            case 0:
-                self.status = .normal
-            case 1:
-                self.status = .active
-            default:
-                break
+        self.index = index
+        
+        self.type = type
+        
+        self.iconName = iconName
+        
+        self.activeIconName = activeIconName
+        
+        self.label = UILabel()
+        
+        self.view = view
+        
+        self.constraint = constraint
+        
+        self.styles = styles
+        
+        self.key = key
+        
+        if self.statusKey != "" {
+            if UserDefaults.standard.object(forKey: self.statusKey) != nil {
+                let i: Int = UserDefaults.standard.integer(forKey: self.statusKey)
+                switch i {
+                case 0:
+                    self.status = .normal
+                case 1:
+                    self.status = .active
+                default:
+                    break
+                }
             }
         }
     }
