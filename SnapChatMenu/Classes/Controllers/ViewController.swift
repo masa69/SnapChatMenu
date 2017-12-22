@@ -230,12 +230,14 @@ class ViewController: UIViewController {
         let vc0: FirstViewController = self.pvc.getVc(index: 0) as! FirstViewController
         let vc2: ThirdViewController = self.pvc.getVc(index: 2) as! ThirdViewController
         
-        vc0.controlMenuCallback = {
+        vc0.viewDidAppearCallback = {
             self.inactive(index: 0)
         }
-        vc2.controlMenuCallback = {
+        
+        vc2.viewDidAppearCallback = {
             self.inactive(index: 2)
         }
+        
     }
     
     
