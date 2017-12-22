@@ -17,9 +17,9 @@ class MenuStyle {
     
     var constraint: [CGFloat]
     
-    var imageView: UIImageView?
+    var imageView: UIView?
     
-    var activeImageView: UIImageView?
+    var activeImageView: UIView?
     
     var view: UIView?
     
@@ -106,10 +106,11 @@ class MenuStyle {
     
     
     func setImage(view: UIView, named: String) {
-        self.imageView = UIImageView(image: UIImage(named: named)?.withRenderingMode(.alwaysTemplate))
-        self.imageView?.contentMode = .scaleAspectFill
+        
+        let image: UIImage? = UIImage(named: named)
+        self.imageView = UIView(frame: view.frame)
         self.imageView?.alpha = 0
-        self.imageView?.tintColor = self.color
+        self.imageView?.layer.contents = image?.tint(color: self.color).cgImage
         
         if self.border == .shadow {
             self.imageView?.layer.shadowColor = UIColor.black.cgColor
@@ -127,10 +128,11 @@ class MenuStyle {
     
     
     func setActiveImage(view: UIView, named: String) {
-        self.activeImageView = UIImageView(image: UIImage(named: named)?.withRenderingMode(.alwaysTemplate))
-        self.activeImageView?.contentMode = .scaleAspectFill
+        
+        let image: UIImage? = UIImage(named: named)
+        self.activeImageView = UIView(frame: view.frame)
         self.activeImageView?.alpha = 0
-        self.activeImageView?.tintColor = UIColor.red
+        self.activeImageView?.layer.contents = image?.tint(color: UIColor.red).cgImage
         
         if self.border == .shadow {
             self.activeImageView?.layer.shadowColor = UIColor.black.cgColor
