@@ -111,6 +111,7 @@ class MenuStyle {
         self.imageView = UIView(frame: view.frame)
         self.imageView?.alpha = 0
         self.imageView?.layer.contents = image?.tint(color: self.color).cgImage
+        self.imageView?.isUserInteractionEnabled = false
         
         if self.border == .shadow {
             self.imageView?.layer.shadowColor = UIColor.black.cgColor
@@ -133,6 +134,7 @@ class MenuStyle {
         self.activeImageView = UIView(frame: view.frame)
         self.activeImageView?.alpha = 0
         self.activeImageView?.layer.contents = image?.tint(color: UIColor.red).cgImage
+        self.activeImageView?.isUserInteractionEnabled = false
         
         if self.border == .shadow {
             self.activeImageView?.layer.shadowColor = UIColor.black.cgColor
