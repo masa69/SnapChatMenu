@@ -3,7 +3,7 @@ import UIKit
 
 class FirstViewController: UIViewController {
     
-    var controlMenuCallback: (() -> Void)?
+    var viewDidAppearCallback: (() -> Void)?
     
     
     override func viewDidLoad() {
@@ -17,7 +17,7 @@ class FirstViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.controlMenuCallback?()
+        self.viewDidAppearCallback?()
     }
     
 }

@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		04027D291FAD6918000F410B /* TransparentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04027D281FAD6918000F410B /* TransparentView.swift */; };
 		04027D2B1FAD6BFF000F410B /* HeadlineLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04027D2A1FAD6BFF000F410B /* HeadlineLabel.swift */; };
-		04027D2D1FAD8528000F410B /* CGFloatExtenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04027D2C1FAD8528000F410B /* CGFloatExtenstion.swift */; };
+		04027D2D1FAD8528000F410B /* CGFloatExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04027D2C1FAD8528000F410B /* CGFloatExtension.swift */; };
 		04027D301FADA3EC000F410B /* Menus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04027D2F1FADA3EC000F410B /* Menus.swift */; };
 		04027D321FADA43C000F410B /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04027D311FADA43C000F410B /* Menu.swift */; };
-		04027D341FADC3A5000F410B /* TransparentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04027D331FADC3A5000F410B /* TransparentButton.swift */; };
+		04027D341FADC3A5000F410B /* DefaultButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04027D331FADC3A5000F410B /* DefaultButton.swift */; };
 		04027D361FADC4FD000F410B /* MenuStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04027D351FADC4FD000F410B /* MenuStyle.swift */; };
 		04027D3A1FB04324000F410B /* MainBackgroundColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04027D391FB04324000F410B /* MainBackgroundColors.swift */; };
 		04027D3C1FB0443D000F410B /* MainBackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04027D3B1FB0443D000F410B /* MainBackgroundColor.swift */; };
@@ -32,7 +32,9 @@
 		046D773A1FA4E4B90094A835 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046D77391FA4E4B90094A835 /* SecondViewController.swift */; };
 		046D773C1FA4E4C30094A835 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046D773B1FA4E4C30094A835 /* ThirdViewController.swift */; };
 		046D77401FA4E6660094A835 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046D773F1FA4E6660094A835 /* UIColorExtension.swift */; };
+		049C89931FECC8CF007A967B /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049C89921FECC8CF007A967B /* UIImageExtension.swift */; };
 		04A854481FB06CDB0042C383 /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A854471FB06CDB0042C383 /* FourthViewController.swift */; };
+		04CF21941FECAB5000BB8A8D /* TransparentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CF21931FECAB5000BB8A8D /* TransparentButton.swift */; };
 		255EA4F0D2061650E66B201C /* Pods_SnapChatMenuTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B72A1F6A4DBB613F2C40B5A /* Pods_SnapChatMenuTests.framework */; };
 		EC14098CB8511E062D387027 /* Pods_SnapChatMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF39F29900B68BD9CB1B3B86 /* Pods_SnapChatMenu.framework */; };
 		FF1BD23A54BE47DA4CF2295D /* Pods_SnapChatMenuUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ED4C51073EAF72865F6641C /* Pods_SnapChatMenuUITests.framework */; };
@@ -58,10 +60,10 @@
 /* Begin PBXFileReference section */
 		04027D281FAD6918000F410B /* TransparentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentView.swift; sourceTree = "<group>"; };
 		04027D2A1FAD6BFF000F410B /* HeadlineLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlineLabel.swift; sourceTree = "<group>"; };
-		04027D2C1FAD8528000F410B /* CGFloatExtenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloatExtenstion.swift; sourceTree = "<group>"; };
+		04027D2C1FAD8528000F410B /* CGFloatExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloatExtension.swift; sourceTree = "<group>"; };
 		04027D2F1FADA3EC000F410B /* Menus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menus.swift; sourceTree = "<group>"; };
 		04027D311FADA43C000F410B /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
-		04027D331FADC3A5000F410B /* TransparentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentButton.swift; sourceTree = "<group>"; };
+		04027D331FADC3A5000F410B /* DefaultButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultButton.swift; sourceTree = "<group>"; };
 		04027D351FADC4FD000F410B /* MenuStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuStyle.swift; sourceTree = "<group>"; };
 		04027D391FB04324000F410B /* MainBackgroundColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBackgroundColors.swift; sourceTree = "<group>"; };
 		04027D3B1FB0443D000F410B /* MainBackgroundColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBackgroundColor.swift; sourceTree = "<group>"; };
@@ -87,7 +89,9 @@
 		046D77391FA4E4B90094A835 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		046D773B1FA4E4C30094A835 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		046D773F1FA4E6660094A835 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		049C89921FECC8CF007A967B /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		04A854471FB06CDB0042C383 /* FourthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
+		04CF21931FECAB5000BB8A8D /* TransparentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentButton.swift; sourceTree = "<group>"; };
 		1B72A1F6A4DBB613F2C40B5A /* Pods_SnapChatMenuTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SnapChatMenuTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F06976CE9A7AC6BB3AEB527 /* Pods-SnapChatMenuUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapChatMenuUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SnapChatMenuUITests/Pods-SnapChatMenuUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		26E20DFCD1C8FE512047DC8C /* Pods-SnapChatMenuTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapChatMenuTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SnapChatMenuTests/Pods-SnapChatMenuTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -130,13 +134,14 @@
 		04027D251FAD678F000F410B /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				04027D331FADC3A5000F410B /* DefaultButton.swift */,
 				04027D2A1FAD6BFF000F410B /* HeadlineLabel.swift */,
 				04027D3B1FB0443D000F410B /* MainBackgroundColor.swift */,
 				04027D391FB04324000F410B /* MainBackgroundColors.swift */,
 				04027D311FADA43C000F410B /* Menu.swift */,
 				04027D351FADC4FD000F410B /* MenuStyle.swift */,
 				04027D2F1FADA3EC000F410B /* Menus.swift */,
-				04027D331FADC3A5000F410B /* TransparentButton.swift */,
+				04CF21931FECAB5000BB8A8D /* TransparentButton.swift */,
 				04027D281FAD6918000F410B /* TransparentView.swift */,
 			);
 			path = ViewModels;
@@ -223,8 +228,9 @@
 		046D773D1FA4E5D60094A835 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				04027D2C1FAD8528000F410B /* CGFloatExtenstion.swift */,
+				04027D2C1FAD8528000F410B /* CGFloatExtension.swift */,
 				046D773F1FA4E6660094A835 /* UIColorExtension.swift */,
+				049C89921FECC8CF007A967B /* UIImageExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -546,18 +552,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04CF21941FECAB5000BB8A8D /* TransparentButton.swift in Sources */,
 				046D772F1FA4E33F0094A835 /* PageViewController.swift in Sources */,
-				04027D2D1FAD8528000F410B /* CGFloatExtenstion.swift in Sources */,
+				04027D2D1FAD8528000F410B /* CGFloatExtension.swift in Sources */,
 				04027D301FADA3EC000F410B /* Menus.swift in Sources */,
 				046D77401FA4E6660094A835 /* UIColorExtension.swift in Sources */,
 				046D77021FA36BA10094A835 /* ViewController.swift in Sources */,
 				046D77001FA36BA10094A835 /* AppDelegate.swift in Sources */,
 				046D773A1FA4E4B90094A835 /* SecondViewController.swift in Sources */,
-				04027D341FADC3A5000F410B /* TransparentButton.swift in Sources */,
+				04027D341FADC3A5000F410B /* DefaultButton.swift in Sources */,
 				046D773C1FA4E4C30094A835 /* ThirdViewController.swift in Sources */,
 				04027D321FADA43C000F410B /* Menu.swift in Sources */,
 				04027D361FADC4FD000F410B /* MenuStyle.swift in Sources */,
 				04A854481FB06CDB0042C383 /* FourthViewController.swift in Sources */,
+				049C89931FECC8CF007A967B /* UIImageExtension.swift in Sources */,
 				04027D3C1FB0443D000F410B /* MainBackgroundColor.swift in Sources */,
 				04027D291FAD6918000F410B /* TransparentView.swift in Sources */,
 				046D77381FA4E4AD0094A835 /* FirstViewController.swift in Sources */,
