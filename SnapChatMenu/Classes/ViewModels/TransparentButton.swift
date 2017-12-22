@@ -1,12 +1,7 @@
 
 import UIKit
 
-class TransparentButton: UIButton {
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.afterInit()
-    }
+class TransparentButton: DefaultButton {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -17,5 +12,5 @@ class TransparentButton: UIButton {
         self.setTitle("", for: .normal)
         self.backgroundColor = UIColor.clear
     }
-    
+
 }

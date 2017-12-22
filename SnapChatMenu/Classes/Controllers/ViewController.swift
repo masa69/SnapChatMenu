@@ -38,8 +38,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var rightBarConstraint: NSLayoutConstraint!
     
     // debug button
-    @IBOutlet weak var debugLeftButton: UIButton!
-    @IBOutlet weak var debugRightButton: UIButton!
+    @IBOutlet weak var debugLeftButton: DefaultButton!
+    @IBOutlet weak var debugRightButton: DefaultButton!
     
     
     var pvc: PageViewController!
@@ -195,9 +195,17 @@ class ViewController: UIViewController {
             ]
         ))
         
-        leftButton.addTarget(self, action: #selector(self.onLeftButton(_:)), for: .touchDown)
-        centerButton.addTarget(self, action: #selector(self.onCenterButton(_:)), for: .touchDown)
-        rightButton.addTarget(self, action: #selector(self.onRightButton(_:)), for: .touchDown)
+        leftButton.touchDown = {
+            self.pvc.onMenuButton(index: 0)
+        }
+        
+        centerButton.touchDown = {
+            self.pvc.onMenuButton(index: 1)
+        }
+        
+        rightButton.touchDown = {
+            self.pvc.onMenuButton(index: 2)
+        }
         
         // 長押し
         centerButton.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(self.onPressingCenterButton(_:))))
@@ -205,8 +213,15 @@ class ViewController: UIViewController {
     
     
     private func initDebugButton() {
-        debugLeftButton.addTarget(self, action: #selector(self.onDebugLeftButton(_:)), for: .touchDown)
-        debugRightButton.addTarget(self, action: #selector(self.onDebugRightButton(_:)), for: .touchDown)
+        
+        debugLeftButton.touchDown = {
+            self.active(index: 0)
+        }
+        
+        debugRightButton.touchDown = {
+            self.active(index: 2)
+        }
+        
     }
     
     
@@ -248,27 +263,7 @@ class ViewController: UIViewController {
     }
     
     
-    // MARK: - Target Button
-    
-    @objc func onLeftButton(_ sender: UIButton) {
-        self.pvc.onMenuButton(index: 0)
-    }
-    
-    @objc func onCenterButton(_ sender: UIButton) {
-        self.pvc.onMenuButton(index: 1)
-    }
-    
-    @objc func onRightButton(_ sender: UIButton) {
-        self.pvc.onMenuButton(index: 2)
-    }
-    
-    @objc func onDebugLeftButton(_ sender: UIButton) {
-        self.active(index: 0)
-    }
-    
-    @objc func onDebugRightButton(_ sender: UIButton) {
-        self.active(index: 2)
-    }
+    // MARK: - Gesture Recognizer
     
     @objc func onPressingCenterButton(_ sender: UIButton) {
         switch sender.state.rawValue {
