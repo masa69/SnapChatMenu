@@ -1,13 +1,13 @@
 
 import UIKit
 
-class Menus {
+class PVCAnimations {
     
     private var view: UIView = UIView()
     
     private var firstIndex: Int = 0
     
-    private var lists: [Menu] = [Menu]()
+    private var lists: [PVCAnimation] = [PVCAnimation]()
     
     
     init(parentView: UIView, index: Int) {
@@ -16,25 +16,25 @@ class Menus {
     }
     
     
-    func append(menu: Menu) {
+    func append(animation: PVCAnimation) {
         
-        menu.setFirstIndex(index: self.firstIndex)
+        animation.setFirstIndex(index: self.firstIndex)
         
-        for style in menu.styles {
+        for style in animation.styles {
             
-            switch menu.type {
+            switch animation.type {
             case .icon:
-                style.setImage(view: menu.view, named: menu.iconName)
-                style.setActiveImage(view: menu.view, named: menu.activeIconName)
+                style.setImage(view: animation.view, named: animation.iconName)
+                style.setActiveImage(view: animation.view, named: animation.activeIconName)
             case .bar:
-                style.setBar(view: menu.view)
+                style.setBar(view: animation.view)
             case .text:
-                style.setText(label: menu.label)
+                style.setText(label: animation.label)
             }
             
             if self.firstIndex == style.thenIndex {
                 
-                switch menu.status {
+                switch animation.status {
                 case .normal:
                     style.imageView?.alpha = 1
                 case .active:
@@ -44,13 +44,13 @@ class Menus {
                 style.view?.alpha = 1
                 style.label?.alpha = 1
                 
-                for (i, constraint) in menu.constraint.enumerated() {
+                for (i, constraint) in animation.constraint.enumerated() {
                     constraint.constant = style.constraint[i]
                 }
                 self.view.layoutIfNeeded()
             }
         }
-        self.lists.append(menu)
+        self.lists.append(animation)
     }
     
     

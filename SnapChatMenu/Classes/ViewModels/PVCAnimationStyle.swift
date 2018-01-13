@@ -1,7 +1,7 @@
 
 import UIKit
 
-class MenuStyle {
+class PVCAnimationStyle {
     
     var thenIndex: Int
     

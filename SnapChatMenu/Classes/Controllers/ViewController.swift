@@ -44,9 +44,9 @@ class ViewController: UIViewController {
     
     var pvc: PageViewController!
     
-    var menus: Menus!
+    var animations: PVCAnimations!
     
-    var bgViews: MainBackgroundColors?
+    var bgAnimations: PVCBackgroundAnimations?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,11 +55,11 @@ class ViewController: UIViewController {
         
         self.pvc = self.childViewControllers[0] as! PageViewController
         self.pvc.scrolling = { (progress: CGFloat, from: Int, to: Int) in
-            self.bgViews?.action(progress: progress, from: from, to: to)
-            self.menus.action(progress: progress, from: from, to: to)
+            self.bgAnimations?.action(progress: progress, from: from, to: to)
+            self.animations.action(progress: progress, from: from, to: to)
         }
         if let currentIndex: Int = self.pvc.currentIndex() {
-            self.initMenu(currentIndex: currentIndex)
+            self.initPVCAnimation(currentIndex: currentIndex)
         }
         
         self.initDebugButton()
@@ -75,14 +75,14 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if let currentIndex: Int = self.pvc.currentIndex() {
-            self.initMainBg(currentIndex: currentIndex)
+            self.initPVCBackgroundAnimation(currentIndex: currentIndex)
         }
     }
     
     
-    private func initMainBg(currentIndex: Int) {
-        self.bgViews = MainBackgroundColors(parentView: bgView)
-        if let bgs: MainBackgroundColors = self.bgViews {
+    private func initPVCBackgroundAnimation(currentIndex: Int) {
+        self.bgAnimations = PVCBackgroundAnimations(parentView: bgView)
+        if let bgs: PVCBackgroundAnimations = self.bgAnimations {
             bgs.append(index: 0, color: bgs.red)
             bgs.append(index: 2, color: bgs.green)
             bgs.append(index: 3, color: bgs.green)
@@ -90,9 +90,9 @@ class ViewController: UIViewController {
     }
     
     // index: 0 - 2
-    private func initMenu(currentIndex: Int) {
+    private func initPVCAnimation(currentIndex: Int) {
         
-        self.menus = Menus(parentView: self.view, index: currentIndex)
+        self.animations = PVCAnimations(parentView: self.view, index: currentIndex)
         
         let margin: CGFloat = 12
         let centerMarginAjust: CGFloat = self.view.frame.width / 2 * 0.6
@@ -109,89 +109,89 @@ class ViewController: UIViewController {
         rightTitleLabel.font = UIFont(name: "AppleSDGothicNeo-Thin", size: 24.0)
         rightSideTitleLabel.font = UIFont(name: "AppleSDGothicNeo-Thin", size: 24.0)
         
-        self.menus.append(menu: Menu(
+        self.animations.append(animation: PVCAnimation(
             index: 0, type: .text, label: leftTitleLabel, constraint: [leftTitleConstraint],
             styles: [
-                MenuStyle(thenIndexForLabel: 0, delay: 0.5, forward: 0.0, color: UIColor.white, constraint: [0]),
-                MenuStyle(thenIndexForLabel: 1, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: [-20]),
-                MenuStyle(thenIndexForLabel: 2, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: [-20]),
-                MenuStyle(thenIndexForLabel: 3, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: [-20]),
+                PVCAnimationStyle(thenIndexForLabel: 0, delay: 0.5, forward: 0.0, color: UIColor.white, constraint: [0]),
+                PVCAnimationStyle(thenIndexForLabel: 1, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: [-20]),
+                PVCAnimationStyle(thenIndexForLabel: 2, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: [-20]),
+                PVCAnimationStyle(thenIndexForLabel: 3, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: [-20]),
             ]
         ))
-        self.menus.append(menu: Menu(
+        self.animations.append(animation: PVCAnimation(
             index: 1, type: .text, label: centerTitleLabel, constraint: [centerTitleConstraint],
             styles: [
-                MenuStyle(thenIndexForLabel: 0, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: [-20]),
-                MenuStyle(thenIndexForLabel: 1, delay: 0.5, forward: 0.0, color: UIColor.white, border: .shadow, constraint: [0]),
-                MenuStyle(thenIndexForLabel: 2, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: [-20]),
-                MenuStyle(thenIndexForLabel: 3, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: [-20]),
+                PVCAnimationStyle(thenIndexForLabel: 0, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: [-20]),
+                PVCAnimationStyle(thenIndexForLabel: 1, delay: 0.5, forward: 0.0, color: UIColor.white, border: .shadow, constraint: [0]),
+                PVCAnimationStyle(thenIndexForLabel: 2, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: [-20]),
+                PVCAnimationStyle(thenIndexForLabel: 3, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: [-20]),
             ]
         ))
-        self.menus.append(menu: Menu(
+        self.animations.append(animation: PVCAnimation(
             index: 2, type: .text, label: rightTitleLabel, constraint: [rightTitleConstraint],
             styles: [
-                MenuStyle(thenIndexForLabel: 0, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: [-20]),
-                MenuStyle(thenIndexForLabel: 1, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: [-20]),
-                MenuStyle(thenIndexForLabel: 2, delay: 0.5, forward: 0.0, color: UIColor.white, constraint: [0]),
-                MenuStyle(thenIndexForLabel: 3, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: [-20]),
+                PVCAnimationStyle(thenIndexForLabel: 0, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: [-20]),
+                PVCAnimationStyle(thenIndexForLabel: 1, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: [-20]),
+                PVCAnimationStyle(thenIndexForLabel: 2, delay: 0.5, forward: 0.0, color: UIColor.white, constraint: [0]),
+                PVCAnimationStyle(thenIndexForLabel: 3, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: [-20]),
             ]
         ))
-        self.menus.append(menu: Menu(
+        self.animations.append(animation: PVCAnimation(
             index: 0, type: .text, label: rightSideTitleLabel, constraint: [rightSideTitleConstraint],
             styles: [
-                MenuStyle(thenIndexForLabel: 0, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: [-20]),
-                MenuStyle(thenIndexForLabel: 1, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: [-20]),
-                MenuStyle(thenIndexForLabel: 2, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: [-20]),
-                MenuStyle(thenIndexForLabel: 3, delay: 0.5, forward: 0.0, color: UIColor.black, constraint: [0]),
+                PVCAnimationStyle(thenIndexForLabel: 0, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: [-20]),
+                PVCAnimationStyle(thenIndexForLabel: 1, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: [-20]),
+                PVCAnimationStyle(thenIndexForLabel: 2, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: [-20]),
+                PVCAnimationStyle(thenIndexForLabel: 3, delay: 0.5, forward: 0.0, color: UIColor.black, constraint: [0]),
             ]
         ))
         
         // icon menu
-        self.menus.append(menu: Menu(
+        self.animations.append(animation: PVCAnimation(
             index: 0, key: "leftMenu", type: .icon, iconName: "ic_chat_bubble", activeIconName: "ic_chat_bubble", view: leftView, constraint: [leftConstraint, leftBottomConstraint],
             styles: [
-                MenuStyle(thenIndex: 0, delay: 0.0, forward: 0.0, color: UIColor.lightGray, size: 24.0, constraint: [centerMargin, margin]),
-                MenuStyle(thenIndex: 1, delay: 0.0, forward: 0.0, color: UIColor.white, border: .shadow, size: 30.0, constraint: [margin, margin]),
-                MenuStyle(thenIndex: 2, delay: 0.0, forward: 0.0, color: UIColor.lightGray, size: 24.0, constraint: [centerMargin, margin]),
-                MenuStyle(thenIndex: 3, delay: 0.0, forward: 0.0, color: UIColor.lightGray, size: 24.0, constraint: [centerMargin, -100]),
+                PVCAnimationStyle(thenIndex: 0, delay: 0.0, forward: 0.0, color: UIColor.lightGray, size: 24.0, constraint: [centerMargin, margin]),
+                PVCAnimationStyle(thenIndex: 1, delay: 0.0, forward: 0.0, color: UIColor.white, border: .shadow, size: 30.0, constraint: [margin, margin]),
+                PVCAnimationStyle(thenIndex: 2, delay: 0.0, forward: 0.0, color: UIColor.lightGray, size: 24.0, constraint: [centerMargin, margin]),
+                PVCAnimationStyle(thenIndex: 3, delay: 0.0, forward: 0.0, color: UIColor.lightGray, size: 24.0, constraint: [centerMargin, -100]),
             ]
         ))
-        self.menus.append(menu: Menu(
+        self.animations.append(animation: PVCAnimation(
             index: 1, type: .icon, iconName: "record", activeIconName: "record", view: centerView, constraint: [centerConstraint],
             styles: [
-                MenuStyle(thenIndex: 0, delay: 0.0, forward: 0.0, color: UIColor.lightGray, size: 75.0, constraint: [margin]),
-                MenuStyle(thenIndex: 1, delay: 0.0, forward: 0.0, color: UIColor.white, border: .shadow, size: 115.0, constraint: [margin + 50]),
-                MenuStyle(thenIndex: 2, delay: 0.0, forward: 0.0, color: UIColor.lightGray, size: 75.0, constraint: [margin]),
-                MenuStyle(thenIndex: 3, delay: 0.0, forward: 0.0, color: UIColor.lightGray, size: 75.0, constraint: [margin - 180]),
+                PVCAnimationStyle(thenIndex: 0, delay: 0.0, forward: 0.0, color: UIColor.lightGray, size: 75.0, constraint: [margin]),
+                PVCAnimationStyle(thenIndex: 1, delay: 0.0, forward: 0.0, color: UIColor.white, border: .shadow, size: 115.0, constraint: [margin + 50]),
+                PVCAnimationStyle(thenIndex: 2, delay: 0.0, forward: 0.0, color: UIColor.lightGray, size: 75.0, constraint: [margin]),
+                PVCAnimationStyle(thenIndex: 3, delay: 0.0, forward: 0.0, color: UIColor.lightGray, size: 75.0, constraint: [margin - 180]),
             ]
         ))
-        self.menus.append(menu: Menu(
+        self.animations.append(animation: PVCAnimation(
             index: 2, key: "rightMenu", type: .icon, iconName: "ic_bubble_chart", activeIconName: "ic_bubble_chart", view: rightView, constraint: [rightConstraint, rightBottomConstraint],
             styles: [
-                MenuStyle(thenIndex: 0, delay: 0.0, forward: 0.0, color: UIColor.lightGray, size: 24.0, constraint: [centerMargin, margin]),
-                MenuStyle(thenIndex: 1, delay: 0.0, forward: 0.0, color: UIColor.white, border: .shadow,size: 30.0, constraint: [margin, margin]),
-                MenuStyle(thenIndex: 2, delay: 0.0, forward: 0.0, color: UIColor.lightGray, size: 24.0, constraint: [centerMargin, margin]),
-                MenuStyle(thenIndex: 3, delay: 0.0, forward: 0.0, color: UIColor.lightGray, size: 24.0, constraint: [centerMargin, -100]),
+                PVCAnimationStyle(thenIndex: 0, delay: 0.0, forward: 0.0, color: UIColor.lightGray, size: 24.0, constraint: [centerMargin, margin]),
+                PVCAnimationStyle(thenIndex: 1, delay: 0.0, forward: 0.0, color: UIColor.white, border: .shadow,size: 30.0, constraint: [margin, margin]),
+                PVCAnimationStyle(thenIndex: 2, delay: 0.0, forward: 0.0, color: UIColor.lightGray, size: 24.0, constraint: [centerMargin, margin]),
+                PVCAnimationStyle(thenIndex: 3, delay: 0.0, forward: 0.0, color: UIColor.lightGray, size: 24.0, constraint: [centerMargin, -100]),
             ]
         ))
         
         // menu bar
-        self.menus.append(menu: Menu(
+        self.animations.append(animation: PVCAnimation(
             index: 0, type: .bar, iconName: "", activeIconName: "", view: leftBarView, constraint: [leftBarConstraint],
             styles: [
-                MenuStyle(thenIndex: 0, delay: 0.5, forward: 0.0, color: UIColor.lightGray, size: 40, constraint: [centerMargin + 5]),
-                MenuStyle(thenIndex: 1, delay: 0.0, forward: 0.5, color: UIColor.clear, size: 5, constraint: [centerMargin + centerMarginAjust * 0.7]),
-                MenuStyle(thenIndex: 2, delay: 0.0, forward: 0.5, color: UIColor.clear, size: 5, constraint: [centerMargin + centerMarginAjust * 0.7]),
-                MenuStyle(thenIndex: 3, delay: 0.0, forward: 0.5, color: UIColor.clear, size: 5, constraint: [centerMargin + centerMarginAjust * 0.7]),
+                PVCAnimationStyle(thenIndex: 0, delay: 0.5, forward: 0.0, color: UIColor.lightGray, size: 40, constraint: [centerMargin + 5]),
+                PVCAnimationStyle(thenIndex: 1, delay: 0.0, forward: 0.5, color: UIColor.clear, size: 5, constraint: [centerMargin + centerMarginAjust * 0.7]),
+                PVCAnimationStyle(thenIndex: 2, delay: 0.0, forward: 0.5, color: UIColor.clear, size: 5, constraint: [centerMargin + centerMarginAjust * 0.7]),
+                PVCAnimationStyle(thenIndex: 3, delay: 0.0, forward: 0.5, color: UIColor.clear, size: 5, constraint: [centerMargin + centerMarginAjust * 0.7]),
             ]
         ))
-        self.menus.append(menu: Menu(
+        self.animations.append(animation: PVCAnimation(
             index: 1, type: .bar, iconName: "", activeIconName: "", view: rightBarView, constraint: [rightBarConstraint],
             styles: [
-                MenuStyle(thenIndex: 0, delay: 0.0, forward: 0.5, color: UIColor.clear, size: 5, constraint: [centerMargin + centerMarginAjust * 0.7]),
-                MenuStyle(thenIndex: 1, delay: 0.0, forward: 0.5, color: UIColor.clear, size: 5, constraint: [centerMargin + centerMarginAjust * 0.7]),
-                MenuStyle(thenIndex: 2, delay: 0.5, forward: 0.0, color: UIColor.lightGray, size: 40, constraint: [centerMargin + 5]),
-                MenuStyle(thenIndex: 3, delay: 0.0, forward: 0.5, color: UIColor.clear, size: 5, constraint: [centerMargin + centerMarginAjust * 0.7]),
+                PVCAnimationStyle(thenIndex: 0, delay: 0.0, forward: 0.5, color: UIColor.clear, size: 5, constraint: [centerMargin + centerMarginAjust * 0.7]),
+                PVCAnimationStyle(thenIndex: 1, delay: 0.0, forward: 0.5, color: UIColor.clear, size: 5, constraint: [centerMargin + centerMarginAjust * 0.7]),
+                PVCAnimationStyle(thenIndex: 2, delay: 0.5, forward: 0.0, color: UIColor.lightGray, size: 40, constraint: [centerMargin + 5]),
+                PVCAnimationStyle(thenIndex: 3, delay: 0.0, forward: 0.5, color: UIColor.clear, size: 5, constraint: [centerMargin + centerMarginAjust * 0.7]),
             ]
         ))
         
@@ -244,11 +244,11 @@ class ViewController: UIViewController {
     private func active(index: Int) {
         if let i: Int = self.pvc.currentIndex() {
             if i != index {
-                self.menus.active(index: index)
+                self.animations.active(index: index)
             }
         }
         if self.pvc.currentVc == .second {
-            self.menus.active(index: index)
+            self.animations.active(index: index)
         }
     }
     
@@ -256,11 +256,11 @@ class ViewController: UIViewController {
     private func inactive(index: Int) {
         if let i: Int = self.pvc.currentIndex() {
             if i == index {
-                self.menus.inactive(index: index)
+                self.animations.inactive(index: index)
             }
         }
         if self.pvc.currentVc == .second {
-            self.menus.inactive(index: index)
+            self.animations.inactive(index: index)
         }
     }
     

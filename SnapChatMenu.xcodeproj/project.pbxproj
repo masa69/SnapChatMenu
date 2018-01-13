@@ -10,12 +10,12 @@
 		04027D291FAD6918000F410B /* TransparentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04027D281FAD6918000F410B /* TransparentView.swift */; };
 		04027D2B1FAD6BFF000F410B /* HeadlineLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04027D2A1FAD6BFF000F410B /* HeadlineLabel.swift */; };
 		04027D2D1FAD8528000F410B /* CGFloatExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04027D2C1FAD8528000F410B /* CGFloatExtension.swift */; };
-		04027D301FADA3EC000F410B /* Menus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04027D2F1FADA3EC000F410B /* Menus.swift */; };
-		04027D321FADA43C000F410B /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04027D311FADA43C000F410B /* Menu.swift */; };
+		04027D301FADA3EC000F410B /* PVCAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04027D2F1FADA3EC000F410B /* PVCAnimations.swift */; };
+		04027D321FADA43C000F410B /* PVCAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04027D311FADA43C000F410B /* PVCAnimation.swift */; };
 		04027D341FADC3A5000F410B /* DefaultButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04027D331FADC3A5000F410B /* DefaultButton.swift */; };
-		04027D361FADC4FD000F410B /* MenuStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04027D351FADC4FD000F410B /* MenuStyle.swift */; };
-		04027D3A1FB04324000F410B /* MainBackgroundColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04027D391FB04324000F410B /* MainBackgroundColors.swift */; };
-		04027D3C1FB0443D000F410B /* MainBackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04027D3B1FB0443D000F410B /* MainBackgroundColor.swift */; };
+		04027D361FADC4FD000F410B /* PVCAnimationStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04027D351FADC4FD000F410B /* PVCAnimationStyle.swift */; };
+		04027D3A1FB04324000F410B /* PVCBackgroundAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04027D391FB04324000F410B /* PVCBackgroundAnimations.swift */; };
+		04027D3C1FB0443D000F410B /* PVCBackgroundAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04027D3B1FB0443D000F410B /* PVCBackgroundAnimation.swift */; };
 		04027D3E1FB06877000F410B /* Fourth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04027D3D1FB06877000F410B /* Fourth.storyboard */; };
 		046D77001FA36BA10094A835 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046D76FF1FA36BA10094A835 /* AppDelegate.swift */; };
 		046D77021FA36BA10094A835 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046D77011FA36BA10094A835 /* ViewController.swift */; };
@@ -61,12 +61,12 @@
 		04027D281FAD6918000F410B /* TransparentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentView.swift; sourceTree = "<group>"; };
 		04027D2A1FAD6BFF000F410B /* HeadlineLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlineLabel.swift; sourceTree = "<group>"; };
 		04027D2C1FAD8528000F410B /* CGFloatExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloatExtension.swift; sourceTree = "<group>"; };
-		04027D2F1FADA3EC000F410B /* Menus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menus.swift; sourceTree = "<group>"; };
-		04027D311FADA43C000F410B /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		04027D2F1FADA3EC000F410B /* PVCAnimations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PVCAnimations.swift; sourceTree = "<group>"; };
+		04027D311FADA43C000F410B /* PVCAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PVCAnimation.swift; sourceTree = "<group>"; };
 		04027D331FADC3A5000F410B /* DefaultButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultButton.swift; sourceTree = "<group>"; };
-		04027D351FADC4FD000F410B /* MenuStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuStyle.swift; sourceTree = "<group>"; };
-		04027D391FB04324000F410B /* MainBackgroundColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBackgroundColors.swift; sourceTree = "<group>"; };
-		04027D3B1FB0443D000F410B /* MainBackgroundColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBackgroundColor.swift; sourceTree = "<group>"; };
+		04027D351FADC4FD000F410B /* PVCAnimationStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PVCAnimationStyle.swift; sourceTree = "<group>"; };
+		04027D391FB04324000F410B /* PVCBackgroundAnimations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PVCBackgroundAnimations.swift; sourceTree = "<group>"; };
+		04027D3B1FB0443D000F410B /* PVCBackgroundAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PVCBackgroundAnimation.swift; sourceTree = "<group>"; };
 		04027D3D1FB06877000F410B /* Fourth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Fourth.storyboard; sourceTree = "<group>"; };
 		046D76FC1FA36BA10094A835 /* SnapChatMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnapChatMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		046D76FF1FA36BA10094A835 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -136,11 +136,11 @@
 			children = (
 				04027D331FADC3A5000F410B /* DefaultButton.swift */,
 				04027D2A1FAD6BFF000F410B /* HeadlineLabel.swift */,
-				04027D3B1FB0443D000F410B /* MainBackgroundColor.swift */,
-				04027D391FB04324000F410B /* MainBackgroundColors.swift */,
-				04027D311FADA43C000F410B /* Menu.swift */,
-				04027D351FADC4FD000F410B /* MenuStyle.swift */,
-				04027D2F1FADA3EC000F410B /* Menus.swift */,
+				04027D311FADA43C000F410B /* PVCAnimation.swift */,
+				04027D351FADC4FD000F410B /* PVCAnimationStyle.swift */,
+				04027D2F1FADA3EC000F410B /* PVCAnimations.swift */,
+				04027D3B1FB0443D000F410B /* PVCBackgroundAnimation.swift */,
+				04027D391FB04324000F410B /* PVCBackgroundAnimations.swift */,
 				04CF21931FECAB5000BB8A8D /* TransparentButton.swift */,
 				04027D281FAD6918000F410B /* TransparentView.swift */,
 			);
@@ -555,22 +555,22 @@
 				04CF21941FECAB5000BB8A8D /* TransparentButton.swift in Sources */,
 				046D772F1FA4E33F0094A835 /* PageViewController.swift in Sources */,
 				04027D2D1FAD8528000F410B /* CGFloatExtension.swift in Sources */,
-				04027D301FADA3EC000F410B /* Menus.swift in Sources */,
+				04027D301FADA3EC000F410B /* PVCAnimations.swift in Sources */,
 				046D77401FA4E6660094A835 /* UIColorExtension.swift in Sources */,
 				046D77021FA36BA10094A835 /* ViewController.swift in Sources */,
 				046D77001FA36BA10094A835 /* AppDelegate.swift in Sources */,
 				046D773A1FA4E4B90094A835 /* SecondViewController.swift in Sources */,
 				04027D341FADC3A5000F410B /* DefaultButton.swift in Sources */,
 				046D773C1FA4E4C30094A835 /* ThirdViewController.swift in Sources */,
-				04027D321FADA43C000F410B /* Menu.swift in Sources */,
-				04027D361FADC4FD000F410B /* MenuStyle.swift in Sources */,
+				04027D321FADA43C000F410B /* PVCAnimation.swift in Sources */,
+				04027D361FADC4FD000F410B /* PVCAnimationStyle.swift in Sources */,
 				04A854481FB06CDB0042C383 /* FourthViewController.swift in Sources */,
 				049C89931FECC8CF007A967B /* UIImageExtension.swift in Sources */,
-				04027D3C1FB0443D000F410B /* MainBackgroundColor.swift in Sources */,
+				04027D3C1FB0443D000F410B /* PVCBackgroundAnimation.swift in Sources */,
 				04027D291FAD6918000F410B /* TransparentView.swift in Sources */,
 				046D77381FA4E4AD0094A835 /* FirstViewController.swift in Sources */,
 				04027D2B1FAD6BFF000F410B /* HeadlineLabel.swift in Sources */,
-				04027D3A1FB04324000F410B /* MainBackgroundColors.swift in Sources */,
+				04027D3A1FB04324000F410B /* PVCBackgroundAnimations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,13 +1,13 @@
 
 import UIKit
 
-class Menu {
+class PVCAnimation {
     
     private var key: String
     
     var index: Int
     
-    var type: MenuType
+    var type: ObjectType
     
     var iconName: String
     
@@ -19,15 +19,15 @@ class Menu {
     
     var constraint: [NSLayoutConstraint]
     
-    var styles: [MenuStyle] = [MenuStyle]()
+    var styles: [PVCAnimationStyle] = [PVCAnimationStyle]()
     
     private var statusKey: String {
         get {
-            return (self.key == "") ? "" : "Menu.status_\(self.key)"
+            return (self.key == "") ? "" : "PVCAnimation.status_\(self.key)"
         }
     }
     
-    var status: MenuStatus = .normal {
+    var status: ObjectStatus = .normal {
         didSet {
             if self.statusKey != "" {
                 UserDefaults.standard.set(self.status.hashValue, forKey: self.statusKey)
@@ -37,25 +37,25 @@ class Menu {
     }
     
     private var storeProgress: CGFloat = 0
-    // Menus.append(menu: Menu) 時に Menu.setFirstIndex(index: Int) を呼び出す
+    // PVCAnimations.append(animation: PVCAnimation) 時に PVCAnimation.setFirstIndex(index: Int) を呼び出す
     private var storeFrom: Int = 0
     private var storeTo: Int = 0
     
     
-    enum MenuType {
+    enum ObjectType {
         case icon
         case bar
         case text
     }
     
     
-    enum MenuStatus {
+    enum ObjectStatus {
         case normal
         case active
     }
     
     
-    init(index: Int, type: MenuType, iconName: String, activeIconName: String, view: UIView, constraint: [NSLayoutConstraint], styles: [MenuStyle]) {
+    init(index: Int, type: ObjectType, iconName: String, activeIconName: String, view: UIView, constraint: [NSLayoutConstraint], styles: [PVCAnimationStyle]) {
         
         self.index = index
         
@@ -77,7 +77,7 @@ class Menu {
     }
     
     
-    init(index: Int, key: String, type: MenuType, iconName: String, activeIconName: String, view: UIView, constraint: [NSLayoutConstraint], styles: [MenuStyle]) {
+    init(index: Int, key: String, type: ObjectType, iconName: String, activeIconName: String, view: UIView, constraint: [NSLayoutConstraint], styles: [PVCAnimationStyle]) {
         
         self.index = index
         
@@ -113,7 +113,7 @@ class Menu {
     }
     
     
-    init(index: Int, type: MenuType, label: UILabel, constraint: [NSLayoutConstraint], styles: [MenuStyle]) {
+    init(index: Int, type: ObjectType, label: UILabel, constraint: [NSLayoutConstraint], styles: [PVCAnimationStyle]) {
         
         self.index = index
         
@@ -142,10 +142,10 @@ class Menu {
     
     
     func action(progress: CGFloat, from: Int, to: Int) {
-        guard let fromStyle: MenuStyle = self.getStyle(index: from) else {
+        guard let fromStyle: PVCAnimationStyle = self.getStyle(index: from) else {
             return
         }
-        guard let toStyle: MenuStyle = self.getStyle(index: to) else {
+        guard let toStyle: PVCAnimationStyle = self.getStyle(index: to) else {
             return
         }
         
@@ -226,7 +226,7 @@ class Menu {
     }
     
     
-    private func getStyle(index: Int) -> MenuStyle? {
+    private func getStyle(index: Int) -> PVCAnimationStyle? {
         for style in styles {
             if style.thenIndex == index {
                 return style
