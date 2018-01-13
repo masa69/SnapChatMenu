@@ -1,7 +1,7 @@
 
 import UIKit
 
-class MainBackgroundColor {
+class PVCBackgroundAnimation {
     
     var index: Int
     

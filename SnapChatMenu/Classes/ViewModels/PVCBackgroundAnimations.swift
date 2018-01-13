@@ -1,7 +1,7 @@
 
 import UIKit
 
-class MainBackgroundColors {
+class PVCBackgroundAnimations {
     
     let red: UInt = 0xff6666
     
@@ -9,7 +9,7 @@ class MainBackgroundColors {
     
     let view: UIView
     
-    var lists: [MainBackgroundColor] = [MainBackgroundColor]()
+    var lists: [PVCBackgroundAnimation] = [PVCBackgroundAnimation]()
     
     
     init(parentView: UIView) {
@@ -21,7 +21,7 @@ class MainBackgroundColors {
     
     
     func append(index: Int, color: UInt) {
-        self.lists.append(MainBackgroundColor(
+        self.lists.append(PVCBackgroundAnimation(
             index: index,
             color: color,
             parentView: self.view
@@ -32,8 +32,8 @@ class MainBackgroundColors {
     // to: 0 - 2
     func action(progress: CGFloat, from: Int, to: Int) {
         
-        let fromView: MainBackgroundColor? = self.getView(index: from)
-        let toView: MainBackgroundColor? = self.getView(index: to)
+        let fromView: PVCBackgroundAnimation? = self.getView(index: from)
+        let toView: PVCBackgroundAnimation? = self.getView(index: to)
         let alpha: Float = Float(progress)
         
         if from == to {
@@ -49,7 +49,7 @@ class MainBackgroundColors {
     }
     
     
-    private func getView(index: Int) -> MainBackgroundColor? {
+    private func getView(index: Int) -> PVCBackgroundAnimation? {
         for list in self.lists {
             if list.index == index {
                 return list
