@@ -74,6 +74,8 @@ class PVCAnimation {
         self.styles = styles
         
         self.key = ""
+        
+        self.view.backgroundColor = UIColor.clear
     }
     
     
@@ -110,6 +112,8 @@ class PVCAnimation {
                 }
             }
         }
+        
+        self.view.backgroundColor = UIColor.clear
     }
     
     

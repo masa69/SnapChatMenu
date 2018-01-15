@@ -3,7 +3,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var bgView: TransparentView!
+    @IBOutlet weak var bgView: UIView!
     
     // header
     @IBOutlet weak var leftTitleLabel: UILabel!
@@ -16,25 +16,25 @@ class ViewController: UIViewController {
     @IBOutlet weak var rightSideTitleConstraint: NSLayoutConstraint!
     
     // global menu
-    @IBOutlet weak var leftView: TransparentView!
+    @IBOutlet weak var leftView: UIView!
     @IBOutlet weak var leftButton: TransparentButton!
     @IBOutlet weak var leftConstraint: NSLayoutConstraint!
     @IBOutlet weak var leftBottomConstraint: NSLayoutConstraint!
     
-    @IBOutlet weak var centerView: TransparentView!
+    @IBOutlet weak var centerView: UIView!
     @IBOutlet weak var centerButton: TransparentButton!
     @IBOutlet weak var centerConstraint: NSLayoutConstraint!
     
-    @IBOutlet weak var rightView: TransparentView!
+    @IBOutlet weak var rightView: UIView!
     @IBOutlet weak var rightButton: TransparentButton!
     @IBOutlet weak var rightConstraint: NSLayoutConstraint!
     @IBOutlet weak var rightBottomConstraint: NSLayoutConstraint!
     
     // global menu bar
-    @IBOutlet weak var leftBarView: TransparentView!
+    @IBOutlet weak var leftBarView: UIView!
     @IBOutlet weak var leftBarConstraint: NSLayoutConstraint!
     
-    @IBOutlet weak var rightBarView: TransparentView!
+    @IBOutlet weak var rightBarView: UIView!
     @IBOutlet weak var rightBarConstraint: NSLayoutConstraint!
     
     // debug button
@@ -115,37 +115,37 @@ class ViewController: UIViewController {
         self.animations.append(animation: PVCAnimation(
             index: 0, type: .text, label: leftTitleLabel, constraint: [leftTitleConstraint],
             styles: [
-                PVCAnimationStyle(thenIndexForLabel: 0, delay: 0.5, forward: 0.0, color: UIColor.white, constraint: [0]),
-                PVCAnimationStyle(thenIndexForLabel: 1, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: [-20]),
-                PVCAnimationStyle(thenIndexForLabel: 2, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: [-20]),
-                PVCAnimationStyle(thenIndexForLabel: 3, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: [-20]),
+                PVCAnimationStyle(thenIndexForLabel: 0, delay: 0.5, forward: 0.0, color: .white, constraint: [0]),
+                PVCAnimationStyle(thenIndexForLabel: 1, delay: 0.0, forward: 0.6, color: .clear, constraint: [-20]),
+                PVCAnimationStyle(thenIndexForLabel: 2, delay: 0.0, forward: 0.6, color: .clear, constraint: [-20]),
+                PVCAnimationStyle(thenIndexForLabel: 3, delay: 0.0, forward: 0.6, color: .clear, constraint: [-20]),
             ]
         ))
         self.animations.append(animation: PVCAnimation(
             index: 1, type: .text, label: centerTitleLabel, constraint: [centerTitleConstraint],
             styles: [
-                PVCAnimationStyle(thenIndexForLabel: 0, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: [-20]),
-                PVCAnimationStyle(thenIndexForLabel: 1, delay: 0.5, forward: 0.0, color: UIColor.white, border: .shadow, constraint: [0]),
-                PVCAnimationStyle(thenIndexForLabel: 2, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: [-20]),
-                PVCAnimationStyle(thenIndexForLabel: 3, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: [-20]),
+                PVCAnimationStyle(thenIndexForLabel: 0, delay: 0.0, forward: 0.6, color: .clear, constraint: [-20]),
+                PVCAnimationStyle(thenIndexForLabel: 1, delay: 0.5, forward: 0.0, color: .white, border: .shadow, constraint: [0]),
+                PVCAnimationStyle(thenIndexForLabel: 2, delay: 0.0, forward: 0.6, color: .clear, constraint: [-20]),
+                PVCAnimationStyle(thenIndexForLabel: 3, delay: 0.0, forward: 0.6, color: .clear, constraint: [-20]),
             ]
         ))
         self.animations.append(animation: PVCAnimation(
             index: 2, type: .text, label: rightTitleLabel, constraint: [rightTitleConstraint],
             styles: [
-                PVCAnimationStyle(thenIndexForLabel: 0, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: [-20]),
-                PVCAnimationStyle(thenIndexForLabel: 1, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: [-20]),
-                PVCAnimationStyle(thenIndexForLabel: 2, delay: 0.5, forward: 0.0, color: UIColor.white, constraint: [0]),
-                PVCAnimationStyle(thenIndexForLabel: 3, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: [-20]),
+                PVCAnimationStyle(thenIndexForLabel: 0, delay: 0.0, forward: 0.6, color: .clear, constraint: [-20]),
+                PVCAnimationStyle(thenIndexForLabel: 1, delay: 0.0, forward: 0.6, color: .clear, constraint: [-20]),
+                PVCAnimationStyle(thenIndexForLabel: 2, delay: 0.5, forward: 0.0, color: .white, constraint: [0]),
+                PVCAnimationStyle(thenIndexForLabel: 3, delay: 0.0, forward: 0.6, color: .clear, constraint: [-20]),
             ]
         ))
         self.animations.append(animation: PVCAnimation(
             index: 0, type: .text, label: rightSideTitleLabel, constraint: [rightSideTitleConstraint],
             styles: [
-                PVCAnimationStyle(thenIndexForLabel: 0, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: [-20]),
-                PVCAnimationStyle(thenIndexForLabel: 1, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: [-20]),
-                PVCAnimationStyle(thenIndexForLabel: 2, delay: 0.0, forward: 0.6, color: UIColor.clear, constraint: [-20]),
-                PVCAnimationStyle(thenIndexForLabel: 3, delay: 0.5, forward: 0.0, color: UIColor.black, constraint: [0]),
+                PVCAnimationStyle(thenIndexForLabel: 0, delay: 0.0, forward: 0.6, color: .clear, constraint: [-20]),
+                PVCAnimationStyle(thenIndexForLabel: 1, delay: 0.0, forward: 0.6, color: .clear, constraint: [-20]),
+                PVCAnimationStyle(thenIndexForLabel: 2, delay: 0.0, forward: 0.6, color: .clear, constraint: [-20]),
+                PVCAnimationStyle(thenIndexForLabel: 3, delay: 0.5, forward: 0.0, color: .black, constraint: [0]),
             ]
         ))
         
@@ -153,28 +153,28 @@ class ViewController: UIViewController {
         self.animations.append(animation: PVCAnimation(
             index: 0, key: "leftMenu", type: .icon, iconName: "ic_chat_bubble", activeIconName: "ic_chat_bubble", view: leftView, constraint: [leftConstraint, leftBottomConstraint],
             styles: [
-                PVCAnimationStyle(thenIndex: 0, delay: 0.0, forward: 0.0, color: UIColor.lightGray, size: 24.0, constraint: [centerMargin, margin]),
-                PVCAnimationStyle(thenIndex: 1, delay: 0.0, forward: 0.0, color: UIColor.white, border: .shadow, size: 30.0, constraint: [margin, margin]),
-                PVCAnimationStyle(thenIndex: 2, delay: 0.0, forward: 0.0, color: UIColor.lightGray, size: 24.0, constraint: [centerMargin, margin]),
-                PVCAnimationStyle(thenIndex: 3, delay: 0.0, forward: 0.0, color: UIColor.lightGray, size: 24.0, constraint: [centerMargin, -100]),
+                PVCAnimationStyle(thenIndex: 0, delay: 0.0, forward: 0.0, color: .lightGray, size: 24.0, constraint: [centerMargin, margin]),
+                PVCAnimationStyle(thenIndex: 1, delay: 0.0, forward: 0.0, color: .white, border: .shadow, size: 30.0, constraint: [margin, margin]),
+                PVCAnimationStyle(thenIndex: 2, delay: 0.0, forward: 0.0, color: .lightGray, size: 24.0, constraint: [centerMargin, margin]),
+                PVCAnimationStyle(thenIndex: 3, delay: 0.0, forward: 0.0, color: .lightGray, size: 24.0, constraint: [centerMargin, -100]),
             ]
         ))
         self.animations.append(animation: PVCAnimation(
             index: 1, type: .icon, iconName: "record", activeIconName: "record", view: centerView, constraint: [centerConstraint],
             styles: [
-                PVCAnimationStyle(thenIndex: 0, delay: 0.0, forward: 0.0, color: UIColor.lightGray, size: 75.0, constraint: [margin]),
-                PVCAnimationStyle(thenIndex: 1, delay: 0.0, forward: 0.0, color: UIColor.white, border: .shadow, size: 115.0, constraint: [margin + 50]),
-                PVCAnimationStyle(thenIndex: 2, delay: 0.0, forward: 0.0, color: UIColor.lightGray, size: 75.0, constraint: [margin]),
-                PVCAnimationStyle(thenIndex: 3, delay: 0.0, forward: 0.0, color: UIColor.lightGray, size: 75.0, constraint: [margin - 180]),
+                PVCAnimationStyle(thenIndex: 0, delay: 0.0, forward: 0.0, color: .lightGray, size: 75.0, constraint: [margin]),
+                PVCAnimationStyle(thenIndex: 1, delay: 0.0, forward: 0.0, color: .white, border: .shadow, size: 115.0, constraint: [margin + 50]),
+                PVCAnimationStyle(thenIndex: 2, delay: 0.0, forward: 0.0, color: .lightGray, size: 75.0, constraint: [margin]),
+                PVCAnimationStyle(thenIndex: 3, delay: 0.0, forward: 0.0, color: .lightGray, size: 75.0, constraint: [margin - 180]),
             ]
         ))
         self.animations.append(animation: PVCAnimation(
             index: 2, key: "rightMenu", type: .icon, iconName: "ic_bubble_chart", activeIconName: "ic_bubble_chart", view: rightView, constraint: [rightConstraint, rightBottomConstraint],
             styles: [
-                PVCAnimationStyle(thenIndex: 0, delay: 0.0, forward: 0.0, color: UIColor.lightGray, size: 24.0, constraint: [centerMargin, margin]),
-                PVCAnimationStyle(thenIndex: 1, delay: 0.0, forward: 0.0, color: UIColor.white, border: .shadow,size: 30.0, constraint: [margin, margin]),
-                PVCAnimationStyle(thenIndex: 2, delay: 0.0, forward: 0.0, color: UIColor.lightGray, size: 24.0, constraint: [centerMargin, margin]),
-                PVCAnimationStyle(thenIndex: 3, delay: 0.0, forward: 0.0, color: UIColor.lightGray, size: 24.0, constraint: [centerMargin, -100]),
+                PVCAnimationStyle(thenIndex: 0, delay: 0.0, forward: 0.0, color: .lightGray, size: 24.0, constraint: [centerMargin, margin]),
+                PVCAnimationStyle(thenIndex: 1, delay: 0.0, forward: 0.0, color: .white, border: .shadow,size: 30.0, constraint: [margin, margin]),
+                PVCAnimationStyle(thenIndex: 2, delay: 0.0, forward: 0.0, color: .lightGray, size: 24.0, constraint: [centerMargin, margin]),
+                PVCAnimationStyle(thenIndex: 3, delay: 0.0, forward: 0.0, color: .lightGray, size: 24.0, constraint: [centerMargin, -100]),
             ]
         ))
         
@@ -182,19 +182,19 @@ class ViewController: UIViewController {
         self.animations.append(animation: PVCAnimation(
             index: 0, type: .bar, iconName: "", activeIconName: "", view: leftBarView, constraint: [leftBarConstraint],
             styles: [
-                PVCAnimationStyle(thenIndex: 0, delay: 0.5, forward: 0.0, color: UIColor.lightGray, size: 40, constraint: [centerMargin + 5]),
-                PVCAnimationStyle(thenIndex: 1, delay: 0.0, forward: 0.5, color: UIColor.clear, size: 5, constraint: [centerMargin + centerMarginAjust * 0.7]),
-                PVCAnimationStyle(thenIndex: 2, delay: 0.0, forward: 0.5, color: UIColor.clear, size: 5, constraint: [centerMargin + centerMarginAjust * 0.7]),
-                PVCAnimationStyle(thenIndex: 3, delay: 0.0, forward: 0.5, color: UIColor.clear, size: 5, constraint: [centerMargin + centerMarginAjust * 0.7]),
+                PVCAnimationStyle(thenIndex: 0, delay: 0.5, forward: 0.0, color: .lightGray, size: 40, constraint: [centerMargin + 5]),
+                PVCAnimationStyle(thenIndex: 1, delay: 0.0, forward: 0.5, color: .clear, size: 5, constraint: [centerMargin + centerMarginAjust * 0.7]),
+                PVCAnimationStyle(thenIndex: 2, delay: 0.0, forward: 0.5, color: .clear, size: 5, constraint: [centerMargin + centerMarginAjust * 0.7]),
+                PVCAnimationStyle(thenIndex: 3, delay: 0.0, forward: 0.5, color: .clear, size: 5, constraint: [centerMargin + centerMarginAjust * 0.7]),
             ]
         ))
         self.animations.append(animation: PVCAnimation(
             index: 1, type: .bar, iconName: "", activeIconName: "", view: rightBarView, constraint: [rightBarConstraint],
             styles: [
-                PVCAnimationStyle(thenIndex: 0, delay: 0.0, forward: 0.5, color: UIColor.clear, size: 5, constraint: [centerMargin + centerMarginAjust * 0.7]),
-                PVCAnimationStyle(thenIndex: 1, delay: 0.0, forward: 0.5, color: UIColor.clear, size: 5, constraint: [centerMargin + centerMarginAjust * 0.7]),
-                PVCAnimationStyle(thenIndex: 2, delay: 0.5, forward: 0.0, color: UIColor.lightGray, size: 40, constraint: [centerMargin + 5]),
-                PVCAnimationStyle(thenIndex: 3, delay: 0.0, forward: 0.5, color: UIColor.clear, size: 5, constraint: [centerMargin + centerMarginAjust * 0.7]),
+                PVCAnimationStyle(thenIndex: 0, delay: 0.0, forward: 0.5, color: .clear, size: 5, constraint: [centerMargin + centerMarginAjust * 0.7]),
+                PVCAnimationStyle(thenIndex: 1, delay: 0.0, forward: 0.5, color: .clear, size: 5, constraint: [centerMargin + centerMarginAjust * 0.7]),
+                PVCAnimationStyle(thenIndex: 2, delay: 0.5, forward: 0.0, color: .lightGray, size: 40, constraint: [centerMargin + 5]),
+                PVCAnimationStyle(thenIndex: 3, delay: 0.0, forward: 0.5, color: .clear, size: 5, constraint: [centerMargin + centerMarginAjust * 0.7]),
             ]
         ))
         

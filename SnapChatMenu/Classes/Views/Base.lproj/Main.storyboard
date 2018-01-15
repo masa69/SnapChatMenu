@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3NJ-e1-Jb4" customClass="TransparentView" customModule="SnapChatMenu" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3NJ-e1-Jb4">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -34,7 +34,7 @@
                                     <segue destination="l0G-ax-1a6" kind="embed" id="nDi-13-COo"/>
                                 </connections>
                             </containerView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tPE-DG-QEw" customClass="TransparentView" customModule="SnapChatMenu" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tPE-DG-QEw">
                                 <rect key="frame" x="17" y="557" width="40" height="3"/>
                                 <color key="backgroundColor" red="1" green="0.1071446021" blue="0.66445112480000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -42,7 +42,7 @@
                                     <constraint firstAttribute="width" constant="40" id="g0z-W0-hEX"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ZP-9c-vO1" customClass="TransparentView" customModule="SnapChatMenu" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ZP-9c-vO1">
                                 <rect key="frame" x="263" y="557" width="40" height="3"/>
                                 <color key="backgroundColor" red="1" green="0.1071446021" blue="0.66445112480000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -50,7 +50,7 @@
                                     <constraint firstAttribute="width" constant="40" id="xeM-7R-dPg"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1OW-Zd-THB" customClass="TransparentView" customModule="SnapChatMenu" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1OW-Zd-THB">
                                 <rect key="frame" x="12" y="506" width="50" height="50"/>
                                 <subviews>
                                     <button opaque="NO" alpha="0.29999999999999999" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q34-sj-S1w" customClass="TransparentButton" customModule="SnapChatMenu" customModuleProvider="target">
@@ -69,7 +69,7 @@
                                     <constraint firstItem="q34-sj-S1w" firstAttribute="leading" secondItem="1OW-Zd-THB" secondAttribute="leading" id="gtE-xT-ZUi"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jcY-Le-2cz" customClass="TransparentView" customModule="SnapChatMenu" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jcY-Le-2cz">
                                 <rect key="frame" x="120" y="476" width="80" height="80"/>
                                 <subviews>
                                     <button opaque="NO" alpha="0.29999999999999999" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jZi-Lx-MpF" customClass="TransparentButton" customModule="SnapChatMenu" customModuleProvider="target">
@@ -88,7 +88,7 @@
                                     <constraint firstItem="jZi-Lx-MpF" firstAttribute="leading" secondItem="jcY-Le-2cz" secondAttribute="leading" id="qeh-oH-FBl"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="njR-xH-geU" customClass="TransparentView" customModule="SnapChatMenu" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="njR-xH-geU">
                                 <rect key="frame" x="258" y="506" width="50" height="50"/>
                                 <subviews>
                                     <button opaque="NO" alpha="0.29999999999999999" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vsC-2m-ltU" customClass="TransparentButton" customModule="SnapChatMenu" customModuleProvider="target">

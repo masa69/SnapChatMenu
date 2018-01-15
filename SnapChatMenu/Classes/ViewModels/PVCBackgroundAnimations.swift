@@ -17,6 +17,7 @@ class PVCBackgroundAnimations {
         if parentView.subviews.count == 0 {
             parentView.addSubview(self.view)
         }
+        parentView.backgroundColor = UIColor.clear
     }
     
     
