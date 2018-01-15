@@ -50,18 +50,12 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.view.backgroundColor = UIColor.blue
         
-        self.pvc = self.childViewControllers[0] as! PageViewController
-        self.pvc.scrolling = { (progress: CGFloat, from: Int, to: Int) in
-            self.bgAnimations?.action(progress: progress, from: from, to: to)
-            self.animations.action(progress: progress, from: from, to: to)
-        }
+        self.initPvc()
         if let currentIndex: Int = self.pvc.currentIndex() {
             self.initPVCAnimation(currentIndex: currentIndex)
         }
-        
         self.initDebugButton()
         self.initVcCallback()
     }
@@ -76,6 +70,15 @@ class ViewController: UIViewController {
         super.viewWillAppear(animated)
         if let currentIndex: Int = self.pvc.currentIndex() {
             self.initPVCBackgroundAnimation(currentIndex: currentIndex)
+        }
+    }
+    
+    
+    private func initPvc() {
+        self.pvc = self.childViewControllers[0] as! PageViewController
+        self.pvc.scrolling = { (progress: CGFloat, from: Int, to: Int) in
+            self.bgAnimations?.action(progress: progress, from: from, to: to)
+            self.animations.action(progress: progress, from: from, to: to)
         }
     }
     
