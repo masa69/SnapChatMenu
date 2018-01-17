@@ -17,6 +17,7 @@
 		04027D3A1FB04324000F410B /* PVCBackgroundAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04027D391FB04324000F410B /* PVCBackgroundAnimations.swift */; };
 		04027D3C1FB0443D000F410B /* PVCBackgroundAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04027D3B1FB0443D000F410B /* PVCBackgroundAnimation.swift */; };
 		04027D3E1FB06877000F410B /* Fourth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04027D3D1FB06877000F410B /* Fourth.storyboard */; };
+		045243D0200EE8F800F7C788 /* PVCAnimationPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045243CF200EE8F800F7C788 /* PVCAnimationPageViewController.swift */; };
 		046D77001FA36BA10094A835 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046D76FF1FA36BA10094A835 /* AppDelegate.swift */; };
 		046D77021FA36BA10094A835 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046D77011FA36BA10094A835 /* ViewController.swift */; };
 		046D77051FA36BA10094A835 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 046D77031FA36BA10094A835 /* Main.storyboard */; };
@@ -68,6 +69,7 @@
 		04027D391FB04324000F410B /* PVCBackgroundAnimations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PVCBackgroundAnimations.swift; sourceTree = "<group>"; };
 		04027D3B1FB0443D000F410B /* PVCBackgroundAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PVCBackgroundAnimation.swift; sourceTree = "<group>"; };
 		04027D3D1FB06877000F410B /* Fourth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Fourth.storyboard; sourceTree = "<group>"; };
+		045243CF200EE8F800F7C788 /* PVCAnimationPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PVCAnimationPageViewController.swift; sourceTree = "<group>"; };
 		046D76FC1FA36BA10094A835 /* SnapChatMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnapChatMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		046D76FF1FA36BA10094A835 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		046D77011FA36BA10094A835 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 			children = (
 				046D77371FA4E4AD0094A835 /* FirstViewController.swift */,
 				04A854471FB06CDB0042C383 /* FourthViewController.swift */,
+				045243CF200EE8F800F7C788 /* PVCAnimationPageViewController.swift */,
 				046D772E1FA4E33E0094A835 /* PageViewController.swift */,
 				046D77391FA4E4B90094A835 /* SecondViewController.swift */,
 				046D773B1FA4E4C30094A835 /* ThirdViewController.swift */,
@@ -564,6 +567,7 @@
 				046D773C1FA4E4C30094A835 /* ThirdViewController.swift in Sources */,
 				04027D321FADA43C000F410B /* PVCAnimation.swift in Sources */,
 				04027D361FADC4FD000F410B /* PVCAnimationStyle.swift in Sources */,
+				045243D0200EE8F800F7C788 /* PVCAnimationPageViewController.swift in Sources */,
 				04A854481FB06CDB0042C383 /* FourthViewController.swift in Sources */,
 				049C89931FECC8CF007A967B /* UIImageExtension.swift in Sources */,
 				04027D3C1FB0443D000F410B /* PVCBackgroundAnimation.swift in Sources */,
