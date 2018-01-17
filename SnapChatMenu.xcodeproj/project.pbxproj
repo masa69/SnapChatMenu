@@ -18,6 +18,8 @@
 		04027D3C1FB0443D000F410B /* PVCBackgroundAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04027D3B1FB0443D000F410B /* PVCBackgroundAnimation.swift */; };
 		04027D3E1FB06877000F410B /* Fourth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04027D3D1FB06877000F410B /* Fourth.storyboard */; };
 		045243D0200EE8F800F7C788 /* PVCAnimationPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045243CF200EE8F800F7C788 /* PVCAnimationPageViewController.swift */; };
+		045243D3200EEA3F00F7C788 /* ViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045243D2200EEA3F00F7C788 /* ViewControllers.swift */; };
+		0456478C200EF55000961C99 /* SubstringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0456478B200EF55000961C99 /* SubstringExtension.swift */; };
 		046D77001FA36BA10094A835 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046D76FF1FA36BA10094A835 /* AppDelegate.swift */; };
 		046D77021FA36BA10094A835 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046D77011FA36BA10094A835 /* ViewController.swift */; };
 		046D77051FA36BA10094A835 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 046D77031FA36BA10094A835 /* Main.storyboard */; };
@@ -70,6 +72,8 @@
 		04027D3B1FB0443D000F410B /* PVCBackgroundAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PVCBackgroundAnimation.swift; sourceTree = "<group>"; };
 		04027D3D1FB06877000F410B /* Fourth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Fourth.storyboard; sourceTree = "<group>"; };
 		045243CF200EE8F800F7C788 /* PVCAnimationPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PVCAnimationPageViewController.swift; sourceTree = "<group>"; };
+		045243D2200EEA3F00F7C788 /* ViewControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllers.swift; sourceTree = "<group>"; };
+		0456478B200EF55000961C99 /* SubstringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubstringExtension.swift; sourceTree = "<group>"; };
 		046D76FC1FA36BA10094A835 /* SnapChatMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnapChatMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		046D76FF1FA36BA10094A835 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		046D77011FA36BA10094A835 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +151,14 @@
 				04027D281FAD6918000F410B /* TransparentView.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		045243D1200EEA2E00F7C788 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				045243D2200EEA3F00F7C788 /* ViewControllers.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		046D76F31FA36BA10094A835 = {
@@ -232,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				04027D2C1FAD8528000F410B /* CGFloatExtension.swift */,
+				0456478B200EF55000961C99 /* SubstringExtension.swift */,
 				046D773F1FA4E6660094A835 /* UIColorExtension.swift */,
 				049C89921FECC8CF007A967B /* UIImageExtension.swift */,
 			);
@@ -242,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				046D772D1FA4E3140094A835 /* Controllers */,
+				045243D1200EEA2E00F7C788 /* Models */,
 				04027D251FAD678F000F410B /* ViewModels */,
 				046D77301FA4E3520094A835 /* Views */,
 			);
@@ -566,9 +580,11 @@
 				04027D341FADC3A5000F410B /* DefaultButton.swift in Sources */,
 				046D773C1FA4E4C30094A835 /* ThirdViewController.swift in Sources */,
 				04027D321FADA43C000F410B /* PVCAnimation.swift in Sources */,
+				0456478C200EF55000961C99 /* SubstringExtension.swift in Sources */,
 				04027D361FADC4FD000F410B /* PVCAnimationStyle.swift in Sources */,
 				045243D0200EE8F800F7C788 /* PVCAnimationPageViewController.swift in Sources */,
 				04A854481FB06CDB0042C383 /* FourthViewController.swift in Sources */,
+				045243D3200EEA3F00F7C788 /* ViewControllers.swift in Sources */,
 				049C89931FECC8CF007A967B /* UIImageExtension.swift in Sources */,
 				04027D3C1FB0443D000F410B /* PVCBackgroundAnimation.swift in Sources */,
 				04027D291FAD6918000F410B /* TransparentView.swift in Sources */,

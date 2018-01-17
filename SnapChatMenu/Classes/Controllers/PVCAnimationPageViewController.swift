@@ -1,33 +1,40 @@
 
 import UIKit
 
+struct PVCAnimationVcs {
+    
+    let index: Int
+    
+    let key: ViewControllers.Name
+    
+    var vc: UIViewController?
+    
+    
+    init(index: Int, key: ViewControllers.Name) {
+        
+        self.index = index
+        
+        self.key = key
+    }
+    
+}
+
 class PVCAnimationPageViewController: UIPageViewController, UIPageViewControllerDataSource, UIScrollViewDelegate {
     
-    var currentVc: Vc = .second
+    var currentVc: ViewControllers.Name!
+    
+    var menus: [PVCAnimationVcs]!
     
     var isProgress: Bool = true
+    
     var scrolling: ((_ progress: CGFloat, _ from: Int, _ to: Int) -> Void)?
+    
+    var didChangeVc: (() -> Void)?
     
     private var direction: ScrollDirection = .none
     private var needUpdateVc: Bool = false
     private var nextIndex: Int?
     private var preProgress: CGFloat = 0
-    
-    private var menus: [(index: Int, key: Vc, vc: UIViewController?)] = [
-        (0, .first, nil),
-        (1, .second, nil),
-        (2, .third, nil),
-        (3, .fourth, nil),
-        ]
-    
-    
-    // case xxx = "ストーリーボード名"
-    enum Vc: String {
-        case first = "First"
-        case second = "Second"
-        case third = "Third"
-        case fourth = "Fourth"
-    }
     
     
     enum ScrollDirection {
@@ -88,23 +95,10 @@ class PVCAnimationPageViewController: UIPageViewController, UIPageViewController
         }
     }
     
-    private func getIndex(viewController: UIViewController) -> Int? {
-        var target: Vc?
-        switch viewController {
-        case is FirstViewController:
-            target = .first
-        case is SecondViewController:
-            target = .second
-        case is ThirdViewController:
-            target = .third
-        case is FourthViewController:
-            target = .fourth
-        default:
-            return nil
-        }
-        if let targetMenu: Vc = target {
+    private func getIndex(vc: UIViewController) -> Int? {
+        if let key: ViewControllers.Name = ViewControllers.Name.get(vc: vc) {
             for menu in self.menus {
-                if menu.key == targetMenu {
+                if menu.key == key {
                     return menu.index
                 }
             }
@@ -128,8 +122,12 @@ class PVCAnimationPageViewController: UIPageViewController, UIPageViewController
             return UIViewController()
         }
         if self.menus[index].vc == nil {
-            let storyboard: UIStoryboard = UIStoryboard(name: self.currentVc.rawValue, bundle: nil)
-            self.menus[index].vc = storyboard.instantiateInitialViewController()
+            let storyboard: UIStoryboard = UIStoryboard(name: ViewControllers.Name.storyboardName(name: self.currentVc), bundle: nil)
+            if let vcId: String = ViewControllers.Name.viewControllerID(name: self.currentVc) {
+                self.menus[index].vc = storyboard.instantiateViewController(withIdentifier: vcId)
+            } else {
+                self.menus[index].vc = storyboard.instantiateInitialViewController()
+            }
         }
         return self.menus[index].vc!
     }
@@ -138,8 +136,12 @@ class PVCAnimationPageViewController: UIPageViewController, UIPageViewController
     func getVc(index: Int) -> UIViewController? {
         if 0 <= index && index < self.menus.count {
             if self.menus[index].vc == nil {
-                let storyboard: UIStoryboard = UIStoryboard(name: self.menus[index].key.rawValue, bundle: nil)
-                self.menus[index].vc = storyboard.instantiateInitialViewController()
+                let storyboard: UIStoryboard = UIStoryboard(name: ViewControllers.Name.storyboardName(name: self.menus[index].key), bundle: nil)
+                if let vcId: String = ViewControllers.Name.viewControllerID(name: self.menus[index].key) {
+                    self.menus[index].vc = storyboard.instantiateViewController(withIdentifier: vcId)
+                } else {
+                    self.menus[index].vc = storyboard.instantiateInitialViewController()
+                }
             }
             return self.menus[index].vc!
         }
@@ -150,7 +152,7 @@ class PVCAnimationPageViewController: UIPageViewController, UIPageViewController
     // MARK: - UIPageViewControllerDataSource
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        guard let index: Int = self.getIndex(viewController: viewController) else {
+        guard let index: Int = self.getIndex(vc: viewController) else {
             return nil
         }
         return self.getVc(index: index + 1)
@@ -158,7 +160,7 @@ class PVCAnimationPageViewController: UIPageViewController, UIPageViewController
     
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        guard let index: Int = self.getIndex(viewController: viewController) else {
+        guard let index: Int = self.getIndex(vc: viewController) else {
             return nil
         }
         return self.getVc(index: index - 1)
@@ -207,7 +209,7 @@ class PVCAnimationPageViewController: UIPageViewController, UIPageViewController
         if let ni: Int = self.nextIndex {
             nextIndex = ni
         }
-        //        print("x: \(x)")
+//        print("x: \(x)")
         progress = progress.percent(depth: 2)
         progress = (progress > 1) ? 1 : progress
         
@@ -219,9 +221,8 @@ class PVCAnimationPageViewController: UIPageViewController, UIPageViewController
         }
         
         if progress == 0 || progress == 1 {
-            //            print("complete")
+//            print("complete")
             if self.needUpdateVc {
-                print("update")
                 if self.nextIndex == nil {
                     switch self.direction {
                     case .forward:
@@ -234,6 +235,7 @@ class PVCAnimationPageViewController: UIPageViewController, UIPageViewController
                 }
                 self.currentVc = self.menus[nextIndex].key
                 self.needUpdateVc = false
+                self.didChangeVc?()
             }
             self.direction = .none
             self.nextIndex = nil
@@ -241,7 +243,7 @@ class PVCAnimationPageViewController: UIPageViewController, UIPageViewController
         } else {
             self.needUpdateVc = (progress > 0.5) ? true : false
         }
-        //        print(progress, index, nextIndex)
+//        print(progress, index, nextIndex)
         if self.preProgress == 1 && progress == 1 {
             // タップを不能にする
             if !UIApplication.shared.isIgnoringInteractionEvents {

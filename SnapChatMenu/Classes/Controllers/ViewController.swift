@@ -53,11 +53,12 @@ class ViewController: UIViewController {
         self.view.backgroundColor = UIColor.blue
         
         self.initPvc()
+        self.initDebugButton()
+        self.initVcCallback()
+        
         if let currentIndex: Int = self.pvc.currentIndex() {
             self.initPVCAnimation(currentIndex: currentIndex)
         }
-        self.initDebugButton()
-        self.initVcCallback()
     }
     
     override func didReceiveMemoryWarning() {
@@ -79,6 +80,9 @@ class ViewController: UIViewController {
         self.pvc.scrolling = { (progress: CGFloat, from: Int, to: Int) in
             self.bgAnimations?.action(progress: progress, from: from, to: to)
             self.animations.action(progress: progress, from: from, to: to)
+        }
+        self.pvc.didChangeVc = {
+            print("changed ViewController")
         }
     }
     
