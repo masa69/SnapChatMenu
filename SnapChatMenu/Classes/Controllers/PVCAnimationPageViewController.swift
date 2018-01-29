@@ -45,9 +45,24 @@ class PVCAnimationPageViewController: UIPageViewController, UIPageViewController
     
     
     override func viewDidLoad() {
+        // set the following code before super.viewDidLoad() in override func viewDidLoad() {} on child page view controller
+        // self.currentVc = ViewControllers.Name.xxx
+        // self.menus = [PVCAnimationVcs(xxx, xxx)]
         super.viewDidLoad()
-        self.setViewControllers([self.getVc()], direction: .forward, animated: false) { (finished: Bool) in
-            self.isProgress = false
+        if let vc: UIViewController = self.getVc() {
+            self.setViewControllers([vc], direction: .forward, animated: false) { (finished: Bool) in
+                self.isProgress = false
+            }
+        } else {
+            print("""
+==========
+PVCAnimationPageViewController.viewDidLoad()
+
+set the following code before super.viewDidLoad() in override func viewDidLoad() {} on child page view controller
+self.currentVc = ViewControllers.Name.xxx
+self.menus = [PVCAnimationVcs(xxx, xxx)]
+==========
+""")
         }
         // UIPageViewController でスクロールを検知する
         for v in self.view.subviews {
@@ -117,9 +132,9 @@ class PVCAnimationPageViewController: UIPageViewController, UIPageViewController
     }
     
     
-    private func getVc() -> UIViewController {
+    func getVc() -> UIViewController? {
         guard let index: Int = self.currentIndex() else {
-            return UIViewController()
+            return nil
         }
         if self.menus[index].vc == nil {
             let storyboard: UIStoryboard = UIStoryboard(name: ViewControllers.Name.storyboardName(name: self.currentVc), bundle: nil)
