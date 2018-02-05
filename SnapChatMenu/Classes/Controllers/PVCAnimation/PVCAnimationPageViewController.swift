@@ -21,9 +21,9 @@ struct PVCAnimationVcs {
 
 class PVCAnimationPageViewController: UIPageViewController, UIPageViewControllerDataSource, UIScrollViewDelegate {
     
-    var currentVc: ViewControllers.Name!
+    private var currentVc: ViewControllers.Name!
     
-    var menus: [PVCAnimationVcs]!
+    private var menus: [PVCAnimationVcs]!
     
     var isProgress: Bool = true
     

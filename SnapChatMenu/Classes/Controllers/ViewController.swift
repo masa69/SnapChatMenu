@@ -279,7 +279,7 @@ class ViewController: UIViewController {
                 self.animations.active(index: index)
             }
         }
-        if self.pvc.currentVc == .second {
+        if let _: SecondViewController = self.pvc.getVc() as? SecondViewController {
             self.animations.active(index: index)
         }
     }
@@ -291,7 +291,7 @@ class ViewController: UIViewController {
                 self.animations.inactive(index: index)
             }
         }
-        if self.pvc.currentVc == .second {
+        if let _: SecondViewController = self.pvc.getVc() as? SecondViewController {
             self.animations.inactive(index: index)
         }
     }
@@ -303,7 +303,7 @@ class ViewController: UIViewController {
                 self.animations.badge(index: index, status: .on)
             }
         }
-        if self.pvc.currentVc == .second {
+        if let _: SecondViewController = self.pvc.getVc() as? SecondViewController {
             self.animations.badge(index: index, status: .on)
         }
     }
@@ -315,7 +315,7 @@ class ViewController: UIViewController {
                 self.animations.badge(index: index, status: .off)
             }
         }
-        if self.pvc.currentVc == .second {
+        if let _: SecondViewController = self.pvc.getVc() as? SecondViewController {
             self.animations.badge(index: index, status: .off)
         }
     }
