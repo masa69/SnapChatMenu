@@ -55,7 +55,6 @@ class PVCAnimations {
     
     
     func action(progress: CGFloat, from: Int, to: Int) {
-//        print(progress, from, to)
         for list in self.lists {
             list.action(progress: progress, from: from, to: to)
         }
