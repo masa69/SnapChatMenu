@@ -45,37 +45,37 @@ class PVCAnimationPageViewController: UIPageViewController, UIPageViewController
     
     
     override func viewDidLoad() {
-        // set the following code before super.viewDidLoad() in override func viewDidLoad() {} on child page view controller
-        // self.currentVc = ViewControllers.Name.xxx
-        // self.menus = [PVCAnimationVcs(xxx, xxx)]
         super.viewDidLoad()
-        if let vc: UIViewController = self.getVc() {
-            self.setViewControllers([vc], direction: .forward, animated: false) { (finished: Bool) in
-                self.isProgress = false
-            }
-        } else {
-            print("""
-==========
-PVCAnimationPageViewController.viewDidLoad()
-
-set the following code before super.viewDidLoad() in override func viewDidLoad() {} on child page view controller
-self.currentVc = ViewControllers.Name.xxx
-self.menus = [PVCAnimationVcs(xxx, xxx)]
-==========
-""")
-        }
-        // UIPageViewController でスクロールを検知する
-        for v in self.view.subviews {
-            if let scroll = v as? UIScrollView {
-                scroll.delegate = self
-            }
-        }
+        self.initScroll()
         self.dataSource = self
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    private func initScroll() {
+        // UIPageViewController でスクロールを検知する
+        for v in self.view.subviews {
+            if let scroll = v as? UIScrollView {
+                scroll.delegate = self
+            }
+        }
+    }
+    
+    
+    func configure(defaultVc: ViewControllers.Name, menus: [PVCAnimationVcs]) {
+        
+        self.currentVc = defaultVc
+        self.menus = menus
+        
+        if let vc: UIViewController = self.getVc() {
+            self.setViewControllers([vc], direction: .forward, animated: false) { (finished: Bool) in
+                self.isProgress = false
+            }
+        }
     }
     
     
