@@ -169,10 +169,18 @@
 			path = PVCAnimation;
 			sourceTree = "<group>";
 		};
-		045243D1200EEA2E00F7C788 /* Models */ = {
+		042AD37520286C2600C0D817 /* PVCAnimation */ = {
 			isa = PBXGroup;
 			children = (
 				045243D2200EEA3F00F7C788 /* ViewControllers.swift */,
+			);
+			path = PVCAnimation;
+			sourceTree = "<group>";
+		};
+		045243D1200EEA2E00F7C788 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				042AD37520286C2600C0D817 /* PVCAnimation */,
 			);
 			path = Models;
 			sourceTree = "<group>";
