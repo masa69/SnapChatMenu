@@ -41,6 +41,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var debugLeftButton: DefaultButton!
     @IBOutlet weak var debugRightButton: DefaultButton!
     
+    @IBOutlet weak var debugBadgeLeftButton: DefaultButton!
+    @IBOutlet weak var debugBadgeRightButton: DefaultButton!
+    
     
     var pvc: PageViewController!
     
@@ -117,7 +120,7 @@ class ViewController: UIViewController {
         rightSideTitleLabel.font = UIFont(name: "AppleSDGothicNeo-Thin", size: 24.0)
         
         self.animations.append(animation: PVCAnimation(
-            index: 0, type: .text, label: leftTitleLabel, constraint: [leftTitleConstraint],
+            textIndex: 0, label: leftTitleLabel, constraint: [leftTitleConstraint],
             styles: [
                 PVCAnimationStyle(thenIndexForLabel: 0, delay: 0.5, forward: 0.0, color: .white, constraint: [0]),
                 PVCAnimationStyle(thenIndexForLabel: 1, delay: 0.0, forward: 0.6, color: .clear, constraint: [-20]),
@@ -126,7 +129,7 @@ class ViewController: UIViewController {
             ]
         ))
         self.animations.append(animation: PVCAnimation(
-            index: 1, type: .text, label: centerTitleLabel, constraint: [centerTitleConstraint],
+            textIndex: 1, label: centerTitleLabel, constraint: [centerTitleConstraint],
             styles: [
                 PVCAnimationStyle(thenIndexForLabel: 0, delay: 0.0, forward: 0.6, color: .clear, constraint: [-20]),
                 PVCAnimationStyle(thenIndexForLabel: 1, delay: 0.5, forward: 0.0, color: .white, border: .shadow, constraint: [0]),
@@ -135,7 +138,7 @@ class ViewController: UIViewController {
             ]
         ))
         self.animations.append(animation: PVCAnimation(
-            index: 2, type: .text, label: rightTitleLabel, constraint: [rightTitleConstraint],
+            textIndex: 2, label: rightTitleLabel, constraint: [rightTitleConstraint],
             styles: [
                 PVCAnimationStyle(thenIndexForLabel: 0, delay: 0.0, forward: 0.6, color: .clear, constraint: [-20]),
                 PVCAnimationStyle(thenIndexForLabel: 1, delay: 0.0, forward: 0.6, color: .clear, constraint: [-20]),
@@ -144,7 +147,7 @@ class ViewController: UIViewController {
             ]
         ))
         self.animations.append(animation: PVCAnimation(
-            index: 0, type: .text, label: rightSideTitleLabel, constraint: [rightSideTitleConstraint],
+            textIndex: 0, label: rightSideTitleLabel, constraint: [rightSideTitleConstraint],
             styles: [
                 PVCAnimationStyle(thenIndexForLabel: 0, delay: 0.0, forward: 0.6, color: .clear, constraint: [-20]),
                 PVCAnimationStyle(thenIndexForLabel: 1, delay: 0.0, forward: 0.6, color: .clear, constraint: [-20]),
@@ -153,9 +156,14 @@ class ViewController: UIViewController {
             ]
         ))
         
+        let size: CGFloat = 5
+        let badgeFrame: CGRect = CGRect(x: leftView.frame.width - size - 10, y: 10, width: size, height: size)
+        
         // icon menu
         self.animations.append(animation: PVCAnimation(
-            index: 0, key: "leftMenu", type: .icon, iconName: "ic_chat_bubble", activeIconName: "ic_chat_bubble", view: leftView, constraint: [leftConstraint, leftBottomConstraint],
+            iconIndex: 0, key: "leftMenu", iconName: "ic_chat_bubble",
+            badge: (frame: badgeFrame, color: nil),
+            view: leftView, constraint: [leftConstraint, leftBottomConstraint],
             styles: [
                 PVCAnimationStyle(thenIndex: 0, delay: 0.0, forward: 0.0, color: .lightGray, size: 24.0, constraint: [centerMargin, margin]),
                 PVCAnimationStyle(thenIndex: 1, delay: 0.0, forward: 0.0, color: .white, border: .shadow, size: 30.0, constraint: [margin, margin]),
@@ -164,7 +172,9 @@ class ViewController: UIViewController {
             ]
         ))
         self.animations.append(animation: PVCAnimation(
-            index: 1, type: .icon, iconName: "record", activeIconName: "record", view: centerView, constraint: [centerConstraint],
+            iconIndex: 1, key: "centerMenu", iconName: "record",
+            badge: (frame: badgeFrame, color: nil),
+            view: centerView, constraint: [centerConstraint],
             styles: [
                 PVCAnimationStyle(thenIndex: 0, delay: 0.0, forward: 0.0, color: .lightGray, size: 75.0, constraint: [margin]),
                 PVCAnimationStyle(thenIndex: 1, delay: 0.0, forward: 0.0, color: .white, border: .shadow, size: 115.0, constraint: [margin + 50]),
@@ -173,7 +183,9 @@ class ViewController: UIViewController {
             ]
         ))
         self.animations.append(animation: PVCAnimation(
-            index: 2, key: "rightMenu", type: .icon, iconName: "ic_bubble_chart", activeIconName: "ic_bubble_chart", view: rightView, constraint: [rightConstraint, rightBottomConstraint],
+            iconIndex: 2, key: "rightMenu", iconName: "ic_bubble_chart",
+            badge: (frame: badgeFrame, color: nil),
+            view: rightView, constraint: [rightConstraint, rightBottomConstraint],
             styles: [
                 PVCAnimationStyle(thenIndex: 0, delay: 0.0, forward: 0.0, color: .lightGray, size: 24.0, constraint: [centerMargin, margin]),
                 PVCAnimationStyle(thenIndex: 1, delay: 0.0, forward: 0.0, color: .white, border: .shadow,size: 30.0, constraint: [margin, margin]),
@@ -184,7 +196,7 @@ class ViewController: UIViewController {
         
         // menu bar
         self.animations.append(animation: PVCAnimation(
-            index: 0, type: .bar, iconName: "", activeIconName: "", view: leftBarView, constraint: [leftBarConstraint],
+            barIndex: 0, view: leftBarView, constraint: [leftBarConstraint],
             styles: [
                 PVCAnimationStyle(thenIndex: 0, delay: 0.5, forward: 0.0, color: .lightGray, size: 40, constraint: [centerMargin + 5]),
                 PVCAnimationStyle(thenIndex: 1, delay: 0.0, forward: 0.5, color: .clear, size: 5, constraint: [centerMargin + centerMarginAjust * 0.7]),
@@ -193,7 +205,7 @@ class ViewController: UIViewController {
             ]
         ))
         self.animations.append(animation: PVCAnimation(
-            index: 1, type: .bar, iconName: "", activeIconName: "", view: rightBarView, constraint: [rightBarConstraint],
+            barIndex: 1, view: rightBarView, constraint: [rightBarConstraint],
             styles: [
                 PVCAnimationStyle(thenIndex: 0, delay: 0.0, forward: 0.5, color: .clear, size: 5, constraint: [centerMargin + centerMarginAjust * 0.7]),
                 PVCAnimationStyle(thenIndex: 1, delay: 0.0, forward: 0.5, color: .clear, size: 5, constraint: [centerMargin + centerMarginAjust * 0.7]),
@@ -221,14 +233,25 @@ class ViewController: UIViewController {
     
     private func initDebugButton() {
         
+        debugLeftButton.setTitleColor(UIColor.lightGray, for: .normal)
+        debugRightButton.setTitleColor(UIColor.lightGray, for: .normal)
+        
+        debugBadgeLeftButton.setTitleColor(UIColor.lightGray, for: .normal)
+        debugBadgeRightButton.setTitleColor(UIColor.lightGray, for: .normal)
+        
         debugLeftButton.touchDown = {
             self.active(index: 0)
         }
-        
         debugRightButton.touchDown = {
             self.active(index: 2)
         }
         
+        debugBadgeLeftButton.touchDown = {
+            self.showBadge(index: 0)
+        }
+        debugBadgeRightButton.touchDown = {
+            self.showBadge(index: 2)
+        }
     }
     
     
@@ -239,10 +262,12 @@ class ViewController: UIViewController {
         
         vc0.viewDidAppearCallback = {
             self.inactive(index: 0)
+            self.hideBadge(index: 0)
         }
         
         vc2.viewDidAppearCallback = {
             self.inactive(index: 2)
+            self.hideBadge(index: 2)
         }
         
     }
@@ -268,6 +293,30 @@ class ViewController: UIViewController {
         }
         if self.pvc.currentVc == .second {
             self.animations.inactive(index: index)
+        }
+    }
+    
+    
+    private func showBadge(index: Int) {
+        if let i: Int = self.pvc.currentIndex() {
+            if i != index {
+                self.animations.badge(index: index, status: .on)
+            }
+        }
+        if self.pvc.currentVc == .second {
+            self.animations.badge(index: index, status: .on)
+        }
+    }
+    
+    
+    private func hideBadge(index: Int) {
+        if let i: Int = self.pvc.currentIndex() {
+            if i == index {
+                self.animations.badge(index: index, status: .off)
+            }
+        }
+        if self.pvc.currentVc == .second {
+            self.animations.badge(index: index, status: .off)
         }
     }
     

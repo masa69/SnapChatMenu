@@ -36,6 +36,24 @@ class PVCAnimation {
         }
     }
     
+    private var badgeStatusKey: String {
+        get {
+            return (self.key == "") ? "" : "PVCAnimation.badge_status_\(self.key)"
+        }
+    }
+    
+    var badgeStatus: ObjectBadgeStatus = .off {
+        didSet {
+            if self.badgeStatusKey != "" {
+                UserDefaults.standard.set(self.badgeStatusKey.hashValue, forKey: self.badgeStatusKey)
+            }
+            self.action(progress: self.storeProgress, from: self.storeFrom, to: self.storeTo)
+        }
+    }
+    
+    var badgeView: UIView?
+    
+    
     private var storeProgress: CGFloat = 0
     // PVCAnimations.append(animation: PVCAnimation) 時に PVCAnimation.setFirstIndex(index: Int) を呼び出す
     private var storeFrom: Int = 0
@@ -55,15 +73,21 @@ class PVCAnimation {
     }
     
     
-    init(index: Int, type: ObjectType, iconName: String, activeIconName: String, view: UIView, constraint: [NSLayoutConstraint], styles: [PVCAnimationStyle]) {
+    enum ObjectBadgeStatus {
+        case off
+        case on
+    }
+    
+    
+    init(barIndex index: Int, view: UIView, constraint: [NSLayoutConstraint], styles: [PVCAnimationStyle]) {
         
         self.index = index
         
-        self.type = type
+        self.type = .bar
         
-        self.iconName = iconName
+        self.iconName = ""
         
-        self.activeIconName = activeIconName
+        self.activeIconName = ""
         
         self.label = UILabel()
         
@@ -79,15 +103,15 @@ class PVCAnimation {
     }
     
     
-    init(index: Int, key: String, type: ObjectType, iconName: String, activeIconName: String, view: UIView, constraint: [NSLayoutConstraint], styles: [PVCAnimationStyle]) {
+    init(iconIndex index: Int, key: String, iconName: String, badge: (frame: CGRect?, color: UIColor?), view: UIView, constraint: [NSLayoutConstraint], styles: [PVCAnimationStyle]) {
         
         self.index = index
         
-        self.type = type
+        self.type = .icon
         
         self.iconName = iconName
         
-        self.activeIconName = activeIconName
+        self.activeIconName = iconName
         
         self.label = UILabel()
         
@@ -98,6 +122,8 @@ class PVCAnimation {
         self.styles = styles
         
         self.key = key
+        
+        self.initBadgeView(badge: badge)
         
         if self.statusKey != "" {
             if UserDefaults.standard.object(forKey: self.statusKey) != nil {
@@ -113,15 +139,29 @@ class PVCAnimation {
             }
         }
         
+        if self.badgeStatusKey != "" {
+            if UserDefaults.standard.object(forKey: self.badgeStatusKey) != nil {
+                let i: Int = UserDefaults.standard.integer(forKey: self.badgeStatusKey)
+                switch i {
+                case 0:
+                    self.badgeStatus = .off
+                case 1:
+                    self.badgeStatus = .on
+                default:
+                    break
+                }
+            }
+        }
+        
         self.view.backgroundColor = UIColor.clear
     }
     
     
-    init(index: Int, type: ObjectType, label: UILabel, constraint: [NSLayoutConstraint], styles: [PVCAnimationStyle]) {
+    init(textIndex index: Int, label: UILabel, constraint: [NSLayoutConstraint], styles: [PVCAnimationStyle]) {
         
         self.index = index
         
-        self.type = type
+        self.type = .text
         
         self.iconName = ""
         
@@ -136,6 +176,19 @@ class PVCAnimation {
         self.styles = styles
         
         self.key = ""
+    }
+    
+    
+    private func initBadgeView(badge: (frame: CGRect?, color: UIColor?)) {
+        if self.badgeView == nil {
+            let size: CGFloat = 5
+            self.badgeView = UIView(frame: (badge.frame == nil) ? CGRect(x: self.view.frame.width - size, y: 0, width: size, height: size) : badge.frame!)
+            self.badgeView?.backgroundColor = (badge.color == nil) ? UIColor.red : badge.color
+            self.badgeView?.layer.masksToBounds = true
+            self.badgeView?.layer.cornerRadius = size / 2
+            self.badgeView?.alpha = 0
+            self.view.addSubview(self.badgeView!)
+        }
     }
     
     
@@ -159,6 +212,16 @@ class PVCAnimation {
         
         fromStyle.updateLabel()
         toStyle.updateLabel()
+        
+        if let badgeView: UIView = self.badgeView {
+            self.view.bringSubview(toFront: badgeView)
+            switch self.badgeStatus {
+            case .off:
+                badgeView.alpha = 0
+            case .on:
+                badgeView.alpha = 1
+            }
+        }
         
         if from == to {
             

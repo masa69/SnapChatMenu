@@ -82,4 +82,14 @@ class PVCAnimations {
         self.view.layoutIfNeeded()
     }
     
+    
+    func badge(index: Int, status: PVCAnimation.ObjectBadgeStatus) {
+        for list in self.lists {
+            if list.index == index {
+                list.badgeStatus = status
+            }
+        }
+        self.view.layoutIfNeeded()
+    }
+    
 }
