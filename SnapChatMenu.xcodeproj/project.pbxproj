@@ -19,7 +19,7 @@
 		04027D3E1FB06877000F410B /* Fourth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04027D3D1FB06877000F410B /* Fourth.storyboard */; };
 		040D3F0F20294284005F2372 /* PVCAnimationBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040D3F0E20294284005F2372 /* PVCAnimationBadge.swift */; };
 		045243D0200EE8F800F7C788 /* PVCAnimationPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045243CF200EE8F800F7C788 /* PVCAnimationPageViewController.swift */; };
-		045243D3200EEA3F00F7C788 /* ViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045243D2200EEA3F00F7C788 /* ViewControllers.swift */; };
+		045243D3200EEA3F00F7C788 /* PVCAnimationVCs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045243D2200EEA3F00F7C788 /* PVCAnimationVCs.swift */; };
 		0456478C200EF55000961C99 /* SubstringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0456478B200EF55000961C99 /* SubstringExtension.swift */; };
 		046D77001FA36BA10094A835 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046D76FF1FA36BA10094A835 /* AppDelegate.swift */; };
 		046D77021FA36BA10094A835 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046D77011FA36BA10094A835 /* ViewController.swift */; };
@@ -74,7 +74,7 @@
 		04027D3D1FB06877000F410B /* Fourth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Fourth.storyboard; sourceTree = "<group>"; };
 		040D3F0E20294284005F2372 /* PVCAnimationBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PVCAnimationBadge.swift; sourceTree = "<group>"; };
 		045243CF200EE8F800F7C788 /* PVCAnimationPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PVCAnimationPageViewController.swift; sourceTree = "<group>"; };
-		045243D2200EEA3F00F7C788 /* ViewControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllers.swift; sourceTree = "<group>"; };
+		045243D2200EEA3F00F7C788 /* PVCAnimationVCs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PVCAnimationVCs.swift; sourceTree = "<group>"; };
 		0456478B200EF55000961C99 /* SubstringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubstringExtension.swift; sourceTree = "<group>"; };
 		046D76FC1FA36BA10094A835 /* SnapChatMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnapChatMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		046D76FF1FA36BA10094A835 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -175,7 +175,7 @@
 		042AD37520286C2600C0D817 /* PVCAnimation */ = {
 			isa = PBXGroup;
 			children = (
-				045243D2200EEA3F00F7C788 /* ViewControllers.swift */,
+				045243D2200EEA3F00F7C788 /* PVCAnimationVCs.swift */,
 			);
 			path = PVCAnimation;
 			sourceTree = "<group>";
@@ -611,7 +611,7 @@
 				04027D361FADC4FD000F410B /* PVCAnimationStyle.swift in Sources */,
 				045243D0200EE8F800F7C788 /* PVCAnimationPageViewController.swift in Sources */,
 				04A854481FB06CDB0042C383 /* FourthViewController.swift in Sources */,
-				045243D3200EEA3F00F7C788 /* ViewControllers.swift in Sources */,
+				045243D3200EEA3F00F7C788 /* PVCAnimationVCs.swift in Sources */,
 				049C89931FECC8CF007A967B /* UIImageExtension.swift in Sources */,
 				04027D3C1FB0443D000F410B /* PVCBackgroundAnimation.swift in Sources */,
 				04027D291FAD6918000F410B /* TransparentView.swift in Sources */,

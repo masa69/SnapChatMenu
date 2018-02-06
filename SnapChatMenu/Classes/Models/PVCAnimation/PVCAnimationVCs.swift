@@ -1,7 +1,7 @@
 
 import UIKit
 
-class ViewControllers {
+class PVCAnimationVCs {
     // case xxx = "StoryboardName.ViewControllerID"
     enum Name: String {
         

@@ -5,12 +5,12 @@ struct PVCAnimationVcs {
     
     let index: Int
     
-    let key: ViewControllers.Name
+    let key: PVCAnimationVCs.Name
     
     var vc: UIViewController?
     
     
-    init(index: Int, key: ViewControllers.Name) {
+    init(index: Int, key: PVCAnimationVCs.Name) {
         
         self.index = index
         
@@ -21,7 +21,7 @@ struct PVCAnimationVcs {
 
 class PVCAnimationPageViewController: UIPageViewController, UIPageViewControllerDataSource, UIScrollViewDelegate {
     
-    private var currentVc: ViewControllers.Name!
+    private var currentVc: PVCAnimationVCs.Name!
     
     private var menus: [PVCAnimationVcs]!
     
@@ -66,7 +66,7 @@ class PVCAnimationPageViewController: UIPageViewController, UIPageViewController
     }
     
     
-    func configure(defaultVc: ViewControllers.Name, menus: [PVCAnimationVcs]) {
+    func configure(defaultVc: PVCAnimationVCs.Name, menus: [PVCAnimationVcs]) {
         
         self.currentVc = defaultVc
         self.menus = menus
@@ -111,7 +111,7 @@ class PVCAnimationPageViewController: UIPageViewController, UIPageViewController
     }
     
     private func getIndex(vc: UIViewController) -> Int? {
-        if let key: ViewControllers.Name = ViewControllers.Name.get(vc: vc) {
+        if let key: PVCAnimationVCs.Name = PVCAnimationVCs.Name.get(vc: vc) {
             for menu in self.menus {
                 if menu.key == key {
                     return menu.index
@@ -137,8 +137,8 @@ class PVCAnimationPageViewController: UIPageViewController, UIPageViewController
             return nil
         }
         if self.menus[index].vc == nil {
-            let storyboard: UIStoryboard = UIStoryboard(name: ViewControllers.Name.storyboardName(name: self.currentVc), bundle: nil)
-            if let vcId: String = ViewControllers.Name.viewControllerID(name: self.currentVc) {
+            let storyboard: UIStoryboard = UIStoryboard(name: PVCAnimationVCs.Name.storyboardName(name: self.currentVc), bundle: nil)
+            if let vcId: String = PVCAnimationVCs.Name.viewControllerID(name: self.currentVc) {
                 self.menus[index].vc = storyboard.instantiateViewController(withIdentifier: vcId)
             } else {
                 self.menus[index].vc = storyboard.instantiateInitialViewController()
@@ -151,8 +151,8 @@ class PVCAnimationPageViewController: UIPageViewController, UIPageViewController
     func getVc(index: Int) -> UIViewController? {
         if 0 <= index && index < self.menus.count {
             if self.menus[index].vc == nil {
-                let storyboard: UIStoryboard = UIStoryboard(name: ViewControllers.Name.storyboardName(name: self.menus[index].key), bundle: nil)
-                if let vcId: String = ViewControllers.Name.viewControllerID(name: self.menus[index].key) {
+                let storyboard: UIStoryboard = UIStoryboard(name: PVCAnimationVCs.Name.storyboardName(name: self.menus[index].key), bundle: nil)
+                if let vcId: String = PVCAnimationVCs.Name.viewControllerID(name: self.menus[index].key) {
                     self.menus[index].vc = storyboard.instantiateViewController(withIdentifier: vcId)
                 } else {
                     self.menus[index].vc = storyboard.instantiateInitialViewController()
