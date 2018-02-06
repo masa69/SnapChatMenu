@@ -142,7 +142,6 @@
 		04027D251FAD678F000F410B /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				042AD37120286ACE00C0D817 /* PVCAnimation */,
 				04027D331FADC3A5000F410B /* DefaultButton.swift */,
 				04027D2A1FAD6BFF000F410B /* HeadlineLabel.swift */,
 				04CF21931FECAB5000BB8A8D /* TransparentButton.swift */,
@@ -151,31 +150,17 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		042AD37120286ACE00C0D817 /* PVCAnimation */ = {
+		042AD37520286C2600C0D817 /* PVCAnimation */ = {
 			isa = PBXGroup;
 			children = (
 				04027D311FADA43C000F410B /* PVCAnimation.swift */,
 				040D3F0E20294284005F2372 /* PVCAnimationBadge.swift */,
+				045243CF200EE8F800F7C788 /* PVCAnimationPageViewController.swift */,
 				04027D351FADC4FD000F410B /* PVCAnimationStyle.swift */,
+				045243D2200EEA3F00F7C788 /* PVCAnimationVCs.swift */,
 				04027D2F1FADA3EC000F410B /* PVCAnimations.swift */,
 				04027D3B1FB0443D000F410B /* PVCBackgroundAnimation.swift */,
 				04027D391FB04324000F410B /* PVCBackgroundAnimations.swift */,
-			);
-			path = PVCAnimation;
-			sourceTree = "<group>";
-		};
-		042AD37220286B0F00C0D817 /* PVCAnimation */ = {
-			isa = PBXGroup;
-			children = (
-				045243CF200EE8F800F7C788 /* PVCAnimationPageViewController.swift */,
-			);
-			path = PVCAnimation;
-			sourceTree = "<group>";
-		};
-		042AD37520286C2600C0D817 /* PVCAnimation */ = {
-			isa = PBXGroup;
-			children = (
-				045243D2200EEA3F00F7C788 /* PVCAnimationVCs.swift */,
 			);
 			path = PVCAnimation;
 			sourceTree = "<group>";
@@ -244,7 +229,6 @@
 		046D772D1FA4E3140094A835 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				042AD37220286B0F00C0D817 /* PVCAnimation */,
 				046D77371FA4E4AD0094A835 /* FirstViewController.swift */,
 				04A854471FB06CDB0042C383 /* FourthViewController.swift */,
 				046D772E1FA4E33E0094A835 /* PageViewController.swift */,
