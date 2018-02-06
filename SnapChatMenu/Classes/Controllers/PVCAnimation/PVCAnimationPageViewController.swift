@@ -206,7 +206,7 @@ class PVCAnimationPageViewController: UIPageViewController, UIPageViewController
         if let ni: Int = self.nextIndex {
             nextIndex = ni
         }
-//        print("x: \(x)")
+        // print("x: \(x)")
         progress = progress.percent(depth: 2)
         progress = (progress > 1) ? 1 : progress
         
@@ -218,7 +218,7 @@ class PVCAnimationPageViewController: UIPageViewController, UIPageViewController
         }
         
         if progress == 0 || progress == 1 {
-//            print("complete")
+            // print("complete")
             if self.needUpdateVc {
                 if self.nextIndex == nil {
                     switch self.direction {
@@ -240,7 +240,7 @@ class PVCAnimationPageViewController: UIPageViewController, UIPageViewController
         } else {
             self.needUpdateVc = (progress > 0.5) ? true : false
         }
-//        print(progress, index, nextIndex)
+        // print(progress, index, nextIndex)
         if self.preProgress == 1 && progress == 1 {
             // タップを不能にする
             if !UIApplication.shared.isIgnoringInteractionEvents {
