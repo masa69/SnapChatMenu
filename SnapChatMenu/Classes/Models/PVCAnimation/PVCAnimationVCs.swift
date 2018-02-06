@@ -2,6 +2,22 @@
 import UIKit
 
 class PVCAnimationVCs {
+    
+    let index: Int
+    
+    let key: Name
+    
+    var vc: UIViewController?
+    
+    
+    init(index: Int, key: Name) {
+        
+        self.index = index
+        
+        self.key = key
+    }
+    
+    
     // case xxx = "StoryboardName.ViewControllerID"
     enum Name: String {
         

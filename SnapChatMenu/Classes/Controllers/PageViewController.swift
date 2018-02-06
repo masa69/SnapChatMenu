@@ -6,10 +6,10 @@ class PageViewController: PVCAnimationPageViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configure(defaultVc: .second, menus: [
-            PVCAnimationVcs(index: 0, key: .first),
-            PVCAnimationVcs(index: 1, key: .second),
-            PVCAnimationVcs(index: 2, key: .third),
-            PVCAnimationVcs(index: 3, key: .fourth),
+            PVCAnimationVCs(index: 0, key: .first),
+            PVCAnimationVCs(index: 1, key: .second),
+            PVCAnimationVCs(index: 2, key: .third),
+            PVCAnimationVCs(index: 3, key: .fourth),
         ])
     }
     

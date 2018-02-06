@@ -1,29 +1,11 @@
 
 import UIKit
 
-struct PVCAnimationVcs {
-    
-    let index: Int
-    
-    let key: PVCAnimationVCs.Name
-    
-    var vc: UIViewController?
-    
-    
-    init(index: Int, key: PVCAnimationVCs.Name) {
-        
-        self.index = index
-        
-        self.key = key
-    }
-    
-}
-
 class PVCAnimationPageViewController: UIPageViewController, UIPageViewControllerDataSource, UIScrollViewDelegate {
     
     private var currentVc: PVCAnimationVCs.Name!
     
-    private var menus: [PVCAnimationVcs]!
+    private var menus: [PVCAnimationVCs]!
     
     var isProgress: Bool = true
     
@@ -66,7 +48,7 @@ class PVCAnimationPageViewController: UIPageViewController, UIPageViewController
     }
     
     
-    func configure(defaultVc: PVCAnimationVCs.Name, menus: [PVCAnimationVcs]) {
+    func configure(defaultVc: PVCAnimationVCs.Name, menus: [PVCAnimationVCs]) {
         
         self.currentVc = defaultVc
         self.menus = menus
