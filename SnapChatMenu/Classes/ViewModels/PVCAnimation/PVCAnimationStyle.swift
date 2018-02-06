@@ -34,24 +34,7 @@ class PVCAnimationStyle {
     }
     
     
-    init(thenIndex: Int, delay: CGFloat, forward: CGFloat, color: UIColor, size: CGFloat, constraint: [CGFloat]) {
-        
-        self.thenIndex = thenIndex
-        
-        self.delay = delay
-        
-        self.forward = forward
-        
-        self.color = color
-        
-        self.border = .none
-        
-        self.size = size
-        
-        self.constraint = constraint
-    }
-    
-    init(thenIndex: Int, delay: CGFloat, forward: CGFloat, color: UIColor, border: Border, size: CGFloat, constraint: [CGFloat]) {
+    init(thenIndex: Int, delay: CGFloat, forward: CGFloat, color: UIColor, border: Border, size: CGFloat, constraint: [CGFloat]?) {
         
         self.thenIndex = thenIndex
         
@@ -65,29 +48,12 @@ class PVCAnimationStyle {
         
         self.size = size
         
-        self.constraint = constraint
+        self.constraint = (constraint == nil) ? [CGFloat]() : constraint!
     }
     
     
     // label用
-    init(thenIndexForLabel thenIndex: Int, delay: CGFloat, forward: CGFloat, color: UIColor, constraint: [CGFloat]) {
-        
-        self.thenIndex = thenIndex
-        
-        self.delay = delay
-        
-        self.forward = forward
-        
-        self.color = color
-        
-        self.border = .none
-        
-        self.size = 0
-        
-        self.constraint = constraint
-    }
-    
-    init(thenIndexForLabel thenIndex: Int, delay: CGFloat, forward: CGFloat, color: UIColor, border: Border, constraint: [CGFloat]) {
+    init(thenIndexForLabel thenIndex: Int, delay: CGFloat, forward: CGFloat, color: UIColor, border: Border, constraint: [CGFloat]?) {
         
         self.thenIndex = thenIndex
         
@@ -101,7 +67,7 @@ class PVCAnimationStyle {
         
         self.size = 0
         
-        self.constraint = constraint
+        self.constraint = (constraint == nil) ? [CGFloat]() : constraint!
     }
     
     

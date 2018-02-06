@@ -17,6 +17,7 @@
 		04027D3A1FB04324000F410B /* PVCBackgroundAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04027D391FB04324000F410B /* PVCBackgroundAnimations.swift */; };
 		04027D3C1FB0443D000F410B /* PVCBackgroundAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04027D3B1FB0443D000F410B /* PVCBackgroundAnimation.swift */; };
 		04027D3E1FB06877000F410B /* Fourth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04027D3D1FB06877000F410B /* Fourth.storyboard */; };
+		040D3F0F20294284005F2372 /* PVCAnimationBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040D3F0E20294284005F2372 /* PVCAnimationBadge.swift */; };
 		045243D0200EE8F800F7C788 /* PVCAnimationPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045243CF200EE8F800F7C788 /* PVCAnimationPageViewController.swift */; };
 		045243D3200EEA3F00F7C788 /* ViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045243D2200EEA3F00F7C788 /* ViewControllers.swift */; };
 		0456478C200EF55000961C99 /* SubstringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0456478B200EF55000961C99 /* SubstringExtension.swift */; };
@@ -71,6 +72,7 @@
 		04027D391FB04324000F410B /* PVCBackgroundAnimations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PVCBackgroundAnimations.swift; sourceTree = "<group>"; };
 		04027D3B1FB0443D000F410B /* PVCBackgroundAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PVCBackgroundAnimation.swift; sourceTree = "<group>"; };
 		04027D3D1FB06877000F410B /* Fourth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Fourth.storyboard; sourceTree = "<group>"; };
+		040D3F0E20294284005F2372 /* PVCAnimationBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PVCAnimationBadge.swift; sourceTree = "<group>"; };
 		045243CF200EE8F800F7C788 /* PVCAnimationPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PVCAnimationPageViewController.swift; sourceTree = "<group>"; };
 		045243D2200EEA3F00F7C788 /* ViewControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllers.swift; sourceTree = "<group>"; };
 		0456478B200EF55000961C99 /* SubstringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubstringExtension.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				04027D311FADA43C000F410B /* PVCAnimation.swift */,
+				040D3F0E20294284005F2372 /* PVCAnimationBadge.swift */,
 				04027D351FADC4FD000F410B /* PVCAnimationStyle.swift */,
 				04027D2F1FADA3EC000F410B /* PVCAnimations.swift */,
 				04027D3B1FB0443D000F410B /* PVCBackgroundAnimation.swift */,
@@ -613,6 +616,7 @@
 				04027D3C1FB0443D000F410B /* PVCBackgroundAnimation.swift in Sources */,
 				04027D291FAD6918000F410B /* TransparentView.swift in Sources */,
 				046D77381FA4E4AD0094A835 /* FirstViewController.swift in Sources */,
+				040D3F0F20294284005F2372 /* PVCAnimationBadge.swift in Sources */,
 				04027D2B1FAD6BFF000F410B /* HeadlineLabel.swift in Sources */,
 				04027D3A1FB04324000F410B /* PVCBackgroundAnimations.swift in Sources */,
 			);

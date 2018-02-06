@@ -79,7 +79,7 @@ class PVCAnimation {
     }
     
     
-    init(barIndex index: Int, view: UIView, constraint: [NSLayoutConstraint], styles: [PVCAnimationStyle]) {
+    init(barIndex index: Int, view: UIView, constraint: [NSLayoutConstraint]?, styles: [PVCAnimationStyle]) {
         
         self.index = index
         
@@ -93,7 +93,7 @@ class PVCAnimation {
         
         self.view = view
         
-        self.constraint = constraint
+        self.constraint = (constraint == nil) ? [NSLayoutConstraint]() : constraint!
         
         self.styles = styles
         
@@ -103,7 +103,7 @@ class PVCAnimation {
     }
     
     
-    init(iconIndex index: Int, key: String, iconName: String, badge: (frame: CGRect?, color: UIColor?), view: UIView, constraint: [NSLayoutConstraint], styles: [PVCAnimationStyle]) {
+    init(iconIndex index: Int, key: String, iconName: String, badge: PVCAnimationBadge?, view: UIView, constraint: [NSLayoutConstraint]?, styles: [PVCAnimationStyle]) {
         
         self.index = index
         
@@ -117,7 +117,7 @@ class PVCAnimation {
         
         self.view = view
         
-        self.constraint = constraint
+        self.constraint = (constraint == nil) ? [NSLayoutConstraint]() : constraint!
         
         self.styles = styles
         
@@ -157,7 +157,7 @@ class PVCAnimation {
     }
     
     
-    init(textIndex index: Int, label: UILabel, constraint: [NSLayoutConstraint], styles: [PVCAnimationStyle]) {
+    init(textIndex index: Int, label: UILabel, constraint: [NSLayoutConstraint]?, styles: [PVCAnimationStyle]) {
         
         self.index = index
         
@@ -171,7 +171,7 @@ class PVCAnimation {
         
         self.view = UIView()
         
-        self.constraint = constraint
+        self.constraint = (constraint == nil) ? [NSLayoutConstraint]() : constraint!
         
         self.styles = styles
         
@@ -179,13 +179,23 @@ class PVCAnimation {
     }
     
     
-    private func initBadgeView(badge: (frame: CGRect?, color: UIColor?)) {
+    private func initBadgeView(badge: PVCAnimationBadge?) {
         if self.badgeView == nil {
             let size: CGFloat = 5
-            self.badgeView = UIView(frame: (badge.frame == nil) ? CGRect(x: self.view.frame.width - size, y: 0, width: size, height: size) : badge.frame!)
-            self.badgeView?.backgroundColor = (badge.color == nil) ? UIColor.red : badge.color
+            var frame: CGRect = CGRect(x: self.view.frame.width - size, y: 0, width: size, height: size)
+            var color: UIColor = UIColor.red
+            if let b: PVCAnimationBadge = badge {
+                if let f: CGRect = b.frame {
+                    frame = f
+                }
+                if let c: UIColor = b.color {
+                    color = c
+                }
+            }
+            self.badgeView = UIView(frame: frame)
+            self.badgeView?.backgroundColor = color
             self.badgeView?.layer.masksToBounds = true
-            self.badgeView?.layer.cornerRadius = size / 2
+            self.badgeView?.layer.cornerRadius = frame.height / 2
             self.badgeView?.alpha = 0
             self.view.addSubview(self.badgeView!)
         }
